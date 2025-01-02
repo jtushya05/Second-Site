@@ -1,11 +1,10 @@
-'use client';
-
 import { Container } from '@/components/ui/container';
 import { destinations } from '@/src/data/navigation';
 import { notFound } from 'next/navigation';
 import { CountryHero } from './components/CountryHero';
 import { KeyInformation } from './components/KeyInformation';
 import { PopularCourses } from './components/PopularCourses';
+import BaseNavigation from '@/components/navigation/BaseNavigation';
 
 // Generate static params for all destination routes
 export function generateStaticParams() {
@@ -24,12 +23,15 @@ export default function DestinationPage({ params }: { params: { country: string 
   }
 
   return (
-    <div className="min-h-screen pt-20">
-      <CountryHero country={country} />
-      <Container className="py-16">
-        <KeyInformation country={country} />
-      </Container>
-      <PopularCourses />
-    </div>
+    <>
+      <BaseNavigation variant="transparent" />
+      <div className="min-h-screen">
+        <CountryHero country={country} />
+        <Container className="py-16">
+          <KeyInformation country={country} />
+        </Container>
+        <PopularCourses />
+      </div>
+    </>
   );
 }

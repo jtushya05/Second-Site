@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { destinationImages } from '@/src/data/destination-images';
 
-interface DestinationCardProps {
+export interface DestinationCardProps {
   name: string;
   href: string;
 }

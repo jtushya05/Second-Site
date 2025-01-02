@@ -2,7 +2,7 @@
 
 import { Container } from '@/components/ui/container';
 import { Card, CardContent } from '@/components/ui/card';
-import { Code, ChartBar, Building2, Stethoscope, Flask, GraduationCap } from 'lucide-react';
+import { Code, ChartBar, Building2, Stethoscope, FlaskConical, GraduationCap } from 'lucide-react';
 
 const courses = [
   {
