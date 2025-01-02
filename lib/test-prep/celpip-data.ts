@@ -2,20 +2,20 @@ import { BookOpen, Users, Trophy, Calendar, Clock, Star } from 'lucide-react';
 
 export const features = [
   {
-    title: 'Expert Instructors',
-    description: 'Learn from certified TOEFL trainers with proven success records'
+    title: 'Canadian English Focus',
+    description: 'Learn from experts in Canadian English and culture'
   },
   {
-    title: 'Comprehensive Materials',
-    description: 'Access to official TOEFL practice materials and resources'
+    title: 'Computer-Based Practice',
+    description: 'Train on computer-delivered test format'
   },
   {
     title: 'Small Batch Size',
-    description: 'Maximum attention in small groups of 12 students'
+    description: 'Maximum 10 students for personalized attention'
   },
   {
     title: 'Mock Tests',
-    description: 'Regular practice tests with detailed analysis'
+    description: 'Regular practice with Canadian contexts'
   },
   {
     title: 'Speaking Practice',
@@ -30,17 +30,17 @@ export const features = [
 export const scheduleItems = [
   {
     title: 'Duration',
-    detail: '8 weeks program',
+    detail: '6 weeks program',
     icon: Clock
   },
   {
     title: 'Batch Size',
-    detail: 'Maximum 12 students',
+    detail: 'Maximum 10 students',
     icon: Users
   },
   {
     title: 'Schedule',
-    detail: 'Weekday & weekend batches',
+    detail: 'Evening & weekend batches',
     icon: Calendar
   }
 ];

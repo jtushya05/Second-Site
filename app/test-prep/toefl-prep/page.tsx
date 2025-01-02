@@ -1,12 +1,12 @@
 'use client';
 
-import TestPrepLayout from '../../layouts/TestPrepLayout'; // Corrected path
-import TOEFLPrepContent from './TOEFLPrepContent'; // Corrected path
+import TestPrepLayout from '@/components/layouts/TestPrepLayout';
+import TOEFLPrepContent from '@/components/test-prep/toefl/TOEFLPrepContent';
 
 export default function TOEFLPrepPage() {
   return (
     <TestPrepLayout testType="TOEFL">
-      <TOEFLPrepContent /> {/* Integrating the TOEFL content component */}
+      <TOEFLPrepContent />
     </TestPrepLayout>
   );
 }

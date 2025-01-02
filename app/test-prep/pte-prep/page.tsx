@@ -1,12 +1,12 @@
 'use client';
 
-import TestPrepLayout from '../../layouts/TestPrepLayout'; // Verify this path
-import PTEPrepContent from './PTEPrepContent'; // Verify this path
+import TestPrepLayout from '@/components/layouts/TestPrepLayout';
+import PTEPrepContent from '@/components/test-prep/pte/PTEPrepContent';
 
 export default function PTEPrepPage() {
   return (
     <TestPrepLayout testType="PTE">
-      <PTEPrepContent /> {/* Integrating the PTE content component */}
+      <PTEPrepContent />
     </TestPrepLayout>
   );
 }

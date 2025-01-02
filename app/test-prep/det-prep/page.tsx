@@ -1,19 +1,12 @@
 'use client';
 
-import { Container } from '@/components/ui/container';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import TestPrepLayout from '@/components/layouts/TestPrepLayout';
+import DETPrepContent from '@/components/test-prep/det/DETPrepContent';
 
 export default function DETPrepPage() {
   return (
-    <div className="min-h-screen pt-32">
-      <Container className="text-center">
-        <h1 className="mb-6 text-4xl font-bold">Duolingo English Test Preparation</h1>
-        <p className="mb-8 text-xl text-gray-600">Content Coming Soon</p>
-        <Button asChild>
-          <Link href="/get-started">Get Started</Link>
-        </Button>
-      </Container>
-    </div>
+    <TestPrepLayout testType="DET">
+      <DETPrepContent />
+    </TestPrepLayout>
   );
 }

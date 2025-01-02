@@ -1,37 +1,46 @@
+import { BookOpen, Users, Trophy, Calendar, Clock, Star } from 'lucide-react';
+
 export const features = [
   {
     title: 'Expert Instructors',
-    description: 'Learn from experienced instructors who are experts in PTE preparation.',
+    description: 'Learn from certified PTE trainers with proven track record'
   },
   {
-    title: 'Comprehensive Study Material',
-    description: 'Access a wide range of study materials tailored for PTE preparation.',
+    title: 'AI-Powered Practice',
+    description: 'Access to advanced PTE simulation software'
+  },
+  {
+    title: 'Small Batch Size',
+    description: 'Personalized attention in small groups'
   },
   {
     title: 'Mock Tests',
-    description: 'Take mock tests to assess your readiness for the actual exam.',
+    description: 'Regular practice tests with detailed analysis'
   },
+  {
+    title: 'Study Materials',
+    description: 'Comprehensive resources and practice questions'
+  },
+  {
+    title: 'Flexible Schedule',
+    description: 'Choose from multiple batch timings'
+  }
 ];
 
 export const scheduleItems = [
   {
-    title: 'Week 1',
-    detail: 'Introduction to PTE and Speaking Module',
-    icon: '📅',
+    title: 'Duration',
+    detail: '6 weeks program',
+    icon: Clock
   },
   {
-    title: 'Week 2',
-    detail: 'Reading and Writing Strategies',
-    icon: '📅',
+    title: 'Batch Size',
+    detail: 'Maximum 8 students',
+    icon: Users
   },
   {
-    title: 'Week 3',
-    detail: 'Listening and Speaking Practice',
-    icon: '📅',
-  },
-  {
-    title: 'Week 4',
-    detail: 'Full-Length Mock Test',
-    icon: '📅',
-  },
+    title: 'Schedule',
+    detail: 'Morning & evening batches',
+    icon: Calendar
+  }
 ];

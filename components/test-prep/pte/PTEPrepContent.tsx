@@ -1,14 +1,33 @@
 'use client';
 
-import { Container } from 'components/ui/container';
-import { BookOpen, Users } from 'lucide-react';
-import { features, scheduleItems } from 'lib/test-prep/pte-data'; // Placeholder for PTE data
-import PTEHeroSection from './PTEHeroSection'; // Placeholder for PTE hero section
-import ModuleCard from './ModuleCard'; // Reuse ModuleCard from IELTS
-import FeatureCard from './FeatureCard'; // Reuse FeatureCard from IELTS
-import ScheduleCard from './ScheduleCard'; // Reuse ScheduleCard from IELTS
-import PreparationTips from './PreparationTips'; // Reuse PreparationTips from IELTS
-import FAQ from './FAQ'; // Reuse FAQ from IELTS
+import { Container } from '@/components/ui/container';
+import { features, scheduleItems } from '@/lib/test-prep/pte-data';
+import PTEHeroSection from './PTEHeroSection';
+import TestFormat from './TestFormat';
+import FeatureCard from '../shared/FeatureCard';
+import ScheduleCard from '../shared/ScheduleCard';
+import PreparationTips from '../shared/PreparationTips';
+import FAQ from '../shared/FAQ';
+import CTASection from './CTASection';
+
+const pteFaqs = [
+  {
+    question: 'What is PTE Academic?',
+    answer: 'PTE Academic is a computer-based English language test that assesses speaking, writing, reading and listening abilities of non-native English speakers.'
+  },
+  {
+    question: 'How long is the PTE test valid?',
+    answer: 'PTE Academic scores are valid for two years from the date of test.'
+  },
+  {
+    question: 'What is the test format?',
+    answer: 'The test has three main parts: Speaking & Writing (77-93 minutes), Reading (32-41 minutes), and Listening (45-57 minutes).'
+  },
+  {
+    question: 'What is a good PTE score?',
+    answer: 'PTE Academic is scored on a scale of 10-90. Most universities require a score between 50-65, though requirements vary by institution.'
+  }
+];
 
 export default function PTEPrepContent() {
   return (
@@ -17,40 +36,20 @@ export default function PTEPrepContent() {
       
       <Container className="py-16">
         <section className="mb-16">
-          <h2 className="mb-6 text-3xl font-bold">What is PTE?</h2>
+          <h2 className="mb-6 text-3xl font-bold">What is PTE Academic?</h2>
           <div className="prose max-w-none text-lg text-gray-600">
             <p className="mb-4">
-              PTE stands for Pearson Test of English. It is a computer-based English language test that assesses the four skills of listening, reading, speaking, and writing.
+              PTE Academic is a computer-based English language test that assesses the speaking, writing, reading and listening abilities of non-native English speakers who want to study abroad or immigrate.
             </p>
             <p>
-              The PTE is widely accepted by universities and colleges around the world for admissions and visa purposes.
+              Widely accepted by thousands of universities worldwide, PTE Academic offers fast results with flexible test dates and locations.
             </p>
           </div>
         </section>
 
-        <section className="mb-16">
-          <h2 className="mb-8 text-3xl font-bold">PTE Modules</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            <ModuleCard
-              title="PTE Academic"
-              description="Designed for students seeking to study abroad. This test assesses your English language skills in an academic context."
-              features={[
-                { icon: BookOpen, text: 'Maximum Score: 90' },
-                { icon: Users, text: 'Four comprehensive sections' }
-              ]}
-            />
-            <ModuleCard
-              title="PTE General"
-              description="A test for those who wish to demonstrate their English language proficiency in a general context."
-              features={[
-                { icon: BookOpen, text: 'Maximum Score: 90' },
-                { icon: Users, text: 'Focus on everyday English' }
-              ]}
-            />
-          </div>
-        </section>
-
+        <TestFormat />
         <PreparationTips />
+
         <section className="mb-16">
           <h2 className="mb-8 text-3xl font-bold">Why Choose EA Global for PTE Preparation?</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -78,7 +77,8 @@ export default function PTEPrepContent() {
           </div>
         </section>
 
-        <FAQ />
+        <FAQ faqs={pteFaqs} />
+        <CTASection />
       </Container>
     </div>
   );
