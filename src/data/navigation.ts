@@ -8,32 +8,32 @@ export const destinations = [
 export const testPrep = [
   { 
     name: 'IELTS', 
-    path: '/test-prep/ielts',
-    logo: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=100'
+    path: '/test-prep/ielts-prep',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjq4Nt1w2IdiLG0_6szJLicrCznfc2SUtn8w&s'
   },
   { 
     name: 'PTE', 
-    path: '/test-prep/pte',
-    logo: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=100'
+    path: '/test-prep/pte-prep',
+    logo: 'https://www.jnjeducation.edu.np/storage/media/test_preparation/1724510153.png'
   },
   { 
     name: 'TOEFL', 
-    path: '/test-prep/toefl',
-    logo: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=100'
+    path: '/test-prep/toefl-prep',
+    logo: 'https://getvectorlogo.com/wp-content/uploads/2020/01/ets-toefl-vector-logo.png'
   },
   { 
     name: 'OET', 
-    path: '/test-prep/oet',
+    path: '/test-prep/oet-prep',
     logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=100'
   },
   { 
     name: 'CELPIP', 
-    path: '/test-prep/celpip',
+    path: '/test-prep/celpip-prep',
     logo: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=100'
   },
   { 
     name: 'Duolingo English Test (DET)', 
-    path: '/test-prep/det',
+    path: '/test-prep/det-prep',
     logo: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=100'
   },
 ];
