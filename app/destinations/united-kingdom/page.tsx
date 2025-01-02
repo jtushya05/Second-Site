@@ -1,3 +1,5 @@
+'use client';
+
 import { Container } from '@/components/ui/container';
 import BaseNavigation from '@/components/navigation/BaseNavigation';
 import UKHero from '@/components/destinations/united-kingdom/UKHero';
@@ -10,6 +12,7 @@ import CostCalculator from '@/components/destinations/united-kingdom/CostCalcula
 import StudentLife from '@/components/destinations/united-kingdom/StudentLife';
 import FAQ from '@/components/destinations/united-kingdom/FAQ';
 import CTASection from '@/components/destinations/united-kingdom/CTASection';
+import FixedBanner from '@/components/destinations/united-kingdom/FixedBanner';
 
 export default function UKPage() {
   return (
@@ -28,7 +31,9 @@ export default function UKPage() {
           <FAQ />
         </Container>
         <CTASection />
+        <FixedBanner />
       </div>
+      
     </>
   );
 }

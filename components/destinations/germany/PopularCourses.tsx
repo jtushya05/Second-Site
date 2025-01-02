@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent } from '@/components/ui/card';
-import { Code, ChartBar, Building2, Flask } from 'lucide-react';
+import { Code, ChartBar, Building2, User } from 'lucide-react';
 
 const courses = [
   {
@@ -31,7 +31,7 @@ const courses = [
     image: 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200'
   },
   {
-    icon: Flask,
+    icon: User,
     name: 'Natural Sciences',
     programs: [
       'Physics',

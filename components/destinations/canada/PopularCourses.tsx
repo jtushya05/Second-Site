@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent } from '@/components/ui/card';
-import { Code, ChartBar, Building2, Stethoscope, Flask, GraduationCap } from 'lucide-react';
+import { Code, ChartBar, Building2, Stethoscope, FlaskConical, GraduationCap } from 'lucide-react';
 
 const courses = [
   {
@@ -55,7 +55,7 @@ const courses = [
     image: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?q=80&w=1200'
   },
   {
-    icon: Flask,
+    icon: FlaskConical,
     name: 'Sciences',
     programs: [
       'MSc Biotechnology',

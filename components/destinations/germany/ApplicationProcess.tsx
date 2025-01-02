@@ -10,7 +10,7 @@ import {
   CreditCard, 
   CheckCircle,
   GraduationCap,
-  Passport
+  User
 } from 'lucide-react';
 
 const steps = [
@@ -75,7 +75,7 @@ const steps = [
     ]
   },
   {
-    icon: Passport,
+    icon: User,
     title: 'Visa Application',
     description: 'Apply for German student visa',
     timeline: '3-4 months before',

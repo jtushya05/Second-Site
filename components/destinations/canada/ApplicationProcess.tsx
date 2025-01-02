@@ -9,8 +9,7 @@ import {
   MessageSquare, 
   CreditCard, 
   CheckCircle,
-  GraduationCap,
-  Passport
+  GraduationCap
 } from 'lucide-react';
 
 const steps = [
@@ -75,7 +74,7 @@ const steps = [
     ]
   },
   {
-    icon: Passport,
+    icon: GraduationCap,
     title: 'Study Permit',
     description: 'Apply for your Canadian study permit',
     timeline: '3-4 months before',
