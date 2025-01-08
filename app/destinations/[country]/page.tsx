@@ -8,19 +8,28 @@ import BaseNavigation from '@/components/navigation/BaseNavigation';
 
 // Generate static params for all destination routes
 export function generateStaticParams() {
-  return destinations.map((destination) => ({
-    country: destination.toLowerCase().replace(' ', '-')
+  const params = destinations.map((destination) => ({
+    country: destination.toLowerCase().replace(' ', '-'),
   }));
+  console.log('Generated Static Params:', params); // Debugging
+  return params;
 }
 
-export default function DestinationPage({ params }: { params: { country: string } }) {
+export default function DestinationPage({
+  params,
+}: {
+  params: { country: string };
+}) {
   const country = destinations.find(
-    d => d.toLowerCase().replace(' ', '-') === params.country
+    (d) => d.toLowerCase().replace(' ', '-') === params.country
   );
-  
+
   if (!country) {
+    console.error(`Country not found for slug: ${params.country}`); // Debugging
     notFound();
   }
+
+  console.log('Rendering page for:', country); // Debugging
 
   return (
     <>
