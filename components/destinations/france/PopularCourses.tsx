@@ -10,35 +10,35 @@ const courses = [
     icon: Code,
     name: 'Technology & Computing',
     programs: [
+      'MSc Artificial Intelligence',
       'MSc Data Science',
-      'MSc Computer Science',
       'MSc Cybersecurity',
-      'MSc AI & Robotics'
+      'MSc Software Engineering',
     ],
-    image: 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1555435023-d82913b6ccef?q=80&w=1200',
   },
   {
     icon: ChartBar,
     name: 'Business & Management',
     programs: [
-      'MBA',
-      'Master of Management',
-      'Master of Finance',
-      'Master of Marketing'
+      'MBA in International Business',
+      'Master in Finance',
+      'Master in Marketing',
+      'Master in Management',
     ],
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1581092580493-90abf7e36f9d?q=80&w=1200',
   },
   {
     icon: Building2,
     name: 'Engineering',
     programs: [
-      'Civil Engineering',
       'Mechanical Engineering',
-      'Renewable Energy Engineering',
-      'Environmental Engineering'
+      'Civil Engineering',
+      'Aerospace Engineering',
+      'Environmental Engineering',
     ],
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200'
-  }
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200',
+  },
 ];
 
 export default function PopularCourses() {
@@ -46,9 +46,9 @@ export default function PopularCourses() {
     <section className="py-24" id="popular-courses">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Popular Courses in New Zealand</h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            Discover the most sought-after programs by international students in New Zealand universities
+          <h2 className="mb-4 text-3xl font-bold text-blue-900">Popular Courses in France</h2>
+          <p className="mx-auto max-w-2xl text-lg text-blue-700">
+            Discover the most sought-after programs by international students in French universities.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -70,7 +70,7 @@ export default function PopularCourses() {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <ul className="ml-4 list-disc space-y-2 text-gray-600">
+                  <ul className="ml-4 list-disc space-y-2 text-gray-700">
                     {course.programs.map((program) => (
                       <li key={program}>{program}</li>
                     ))}

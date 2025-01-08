@@ -6,36 +6,57 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const universities = [
   {
-    name: 'National University of Singapore (NUS)',
-    location: 'Kent Ridge',
-    ranking: '#1 in Singapore',
-    specialties: 'Engineering, Business, Medicine',
-    image: 'https://example.com/nus.jpg', // Replace with an image of NUS campus
+    name: 'Sorbonne University',
+    location: 'Paris',
+    ranking: '#1 in France',
+    specialties: 'Arts, Humanities, Sciences',
+    image: 'https://images.unsplash.com/photo-1542803683-79e67a1d4e1b?q=80&w=1200',
   },
   {
-    name: 'Nanyang Technological University (NTU)',
-    location: 'Nanyang Avenue',
-    ranking: '#2 in Singapore',
-    specialties: 'Technology, Sciences, Arts',
-    image: 'https://example.com/ntu.jpg', // Replace with an image of NTU campus
+    name: 'École Polytechnique',
+    location: 'Palaiseau',
+    ranking: '#2 in France',
+    specialties: 'Engineering, Computer Science, Mathematics',
+    image: 'https://images.unsplash.com/photo-1602524208938-6ab1b6b27c3a?q=80&w=1200',
   },
   {
-    name: 'Singapore Management University (SMU)',
-    location: 'Downtown Singapore',
-    ranking: '#3 in Singapore',
-    specialties: 'Business, Law, Economics',
-    image: 'https://example.com/smu.jpg', // Replace with an image of SMU campus
+    name: 'HEC Paris',
+    location: 'Jouy-en-Josas',
+    ranking: '#3 in France',
+    specialties: 'Business, Management, Finance',
+    image: 'https://images.unsplash.com/photo-1503424886309-09f44b8e6d1a?q=80&w=1200',
+  },
+  {
+    name: 'Sciences Po',
+    location: 'Paris',
+    ranking: '#4 in France',
+    specialties: 'Political Science, International Relations, Economics',
+    image: 'https://images.unsplash.com/photo-1519838261223-e66c0b9b2562?q=80&w=1200',
+  },
+  {
+    name: 'Université PSL',
+    location: 'Paris',
+    ranking: '#5 in France',
+    specialties: 'Multidisciplinary Research, Arts, Sciences',
+    image: 'https://images.unsplash.com/photo-1521033719794-41049d18b267?q=80&w=1200',
+  },
+  {
+    name: 'Université Grenoble Alpes',
+    location: 'Grenoble',
+    ranking: '#6 in France',
+    specialties: 'Engineering, Medicine, Environmental Sciences',
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200',
   },
 ];
 
 export default function TopUniversities() {
   return (
-    <section className="bg-red-50 py-24">
+    <section className="bg-blue-50 py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-red-800">Top Universities in Singapore</h2>
-          <p className="mx-auto max-w-2xl text-lg text-red-600">
-            Explore Singapore’s prestigious universities and their exceptional programs.
+          <h2 className="mb-4 text-3xl font-bold text-blue-900">Top Universities</h2>
+          <p className="mx-auto max-w-2xl text-lg text-blue-700">
+            Explore France’s most prestigious educational institutions.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -50,14 +71,15 @@ export default function TopUniversities() {
                 />
               </div>
               <CardContent className="p-6">
-                <h3 className="mb-2 text-xl font-semibold text-red-800">{university.name}</h3>
-                <p className="mb-4 text-sm text-red-600">{university.location}</p>
+                <h3 className="mb-2 text-xl font-semibold text-blue-900">{university.name}</h3>
+                <p className="mb-4 text-sm text-blue-700">{university.location}</p>
                 <div className="space-y-2">
                   <p>
-                    <span className="font-medium text-red-800">Ranking:</span> {university.ranking}
+                    <span className="font-medium text-blue-800">Ranking:</span> {university.ranking}
                   </p>
                   <p>
-                    <span className="font-medium text-red-800">Known for:</span> {university.specialties}
+                    <span className="font-medium text-blue-800">Known for:</span>{' '}
+                    {university.specialties}
                   </p>
                 </div>
               </CardContent>

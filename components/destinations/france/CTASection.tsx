@@ -6,21 +6,16 @@ import { Button } from '@/components/ui/button';
 
 export default function CTASection() {
   return (
-    <section className="bg-green-600 py-16">
+    <section className="bg-blue-700 py-16">
       <Container>
         <div className="text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">
-            Start Your New Zealand Education Journey
+            Start Your Education Journey in France
           </h2>
           <p className="mb-8 text-lg text-white/90">
-            Explore top universities and programs in New Zealand. Book a free consultation today.
+            Discover top universities and programs in France. Book a free consultation today.
           </p>
-          <Button 
-            asChild
-            size="lg"
-            variant="secondary"
-            className="px-8 text-green-600"
-          >
+          <Button asChild size="lg" variant="secondary" className="px-8 text-blue-700">
             <Link href="/get-started">Get Started</Link>
           </Button>
         </div>
