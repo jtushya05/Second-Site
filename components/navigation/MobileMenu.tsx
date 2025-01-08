@@ -8,6 +8,7 @@ import { destinations, testPrep } from '@/src/data/navigation';
 
 interface MobileMenuProps {
   isOpen: boolean;
+  className?: string; //added className prop
 }
 
 export function MobileMenu({ isOpen }: MobileMenuProps) {

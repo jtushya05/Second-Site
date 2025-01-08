@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent } from '@/components/ui/card';
-import { Code, ChartBar, Building2, Flask, GraduationCap, Stethoscope } from 'lucide-react';
+import { Code, ChartBar, Building2, FlaskConical, GraduationCap, Stethoscope } from 'lucide-react';
 
 const courses = [
   {

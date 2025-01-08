@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { destinations } from '@/data/destinations';
+import { destinations } from '@/src/data/destinations';
 
 export default function DestinationsMenu() {
   return (

@@ -1,4 +1,3 @@
-'use client';
 
 export const destinations = [
   'United States', 'United Kingdom', 'Canada', 'Australia',

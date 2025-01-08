@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 
 interface LogoProps {
   className?: string;
+  scrolled?: boolean; // Added scrolled prop
 }
 
 export default function Logo({ className }: LogoProps) {

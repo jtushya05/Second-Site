@@ -10,7 +10,13 @@ const stats = [
   { number: 95, label: 'Success Rate', suffix: '%' }
 ];
 
-function AnimatedCounter({ end, duration = 2000, suffix = '' }) {
+interface AnimatedCounterProps {
+  end: number;
+  duration?: number;
+  suffix?: string;
+}
+
+function AnimatedCounter({ end, duration = 2000, suffix = '' }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 

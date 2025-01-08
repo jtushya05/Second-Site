@@ -4,10 +4,10 @@ import { Container } from '@/components/ui/container';
 import { features, scheduleItems } from '@/lib/test-prep/det-data';
 import DETHeroSection from './DETHeroSection';
 import TestFormat from './TestFormat';
-import FeatureCard from '../shared/FeatureCard';
-import ScheduleCard from '../shared/ScheduleCard';
-import PreparationTips from '../shared/PreparationTips';
-import FAQ from '../shared/FAQ';
+import FeatureCard from '../../../components/test-prep/shared/FeatureCard';
+import ScheduleCard from '../../../components/test-prep/shared/ScheduleCard';
+import PreparationTips from '../../../components/test-prep/shared/PreparationTips';
+import FAQ from '../../../components/test-prep/shared/FAQ';
 import CTASection from './CTASection';
 
 const detFaqs = [

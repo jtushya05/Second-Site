@@ -1,6 +1,6 @@
 'use client';
 
-import { Container } from 'components/ui/container';
+import { Container } from '@/components/ui/container'; //IChanged --> made a fix here by adding @/
 
 interface ModuleCardProps {
   title: string;

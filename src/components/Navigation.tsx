@@ -15,7 +15,7 @@ import {
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useScroll } from '@/hooks/use-scroll';
-import { navigationItems } from '@/data/navigation';
+import { navigationItems } from '@/src/data/navigation';//IChanged: @/ --> @/src/ 
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);

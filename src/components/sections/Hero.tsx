@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import LeadForm from '@/components/LeadForm';
+import LeadForm from '@/components/LeadCaptureForm';
 
 export default function Hero() {
   return (
