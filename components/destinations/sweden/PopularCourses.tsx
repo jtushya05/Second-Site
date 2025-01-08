@@ -11,34 +11,34 @@ const courses = [
     name: 'Technology & Computing',
     programs: [
       'MSc Data Science',
-      'MSc Computer Science',
+      'MSc Artificial Intelligence',
+      'MSc Software Engineering',
       'MSc Cybersecurity',
-      'MSc AI & Robotics'
     ],
-    image: 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1559027615-24d8d3f6b4e7?q=80&w=1200',
   },
   {
     icon: ChartBar,
     name: 'Business & Management',
     programs: [
       'MBA',
-      'Master of Management',
+      'Master of Marketing',
       'Master of Finance',
-      'Master of Marketing'
+      'Master of Leadership',
     ],
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1573164574392-22463025c070?q=80&w=1200',
   },
   {
     icon: Building2,
     name: 'Engineering',
     programs: [
-      'Civil Engineering',
-      'Mechanical Engineering',
       'Renewable Energy Engineering',
-      'Environmental Engineering'
+      'Mechanical Engineering',
+      'Environmental Engineering',
+      'Robotics Engineering',
     ],
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200'
-  }
+    image: 'https://images.unsplash.com/photo-1521804902910-3cb3bdb7b94e?q=80&w=1200',
+  },
 ];
 
 export default function PopularCourses() {
@@ -46,9 +46,9 @@ export default function PopularCourses() {
     <section className="py-24" id="popular-courses">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Popular Courses in New Zealand</h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            Discover the most sought-after programs by international students in New Zealand universities
+          <h2 className="mb-4 text-3xl font-bold text-blue-800">Popular Courses in Sweden</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-700">
+            Discover the most sought-after programs by international students in Swedish universities.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -70,7 +70,7 @@ export default function PopularCourses() {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <ul className="ml-4 list-disc space-y-2 text-gray-600">
+                  <ul className="ml-4 list-disc space-y-2 text-gray-700">
                     {course.programs.map((program) => (
                       <li key={program}>{program}</li>
                     ))}

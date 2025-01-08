@@ -9,37 +9,37 @@ const aspects = [
   {
     icon: Home,
     title: 'Accommodation',
-    description: 'Choose between on-campus residences or modern off-campus housing options.',
-    image: 'https://example.com/singapore-accommodation.jpg', // Replace with an image of Singapore's housing or hostels
+    description: 'On-campus dormitories or private rentals in major Swedish cities.',
+    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1200',
   },
   {
     icon: Utensils,
-    title: 'Food & Culture',
-    description: 'Explore Singapore’s multicultural food scene and vibrant lifestyle.',
-    image: 'https://example.com/singapore-food.jpg', // Replace with a relevant food image
+    title: 'Food & Cuisine',
+    description: 'Taste traditional Swedish dishes like meatballs, gravlax, and fika treats.',
+    image: 'https://images.unsplash.com/photo-1548946526-f69e2424cf45?q=80&w=1200',
   },
   {
     icon: Bus,
     title: 'Transportation',
-    description: 'Efficient public transport system connects every corner of Singapore.',
-    image: 'https://example.com/singapore-transport.jpg', // Replace with an image of MRT or buses
+    description: 'Efficient public transport systems and bike-friendly cities.',
+    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200',
   },
   {
     icon: Users,
     title: 'Campus Life',
-    description: 'Join dynamic student communities and exciting campus events.',
-    image: 'https://example.com/singapore-campus-life.jpg', // Replace with student activity image
+    description: 'Join vibrant student communities, clubs, and events.',
+    image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1200',
   },
 ];
 
 export default function StudentLife() {
   return (
-    <section className="bg-red-50 py-24">
+    <section className="bg-blue-50 py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-red-800">Student Life in Singapore</h2>
-          <p className="mx-auto max-w-2xl text-lg text-red-600">
-            Experience a dynamic and diverse student life in Singapore.
+          <h2 className="mb-4 text-3xl font-bold text-blue-800">Student Life in Sweden</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-700">
+            Experience vibrant campus life and Swedish culture as an international student.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
@@ -57,10 +57,10 @@ export default function StudentLife() {
                 </div>
                 <CardContent className="p-6">
                   <div className="mb-4 flex items-center gap-3">
-                    <Icon className="h-6 w-6 text-red-500" />
-                    <h3 className="text-xl font-semibold text-red-800">{aspect.title}</h3>
+                    <Icon className="h-6 w-6 text-yellow-500" />
+                    <h3 className="text-xl font-semibold text-blue-800">{aspect.title}</h3>
                   </div>
-                  <p className="text-red-600">{aspect.description}</p>
+                  <p className="text-gray-700">{aspect.description}</p>
                 </CardContent>
               </Card>
             );

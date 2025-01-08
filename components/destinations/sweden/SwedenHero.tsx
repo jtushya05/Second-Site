@@ -5,12 +5,12 @@ import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-export default function SingaporeHero() {
+export default function SwedenHero() {
   return (
     <section className="relative min-h-[80vh] w-full">
       <Image
-        src="https://daxueconsulting.com/wp-content/uploads/2013/01/Daxue-Consutling-National-University-Of-Singapore-In-China.jpg" // Replace with a Singapore skyline image
-        alt="Study in Singapore"
+        src="https://economic-research.bnpparibas.com/Handlers/DisplayImage.ashx?type=Chapter&id=40438"
+        alt="Study in Sweden"
         fill
         className="object-cover brightness-75"
         priority
@@ -19,24 +19,24 @@ export default function SingaporeHero() {
         <Container className="flex h-full items-center">
           <div className="max-w-3xl text-white">
             <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-              Study in Singapore
+              Study in Sweden
             </h1>
             <p className="mb-8 text-xl text-white/90 md:text-2xl">
-              Experience top-tier education in a global hub of innovation and culture.
+              Experience world-class education and innovation in the land of sustainability.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Button 
+              <Button
                 asChild
-                size="lg" 
-                className="bg-red-600 text-lg hover:bg-red-700"
+                size="lg"
+                className="bg-yellow-500 text-lg hover:bg-yellow-600"
               >
                 <Link href="/get-started">Get Free Counselling</Link>
               </Button>
-              <Button 
+              <Button
                 asChild
-                size="lg" 
-                variant="outline" 
-                className="border-2 text-lg text-black hover:bg-gray-300"
+                size="lg"
+                variant="outline"
+                className="border-2 text-lg text-black hover:text-yellow-500 hover:bg-blue-700 hover:border-0"
               >
                 <Link href="#popular-courses">Explore Courses</Link>
               </Button>

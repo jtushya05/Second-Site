@@ -17,7 +17,7 @@ const steps = [
   {
     icon: Search,
     title: 'Research Universities',
-    description: 'Research and shortlist New Zealand universities based on your preferences.',
+    description: 'Research and shortlist Swedish universities based on your preferences.',
     timeline: '12-18 months before',
     tips: [
       'Compare university rankings',
@@ -77,7 +77,7 @@ const steps = [
   {
     icon: FileSearch,
     title: 'Student Visa',
-    description: 'Apply for your New Zealand student visa.',
+    description: 'Apply for your Swedish student visa.',
     timeline: '3-4 months before',
     tips: [
       'Gather visa documents',
@@ -90,15 +90,14 @@ const steps = [
 
 export default function ApplicationProcess() {
   return (
-    <section className="py-24">
+    <section className="py-24 bg-yellow-50">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Application Process</h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            A comprehensive guide to applying to New Zealand universities
+          <h2 className="mb-4 text-3xl font-bold text-blue-800">Application Process</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-700">
+            A comprehensive guide to applying to Swedish universities.
           </p>
         </div>
-
         <div className="grid gap-6 md:grid-cols-2">
           {steps.map((step, index) => {
             const Icon = step.icon;
@@ -106,21 +105,21 @@ export default function ApplicationProcess() {
               <Card key={step.title}>
                 <CardContent className="p-6">
                   <div className="mb-4 flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                      <Icon className="h-6 w-6 text-green-600" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100">
+                      <Icon className="h-6 w-6 text-blue-800" />
                     </div>
                     <div>
-                      <span className="text-sm font-medium text-green-600">Step {index + 1}</span>
-                      <h3 className="text-xl font-semibold">{step.title}</h3>
+                      <span className="text-sm font-medium text-blue-800">Step {index + 1}</span>
+                      <h3 className="text-xl font-semibold text-blue-900">{step.title}</h3>
                     </div>
                   </div>
                   <div className="mb-4">
-                    <p className="mb-2 text-gray-600">{step.description}</p>
-                    <p className="text-sm font-medium text-green-600">{step.timeline}</p>
+                    <p className="mb-2 text-gray-700">{step.description}</p>
+                    <p className="text-sm font-medium text-yellow-500">{step.timeline}</p>
                   </div>
                   <div className="space-y-2">
-                    <p className="font-medium">Key Points:</p>
-                    <ul className="list-inside list-disc space-y-1 text-sm text-gray-600">
+                    <p className="font-medium text-blue-800">Key Points:</p>
+                    <ul className="list-inside list-disc space-y-1 text-sm text-gray-700">
                       {step.tips.map((tip) => (
                         <li key={tip}>{tip}</li>
                       ))}

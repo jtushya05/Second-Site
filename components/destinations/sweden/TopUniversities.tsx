@@ -6,36 +6,50 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const universities = [
   {
-    name: 'National University of Singapore (NUS)',
-    location: 'Kent Ridge',
-    ranking: '#1 in Singapore',
+    name: 'Lund University',
+    location: 'Lund',
+    ranking: '#1 in Sweden',
     specialties: 'Engineering, Business, Medicine',
-    image: 'https://example.com/nus.jpg', // Replace with an image of NUS campus
+    image: 'https://images.unsplash.com/photo-1598814372785-b5b16abe9e23?q=80&w=1200',
   },
   {
-    name: 'Nanyang Technological University (NTU)',
-    location: 'Nanyang Avenue',
-    ranking: '#2 in Singapore',
-    specialties: 'Technology, Sciences, Arts',
-    image: 'https://example.com/ntu.jpg', // Replace with an image of NTU campus
+    name: 'KTH Royal Institute of Technology',
+    location: 'Stockholm',
+    ranking: '#2 in Sweden',
+    specialties: 'Engineering, Technology, Sciences',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200',
   },
   {
-    name: 'Singapore Management University (SMU)',
-    location: 'Downtown Singapore',
-    ranking: '#3 in Singapore',
-    specialties: 'Business, Law, Economics',
-    image: 'https://example.com/smu.jpg', // Replace with an image of SMU campus
+    name: 'Uppsala University',
+    location: 'Uppsala',
+    ranking: '#3 in Sweden',
+    specialties: 'Medicine, Humanities, Sciences',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200',
+  },
+  {
+    name: 'Chalmers University of Technology',
+    location: 'Gothenburg',
+    ranking: '#4 in Sweden',
+    specialties: 'Engineering, Architecture, IT',
+    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d?q=80&w=1200',
+  },
+  {
+    name: 'Stockholm University',
+    location: 'Stockholm',
+    ranking: '#5 in Sweden',
+    specialties: 'Social Sciences, Arts, Environmental Studies',
+    image: 'https://images.unsplash.com/photo-1521804902910-3cb3bdb7b94e?q=80&w=1200',
   },
 ];
 
 export default function TopUniversities() {
   return (
-    <section className="bg-red-50 py-24">
+    <section className="bg-yellow-50 py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-red-800">Top Universities in Singapore</h2>
-          <p className="mx-auto max-w-2xl text-lg text-red-600">
-            Explore Singapore’s prestigious universities and their exceptional programs.
+          <h2 className="mb-4 text-3xl font-bold text-blue-800">Top Universities</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-700">
+            Explore Sweden’s most prestigious educational institutions.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -50,14 +64,15 @@ export default function TopUniversities() {
                 />
               </div>
               <CardContent className="p-6">
-                <h3 className="mb-2 text-xl font-semibold text-red-800">{university.name}</h3>
-                <p className="mb-4 text-sm text-red-600">{university.location}</p>
+                <h3 className="mb-2 text-xl font-semibold text-blue-800">{university.name}</h3>
+                <p className="mb-4 text-sm text-gray-600">{university.location}</p>
                 <div className="space-y-2">
                   <p>
-                    <span className="font-medium text-red-800">Ranking:</span> {university.ranking}
+                    <span className="font-medium text-blue-800">Ranking:</span> {university.ranking}
                   </p>
                   <p>
-                    <span className="font-medium text-red-800">Known for:</span> {university.specialties}
+                    <span className="font-medium text-blue-800">Known for:</span>{' '}
+                    {university.specialties}
                   </p>
                 </div>
               </CardContent>

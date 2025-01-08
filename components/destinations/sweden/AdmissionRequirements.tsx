@@ -9,7 +9,7 @@ const requirements = [
     icon: FileText,
     title: 'Academic Documents',
     items: [
-      "Bachelor's degree with minimum 65%",
+      "Bachelor's degree with a minimum of 60%",
       'Academic transcripts',
       'Statement of Purpose',
       'Letters of Recommendation',
@@ -19,9 +19,9 @@ const requirements = [
     icon: Languages,
     title: 'English Proficiency',
     items: [
-      'IELTS: 6.0 overall (min 5.5 per band)',
-      'TOEFL iBT: 80',
-      'PTE Academic: 50',
+      'IELTS: 6.5 overall (min 6.0 per band)',
+      'TOEFL iBT: 90',
+      'PTE Academic: 62',
     ],
   },
   {
@@ -29,7 +29,7 @@ const requirements = [
     title: 'Financial Requirements',
     items: [
       'Proof of tuition fees for the first year',
-      'Living expenses of at least NZD 20,000 per year',
+      'Living expenses of at least SEK 85,000 per year',
       'Health insurance',
       'Return airfare funds',
     ],
@@ -50,9 +50,9 @@ export default function AdmissionRequirements() {
     <section className="py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Admission Requirements</h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            Essential requirements for studying at New Zealand universities
+          <h2 className="mb-4 text-3xl font-bold text-blue-800">Admission Requirements</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-700">
+            Essential requirements for studying at Swedish universities.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
@@ -62,12 +62,12 @@ export default function AdmissionRequirements() {
               <Card key={req.title}>
                 <CardContent className="p-6">
                   <div className="mb-4 flex items-center gap-3">
-                    <Icon className="h-6 w-6 text-green-600" />
-                    <h3 className="text-xl font-semibold">{req.title}</h3>
+                    <Icon className="h-6 w-6 text-yellow-500" />
+                    <h3 className="text-xl font-semibold text-blue-800">{req.title}</h3>
                   </div>
                   <ul className="space-y-2">
                     {req.items.map((item) => (
-                      <li key={item} className="text-gray-600">
+                      <li key={item} className="text-gray-700">
                         • {item}
                       </li>
                     ))}
