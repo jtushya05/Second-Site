@@ -13,20 +13,20 @@ const courses = [
       'MSc Data Science',
       'MSc Computer Science',
       'MSc Cybersecurity',
-      'MSc Artificial Intelligence',
+      'MSc AI & Robotics'
     ],
-    image: 'https://example.com/singapore-technology.jpg', // Replace with a technology image
+    image: 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200'
   },
   {
     icon: ChartBar,
     name: 'Business & Management',
     programs: [
       'MBA',
-      'Master of Finance',
-      'Master of Marketing',
       'Master of Management',
+      'Master of Finance',
+      'Master of Marketing'
     ],
-    image: 'https://example.com/singapore-business.jpg', // Replace with a business-related image
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200'
   },
   {
     icon: Building2,
@@ -34,33 +34,11 @@ const courses = [
     programs: [
       'Civil Engineering',
       'Mechanical Engineering',
-      'Electrical Engineering',
-      'Environmental Engineering',
+      'Renewable Energy Engineering',
+      'Environmental Engineering'
     ],
-    image: 'https://example.com/singapore-engineering.jpg', // Replace with an engineering-related image
-  },
-  {
-    icon: FlaskConical,
-    name: 'Sciences',
-    programs: [
-      'MSc Biotechnology',
-      'MSc Environmental Science',
-      'MSc Chemistry',
-      'MSc Physics',
-    ],
-    image: 'https://example.com/singapore-sciences.jpg', // Replace with a science-related image
-  },
-  {
-    icon: GraduationCap,
-    name: 'Humanities & Arts',
-    programs: [
-      'Philosophy',
-      'History',
-      'Sociology',
-      'Literature',
-    ],
-    image: 'https://example.com/singapore-arts.jpg', // Replace with a humanities-related image
-  },
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200'
+  }
 ];
 
 export default function PopularCourses() {
@@ -68,9 +46,9 @@ export default function PopularCourses() {
     <section className="py-24" id="popular-courses">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-red-800">Popular Courses in Singapore</h2>
-          <p className="mx-auto max-w-2xl text-lg text-red-600">
-            Explore the most sought-after programs by international students in Singapore.
+          <h2 className="mb-4 text-3xl font-bold">Popular Courses in New Zealand</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+            Discover the most sought-after programs by international students in New Zealand universities
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

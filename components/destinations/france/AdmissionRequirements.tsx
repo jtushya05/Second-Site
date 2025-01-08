@@ -29,7 +29,7 @@ const requirements = [
     title: 'Financial Requirements',
     items: [
       'Proof of tuition fees for the first year',
-      'Living expenses of at least SGD 15,000 per year',
+      'Living expenses of at least NZD 20,000 per year',
       'Health insurance',
       'Return airfare funds',
     ],
@@ -47,12 +47,12 @@ const requirements = [
 
 export default function AdmissionRequirements() {
   return (
-    <section className="py-24 bg-red-50">
+    <section className="py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-red-800">Admission Requirements</h2>
-          <p className="mx-auto max-w-2xl text-lg text-red-600">
-            Essential requirements for studying at Singaporean universities.
+          <h2 className="mb-4 text-3xl font-bold">Admission Requirements</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+            Essential requirements for studying at New Zealand universities
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
@@ -62,12 +62,12 @@ export default function AdmissionRequirements() {
               <Card key={req.title}>
                 <CardContent className="p-6">
                   <div className="mb-4 flex items-center gap-3">
-                    <Icon className="h-6 w-6 text-red-600" />
-                    <h3 className="text-xl font-semibold text-red-800">{req.title}</h3>
+                    <Icon className="h-6 w-6 text-green-600" />
+                    <h3 className="text-xl font-semibold">{req.title}</h3>
                   </div>
                   <ul className="space-y-2">
                     {req.items.map((item) => (
-                      <li key={item} className="text-gray-700">
+                      <li key={item} className="text-gray-600">
                         • {item}
                       </li>
                     ))}

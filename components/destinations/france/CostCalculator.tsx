@@ -10,9 +10,9 @@ const expenses = [
   {
     icon: Building2,
     name: 'Accommodation',
-    min: 600,
-    max: 2000,
-    description: 'Student housing or private rentals in Singapore',
+    min: 480,
+    max: 1600,
+    description: 'Student housing or private rentals in New Zealand',
   },
   {
     icon: BookOpen,
@@ -24,43 +24,43 @@ const expenses = [
   {
     icon: Bus,
     name: 'Transportation',
-    min: 100,
+    min: 120,
     max: 300,
-    description: 'Public transport pass or shared rides',
+    description: 'Public transport pass or bike rentals',
   },
   {
     icon: Coffee,
     name: 'Living Expenses',
-    min: 500,
-    max: 1000,
+    min: 400,
+    max: 800,
     description: 'Food, utilities, and personal essentials',
   },
 ];
 
 export default function CostCalculator() {
-  const [tuition, setTuition] = useState(25000);
+  const [tuition, setTuition] = useState(28000);
   const [accommodation, setAccommodation] = useState(1000);
-  const [living, setLiving] = useState(700);
-  const [transport, setTransport] = useState(150);
-  const [materials, setMaterials] = useState(200);
+  const [living, setLiving] = useState(600);
+  const [transport, setTransport] = useState(200);
+  const [materials, setMaterials] = useState(150);
 
   const monthlyTotal = accommodation + living + transport + materials;
   const yearlyTotal = (monthlyTotal * 12) + tuition;
 
   return (
-    <section className="py-24 bg-red-50">
+    <section className="py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-red-800">Cost Calculator</h2>
-          <p className="mx-auto max-w-2xl text-lg text-red-600">
-            Plan your budget with our Singapore cost calculator.
+          <h2 className="mb-4 text-3xl font-bold">Cost Calculator</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+            Plan your budget with our New Zealand cost calculator
           </p>
         </div>
         <div className="mx-auto max-w-4xl">
           <Card>
             <CardContent className="p-6">
               <div className="mb-8">
-                <h3 className="mb-4 text-xl font-semibold text-red-800">Annual Tuition Fees (SGD)</h3>
+                <h3 className="mb-4 text-xl font-semibold">Annual Tuition Fees (NZD)</h3>
                 <Input
                   type="number"
                   value={tuition}
@@ -70,7 +70,7 @@ export default function CostCalculator() {
                 />
               </div>
               <div className="mb-8">
-                <h3 className="mb-4 text-xl font-semibold text-red-800">Monthly Living Costs (SGD)</h3>
+                <h3 className="mb-4 text-xl font-semibold">Monthly Living Costs (NZD)</h3>
                 <div className="grid gap-6 md:grid-cols-2">
                   {expenses.map((expense) => {
                     const Icon = expense.icon;
@@ -78,7 +78,7 @@ export default function CostCalculator() {
                       <div key={expense.name} className="space-y-2">
                         <div className="flex items-center gap-2">
                           <Icon className="h-5 w-5 text-gray-500" />
-                          <label className="font-medium text-red-700">{expense.name}</label>
+                          <label className="font-medium">{expense.name}</label>
                         </div>
                         <Input
                           type="number"
@@ -99,35 +99,35 @@ export default function CostCalculator() {
                           className="w-full"
                         />
                         <p className="text-sm text-gray-500">
-                          Typical range: SGD {expense.min} - SGD {expense.max}
+                          Typical range: NZD {expense.min} - NZD {expense.max}
                         </p>
                       </div>
                     );
                   })}
                 </div>
               </div>
-              <div className="rounded-lg bg-red-100 p-6">
+              <div className="rounded-lg bg-green-50 p-6">
                 <div className="mb-4 flex items-center gap-2">
-                  <Calculator className="h-6 w-6 text-red-600" />
-                  <h3 className="text-xl font-semibold text-red-800">Total Costs</h3>
+                  <Calculator className="h-6 w-6 text-green-600" />
+                  <h3 className="text-xl font-semibold">Total Costs</h3>
                 </div>
                 <div className="space-y-2">
                   <p className="flex items-center justify-between">
-                    <span className="text-red-700">Monthly Living Costs:</span>
-                    <span className="font-semibold">SGD {monthlyTotal.toLocaleString()}</span>
+                    <span>Monthly Living Costs:</span>
+                    <span className="font-semibold">NZD {monthlyTotal.toLocaleString()}</span>
                   </p>
                   <p className="flex items-center justify-between">
-                    <span className="text-red-700">Annual Living Costs:</span>
-                    <span className="font-semibold">SGD {(monthlyTotal * 12).toLocaleString()}</span>
+                    <span>Annual Living Costs:</span>
+                    <span className="font-semibold">NZD {(monthlyTotal * 12).toLocaleString()}</span>
                   </p>
                   <p className="flex items-center justify-between">
-                    <span className="text-red-700">Annual Tuition:</span>
-                    <span className="font-semibold">SGD {tuition.toLocaleString()}</span>
+                    <span>Annual Tuition:</span>
+                    <span className="font-semibold">NZD {tuition.toLocaleString()}</span>
                   </p>
                   <div className="mt-4 border-t pt-4">
                     <p className="flex items-center justify-between text-lg font-bold">
-                      <span className="text-red-800">Total Annual Cost:</span>
-                      <span className="text-red-600">SGD {yearlyTotal.toLocaleString()}</span>
+                      <span>Total Annual Cost:</span>
+                      <span className="text-green-600">NZD {yearlyTotal.toLocaleString()}</span>
                     </p>
                   </div>
                 </div>
