@@ -37,7 +37,7 @@ export default function AustraliaHero() {
                 asChild
                 size="lg" 
                 variant="outline" 
-                className="border-2 text-lg text-white hover:bg-white hover:text-gray-900"
+                className="border-2 text-lg text-black hover:bg-gray-300"
               >
                 <Link href="#popular-courses">Explore Courses</Link>
               </Button>
