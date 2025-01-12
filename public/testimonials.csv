@@ -1,0 +1,4 @@
+id,type,profilePic,name,designation,text,videoUrl,rating,googleLink,tags
+1,text,/images/profile1.jpg,John Doe,Pursuing Masters in Canada,"Thanks to this amazing team, my visa process was seamless!",,5,https://google.com,Masters,Visa Assistance
+2,video,/images/profile2.jpg,Jane Smith,Undergraduate Student in Australia,,https://www.youtube.com/watch?v=example1,5,https://google.com,Undergraduate,Admission Support
+3,text+video,/images/profile3.jpg,Alex Brown,Job Seeker in the UK,"Their guidance helped me secure admission and my dream job!",https://www.youtube.com/watch?v=example2,4,https://google.com,Job Assistance,Career Guidance

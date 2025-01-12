@@ -1,7 +1,7 @@
 
 export const destinations = [
-  'United States', 'United Kingdom', 'Canada', 'Australia',
-  'Germany', 'New Zealand', 'Ireland', 'Singapore', 'France', 'Sweden'
+  'United Kingdom', 'Australia', 'Canada', 'Germany', 'Ireland',  'United States',
+   'New Zealand', 'Singapore', 'France', 'Sweden'
 ];
 
 export const testPrep = [

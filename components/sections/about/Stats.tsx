@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import { Container } from '@/components/ui/container';
 
 const stats = [
-  { number: 13, label: 'Years of Experience', suffix: '+' },
-  { number: 10000, label: 'Students Placed', suffix: '+' },
+  { number: 21, label: 'Years of Experience', suffix: '+' },
+  { number: 10000, label: 'Successful Students', suffix: '+' },
   { number: 200, label: 'University Partners', suffix: '+' },
-  { number: 95, label: 'Success Rate', suffix: '%' }
+  { number: 99, label: 'Success Rate', suffix: '%' }
 ];
 
 interface AnimatedCounterProps {
@@ -16,7 +16,7 @@ interface AnimatedCounterProps {
   suffix?: string;
 }
 
-function AnimatedCounter({ end, duration = 2000, suffix = '' }: AnimatedCounterProps) {
+function AnimatedCounter({ end, duration = 900, suffix = '' }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 

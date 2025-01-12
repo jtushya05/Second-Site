@@ -20,3 +20,16 @@ export interface NavigationItem {
   href: string;
   children?: NavigationItem[];
 }
+
+export interface Testimonial {
+  id: number;
+  type: 'text' | 'video' | 'text+video';
+  name: string;
+  designation: string;
+  profilePic: string;
+  rating: number;
+  text?: string;
+  videoUrl?: string;
+  googleLink?: string;
+  tags: string[];
+}

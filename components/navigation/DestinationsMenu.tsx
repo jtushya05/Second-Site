@@ -17,6 +17,12 @@ export default function DestinationsMenu() {
             <Image
               src={`https://flagcdn.com/${destination === 'United States' ? 'us' : 
                     destination === 'United Kingdom' ? 'gb' : 
+                    destination === 'Sweden' ? 'se' :
+                    destination === 'France' ? 'fr' :
+                    destination === 'Germany' ? 'de' :
+                    destination === 'New Zealand' ? 'nz' :
+                    destination === 'Ireland' ? 'ie' :
+                    destination === 'Singapore' ? 'sg' :  
                     destination.toLowerCase().slice(0, 2)}.svg`}
               alt={destination}
               fill

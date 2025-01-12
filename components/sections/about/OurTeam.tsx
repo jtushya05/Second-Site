@@ -7,10 +7,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Linkedin } from 'lucide-react';
 
 const founder = {
-  name: 'Dr. Rajesh Kumar',
+name: 'Darshana Jain', // Updated founder's name
   role: 'Founder & CEO',
-  image: 'https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?q=80&w=400',
-  linkedin: '#',
+  image: 'images/founderImage.png',
+  linkedin: 'linkedin.com',
   message: `As the founder of EA Global, my vision has always been to bridge the gap between Indian students and world-class international education. With over two decades of experience in education consulting, I understand the challenges and aspirations of students seeking to study abroad.
 
 Our commitment goes beyond just admissions - we strive to be true mentors, guiding students through every step of their journey towards academic and professional success.`
