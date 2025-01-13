@@ -44,7 +44,7 @@ export default function Services() {
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <Link key={service.title} href={service.href}>
+<Link key={service.title} href={service.href} target="_blank" rel="noopener noreferrer">
                 <Card className="h-full cursor-pointer transition-all hover:scale-105 hover:shadow-lg">
                   <CardHeader>
                     <Icon className="h-12 w-12 text-primary" />
