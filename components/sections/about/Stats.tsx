@@ -6,7 +6,7 @@ import { Container } from '@/components/ui/container';
 const stats = [
   { number: 21, label: 'Years of Experience', suffix: '+' },
   { number: 10000, label: 'Successful Students', suffix: '+' },
-  { number: 200, label: 'University Partners', suffix: '+' },
+  { number: 850, label: 'University Connects', suffix: '+' },
   { number: 99, label: 'Success Rate', suffix: '%' }
 ];
 

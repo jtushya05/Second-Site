@@ -16,7 +16,7 @@ const aspects = [
     icon: Utensils,
     title: 'Food & Culture',
     description: 'Explore Singapore’s multicultural food scene and vibrant lifestyle.',
-    image: 'https://example.com/singapore-food.jpg', // Replace with a relevant food image
+    image: 'https://www.durham.ac.uk/media/durham-university/colleges/st-johnx27s-college---only-use-within-college-site/Catering-1000x625.jpg'
   },
   {
     icon: Bus,

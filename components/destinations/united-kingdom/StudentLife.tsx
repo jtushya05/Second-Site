@@ -16,7 +16,7 @@ const aspects = [
     icon: Utensils,
     title: 'Food & Culture',
     description: 'Diverse cuisine and cultural experiences',
-    image: 'https://images.unsplash.com/photo-1529604278261-8bfcdb00a7b9?q=80&w=1200'
+    image: 'https://www.durham.ac.uk/media/durham-university/colleges/st-johnx27s-college---only-use-within-college-site/Catering-1000x625.jpg'
   },
   {
     icon: Bus,

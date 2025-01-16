@@ -16,7 +16,7 @@ const aspects = [
     icon: Utensils,
     title: 'Food & Culture',
     description: 'Enjoy Irish cuisine and the vibrant, multicultural lifestyle.',
-    image: 'https://images.unsplash.com/photo-1579898397071-083ee92880d0?q=80&w=1200',
+    image: 'https://www.durham.ac.uk/media/durham-university/colleges/st-johnx27s-college---only-use-within-college-site/Catering-1000x625.jpg'
   },
   {
     icon: Bus,

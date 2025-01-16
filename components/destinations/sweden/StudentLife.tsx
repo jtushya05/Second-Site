@@ -16,7 +16,7 @@ const aspects = [
     icon: Utensils,
     title: 'Food & Cuisine',
     description: 'Taste traditional Swedish dishes like meatballs, gravlax, and fika treats.',
-    image: 'https://images.unsplash.com/photo-1548946526-f69e2424cf45?q=80&w=1200',
+    image: 'https://www.durham.ac.uk/media/durham-university/colleges/st-johnx27s-college---only-use-within-college-site/Catering-1000x625.jpg'
   },
   {
     icon: Bus,

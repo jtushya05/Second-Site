@@ -10,43 +10,42 @@ const universities = [
     location: 'Melbourne, Victoria',
     ranking: '#1 in Australia',
     specialties: 'Research, Medicine, Engineering',
-    image: 'https://images.unsplash.com/photo-1598814372785-b5b16abe9e23?q=80&w=1200'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcwp9ZJGQhRGsYxAg8Io0VsR9grsRpXIZKEQ&s'
   },
   {
     name: 'University of Sydney',
     location: 'Sydney, NSW',
     ranking: '#2 in Australia',
     specialties: 'Business, Arts, Sciences',
-    image: 'https://images.unsplash.com/photo-1506377585622-bedcbb027afc?q=80&w=1200'
+    image: 'https://images.shiksha.com/mediadata/images/1515481785phpZsgL9D_g.png'
   },
   {
     name: 'Australian National University',
     location: 'Canberra, ACT',
     ranking: '#3 in Australia',
     specialties: 'Research, Politics, Sciences',
-    image: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd?q=80&w=1200'
+    image: 'https://didmdw8v48h5q.cloudfront.net/wp-content/uploads/2021/11/australian-national-university.webp' 
   },
   {
     name: 'University of Queensland',
     location: 'Brisbane, QLD',
     ranking: '#4 in Australia',
     specialties: 'Medicine, Engineering, Sciences',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200'
+    image: 'https://www.easyuni.ph/media/institution/photo/2019/07/15/thumbs/UQ_1_Wide.jpg.1150x500_q85.webp'
   },
   {
     name: 'Monash University',
     location: 'Melbourne, Victoria',
     ranking: '#5 in Australia',
     specialties: 'Engineering, Business, Medicine',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200'
+    image: 'https://www.monash.edu/__data/assets/image/0004/959530/clayton-campus-new-horizons-building-exterior-at-night-2013.jpg'
   },
   {
     name: 'University of Western Australia',
     location: 'Perth, WA',
     ranking: '#6 in Australia',
     specialties: 'Engineering, Medicine, Sciences',
-    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d?q=80&w=1200'
-  }
+image : 'https://images.shiksha.com/mediadata/images/1541403097phplpDP5l_g.jpg'  }
 ];
 
 export default function TopUniversities() {

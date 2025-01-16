@@ -7,17 +7,17 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Our Location',
-    content: ['123 Anna Nagar, 2nd Floor', 'Near Anna Nagar Tower', 'Chennai, Tamil Nadu 600040', 'India']
+    content: ['127A Brikkiln Road', 'Purasavalkam', 'Chennai, Tamil Nadu', 'India']
   },
   {
     icon: Phone,
     title: 'Phone',
-    content: ['+91 98765 43210']
+    content: ['+91 98940 18848']
   },
   {
     icon: Mail,
     title: 'Email',
-    content: ['info@eaglobal.edu']
+    content: ['info@englisharenaglobal.com']
   },
   {
     icon: Clock,

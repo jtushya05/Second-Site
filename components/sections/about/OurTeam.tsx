@@ -10,7 +10,7 @@ const founder = {
 name: 'Darshana Jain', // Updated founder's name
   role: 'Founder & CEO',
   image: 'images/founderImage.png',
-  linkedin: 'linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/darshana-englisharena',
   message: `As the founder of EA Global, my vision has always been to bridge the gap between Indian students and world-class international education. With over two decades of experience in education consulting, I understand the challenges and aspirations of students seeking to study abroad.
 
 Our commitment goes beyond just admissions - we strive to be true mentors, guiding students through every step of their journey towards academic and professional success.`
@@ -78,7 +78,7 @@ export default function OurTeam() {
         {/* Team Section */}
         <div>
           <h2 className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl">
-            Our Leadership Team
+            Our Expert Team
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             {team.map((member) => (

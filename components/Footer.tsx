@@ -6,20 +6,20 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="container py-12">
+      <div className="container py-12 ml-5">
         <div className="grid gap-8 md:grid-cols-4">
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-white">EA Global</h3>
             <p className="text-sm">Your trusted partner in international education and test preparation.</p>
             <div className="flex space-x-4">
-              <Link href="https://facebook.com" className="hover:text-white">
+              <Link href="#" className="hover:text-white">
                 <Facebook size={20} />
               </Link>
-              <Link href="https://instagram.com" className="hover:text-white">
+              <Link href="https://instagram.com/eaglobaledu" className="hover:text-white">
                 <Instagram size={20} />
               </Link>
-              <Link href="https://linkedin.com" className="hover:text-white">
+              <Link href="https://www.linkedin.com/in/darshana-englisharena" className="hover:text-white">
                 <Linkedin size={20} />
               </Link>
             </div>
@@ -42,15 +42,16 @@ export default function Footer() {
             <div className="space-y-2 text-sm">
               <p className="flex items-center gap-2">
                 <MapPin size={16} />
-                123 Anna Nagar, Chennai, Tamil Nadu 600040
+                127A Brikkiln Road,
+                <br></br>Chennai, Tamil Nadu 600040
               </p>
               <p className="flex items-center gap-2">
                 <Phone size={16} />
-                +91 98765 43210
+                +91 98940 18848
               </p>
               <p className="flex items-center gap-2">
                 <Mail size={16} />
-                info@eaglobal.edu
+                info@englisharenaglobal.com
               </p>
             </div>
           </div>

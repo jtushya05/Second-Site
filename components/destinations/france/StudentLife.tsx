@@ -16,7 +16,7 @@ const aspects = [
     icon: Utensils,
     title: 'Food & Culture',
     description: 'Explore French cuisine and enjoy a rich cultural experience.',
-    image: 'https://images.unsplash.com/photo-1564758866819-2f0191dbfd00?q=80&w=1200',
+    image: 'https://www.durham.ac.uk/media/durham-university/colleges/st-johnx27s-college---only-use-within-college-site/Catering-1000x625.jpg'
   },
   {
     icon: Bus,

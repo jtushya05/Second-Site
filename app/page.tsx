@@ -7,10 +7,38 @@ import Services from '@/components/Services';
 import PopularDestinations from '@/components/PopularDestinations';
 import Testimonials from '@/components/Testimonials';
 import ContactSection from '@/components/ContactSection';
+import FloatingContactWidgets from '@/components/FloatingContactWidgets';
+import { NextSeo } from 'next-seo';
 
 export default function Home() {
   return (
     <>
+    <NextSeo
+        title="EA Global - Your Gateway to International Education"
+        description="EA Global is Chennai's best educational consultancy specializing in study abroad services and English proficiency test preparation."
+        openGraph={{
+          type: 'website',
+          url: 'https://studyoverseas.netlify.app',
+          title: 'EA Global - Your Gateway to International Education',
+          description:
+            "EA Global is Chennai's best educational consultancy specializing in study abroad services and English proficiency test preparation.",
+          images: [
+            {
+              url: 'https://studyoverseas.netlify.app/og-image.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'EA Global',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@eaglobal',
+          site: '@eaglobal',
+          cardType: 'summary_large_image',
+        }}
+      />
+
+
       <BaseNavigation variant="transparent" />
       <main className="flex flex-col">
         <HeroSection />
@@ -30,6 +58,7 @@ export default function Home() {
           <ContactSection />
         </div>
       </main>
+      <FloatingContactWidgets />
     </>
   );
 }

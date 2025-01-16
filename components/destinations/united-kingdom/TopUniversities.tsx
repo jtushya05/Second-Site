@@ -10,42 +10,42 @@ const universities = [
     location: 'Oxford',
     ranking: '#1 in UK',
     specialties: 'Research, Arts & Sciences',
-    image: 'https://images.unsplash.com/photo-1548793977-f3602d88d5f2?q=80&w=1200'
+    image: 'https://theoxfordmagazine.com/wp-content/uploads/visiting-oxford-univerity-01-1920x1080-1.jpg'
   },
   {
     name: 'University of Cambridge',
     location: 'Cambridge',
     ranking: '#2 in UK',
     specialties: 'Sciences, Engineering',
-    image: 'https://images.unsplash.com/photo-1579556090562-e9b23ffd1d48?q=80&w=1200'
+    image: 'https://www.universityliving.com/blog/wp-content/uploads/2023/07/Banner-Image-The-University-of-Cambridge.webp'
   },
   {
     name: 'Imperial College London',
     location: 'London',
     ranking: '#3 in UK',
     specialties: 'Engineering, Medicine',
-    image: 'https://images.unsplash.com/photo-1534260164206-2a3a4a72891d?q=80&w=1200'
+    image: 'https://pxl-imperialacuk.terminalfour.net/prod01/channel_3/media/migration/about/0100_05--tojpeg_1416591033339_x2.jpeg'
   },
   {
     name: 'University College London',
     location: 'London',
     ranking: '#4 in UK',
     specialties: 'Arts, Sciences, Engineering',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSuPnEniUPgSprKXD0HDM7lJsrFMLtRonI8A&s'
   },
   {
     name: 'London School of Economics',
     location: 'London',
     ranking: '#5 in UK',
     specialties: 'Economics, Social Sciences',
-    image: 'https://images.unsplash.com/photo-1534260164206-2a3a4a72891d?q=80&w=1200'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6wcjTOPsGXjLEYOhiT2ZNwQErUQvgLOnaw&s'
   },
   {
     name: 'University of Manchester',
     location: 'Manchester',
     ranking: '#6 in UK',
     specialties: 'Engineering, Business',
-    image: 'https://images.unsplash.com/photo-1580757468214-c73f7062a5cb?q=80&w=1200'
+    image: 'https://images.shiksha.com/mediadata/images/1533553333phpfZ3OBo.jpeg'
   }
 ];
 

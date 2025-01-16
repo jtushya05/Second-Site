@@ -8,6 +8,11 @@ import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/sonner';
 import { Analytics } from '@/components/Analytics';
 import { Container } from '@/components/ui/container';
+import { DefaultSeo } from 'next-seo';
+
+// export const metadata = {
+//   metadataBase: new URL('https://studyoverseas.netlify.app'),
+// };
 
 const inter = Inter({ subsets: ['latin'] });
 

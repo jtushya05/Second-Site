@@ -7,12 +7,12 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    content: ['+91 98765 43210']
+    content: ['+91 98940 18848']
   },
   {
     icon: Mail,
     title: 'Email',
-    content: ['info@eaglobal.edu']
+    content: ['info@englisharenaglobal.com']
   },
   {
     icon: Clock,

@@ -2,11 +2,11 @@
 
 import { Container } from '@/components/ui/container';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Award, Users, BookOpen, Globe } from 'lucide-react';
+import { Award, Users, BookOpen, Globe, HelpCircle, LifeBuoy, UserCheck } from 'lucide-react';
 
 const reasons = [
   {
-    title: '13+ Years of Excellence',
+    title: '21+ Years of Excellence',
     description: 'Over a decade of experience in international education counseling',
     icon: Award
   },
@@ -16,14 +16,14 @@ const reasons = [
     icon: Users
   },
   {
-    title: '200+ University Partners',
-    description: 'Strong partnerships with top universities worldwide',
+    title: '850+ Strong University Connects',
+    description: 'Strong connects with top universities worldwide',
     icon: BookOpen
   },
   {
-    title: 'Global Presence',
-    description: 'Offices in major cities across India with international networks',
-    icon: Globe
+    title: 'Personalized Support',
+    description: 'Tailored guidance to help students navigate their study abroad journey every step of the way',
+    icon: UserCheck
   }
 ];
 
