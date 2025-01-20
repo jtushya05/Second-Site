@@ -1,3 +1,4 @@
+
 export const destinations = [
   'United Kingdom', 'Australia', 'Canada', 'Germany', 'Ireland',  'United States',
    'New Zealand', 'Singapore', 'France', 'Sweden'
@@ -56,7 +57,7 @@ export const navigationItems = [
     }))
   },
   { label: 'Career Counseling', href: 'https://counselling.englisharenaglobal.com' },
-  { label: 'Testimonials', href: '/testimonials' },
-  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' }
 ];
+
+//
