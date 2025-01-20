@@ -13,7 +13,7 @@ import { NextSeo } from 'next-seo';
 export default function Home() {
   return (
     <>
-    <NextSeo
+      <NextSeo
         title="EA Global - Your Gateway to International Education"
         description="EA Global is Chennai's best educational consultancy specializing in study abroad services and English proficiency test preparation."
         openGraph={{
@@ -37,7 +37,6 @@ export default function Home() {
           cardType: 'summary_large_image',
         }}
       />
-
 
       <BaseNavigation variant="transparent" />
       <main className="flex flex-col">

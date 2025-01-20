@@ -42,6 +42,7 @@ export default function Navigation() {
                 type="test-prep"
               />
               <NavLink href="/testimonials" scrolled={scrolled}>Testimonials</NavLink>
+              <NavLink href="/blog" scrolled={scrolled}>Blog</NavLink>
               <NavLink href="/contact" scrolled={scrolled}>Contact</NavLink>
             </NavigationMenuList>
           </NavigationMenu>
