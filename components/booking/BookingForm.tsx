@@ -33,12 +33,35 @@ export default function BookingForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Here you would typically send the data to your backend
-    toast.success('Consultation booked successfully! We\'ll contact you shortly.');
-    
-    // Redirect to thank you page
-    router.push('/thank-you');
+
+    const data = {
+      'entry.166295812': 'BookingForm',
+      'entry.1169845566': formData.name,
+      'entry.2096364701': formData.email,
+      'entry.26593180': formData.service,
+      'entry.1109080701': formData.phone,
+      'entry.1104932019': formData.message,
+      'entry.1871500665_year': date ? date.getFullYear().toString() : '1',
+      'entry.1871500665_month': date ? (date.getMonth() + 1).toString() : '1',
+      'entry.1871500665_day': date ? date.getDate().toString() : '1'
+    };
+
+    try {
+      await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSebEdPI6LiZbZTcT2zLz-k00OfsswIAEN6BN5JruDu5MyAXOA/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(data)
+      });
+
+      toast.success(`Consultation booked successfully, ${formData.name}! We'll contact you shortly.`);
+      router.push('/thank-you');
+    } catch (error) {
+      console.error('Error submitting form', error);
+      toast.error('There was an error booking your consultation. Please try again.');
+    }
   };
 
   return (
@@ -83,6 +106,13 @@ export default function BookingForm() {
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Service</label>
+              <Input
+                placeholder="Service Name"
+                value={formData.service}
+                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                required
+              />
+              {/*
               <Select
                 value={formData.service}
                 onValueChange={(value) => setFormData({ ...formData, service: value })}
@@ -98,6 +128,7 @@ export default function BookingForm() {
                   <SelectItem value="career">Career Counseling</SelectItem>
                 </SelectContent>
               </Select>
+              */}
             </div>
           </div>
 

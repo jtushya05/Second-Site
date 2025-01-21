@@ -22,11 +22,28 @@ export default function LeadCaptureForm() {
     setIsSubmitting(true);
 
     try {
-      // Here you would typically send the data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast.success('Thank you for your interest! We\'ll contact you soon.');
-      router.push('/thank-you');
+      const data = {
+        'entry.166295812': 'LeadCaptureForm',
+        'entry.1169845566': formData.name,
+        'entry.2096364701': formData.email,
+        'entry.26593180': formData.interest,
+        'entry.1109080701': formData.phone,
+        // 'entry.1104932019': 'NotDefinedYet',
+        // 'entry.1871500665_year': 'NotDefinedYet',
+        // 'entry.1871500665_month': 'NotDefinedYet',
+        // 'entry.1871500665_day': 'NotDefinedYet'
+      };
+
+      await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSebEdPI6LiZbZTcT2zLz-k00OfsswIAEN6BN5JruDu5MyAXOA/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(data)
+      });
+
+      toast.success(`Thank you for your interest, ${formData.name}! We'll contact you soon.`);
     } catch (error) {
       toast.error('Something went wrong. Please try again.');
     } finally {
@@ -53,7 +70,7 @@ export default function LeadCaptureForm() {
             placeholder="Email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            required
+            //required
             className="h-10"
           />
           <Input
@@ -68,7 +85,7 @@ export default function LeadCaptureForm() {
             placeholder="I'm interested in..."
             value={formData.interest}
             onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-            required
+            //required
             className="h-10"
           />
           <Button 

@@ -16,11 +16,14 @@ export default function ThankYouPage() {
             Your consultation has been booked successfully. We'll contact you shortly to confirm your appointment.
           </p>
           <div className="space-x-4">
-            <Button asChild>
+            <Button asChild className="bg-blue-500 hover:bg-blue-600 text-white">
               <Link href="/">Return Home</Link>
             </Button>
-            <Button variant="outline" asChild>
-              <Link href="/test-prep">Explore Test Prep</Link>
+            <Button variant="outline" asChild className="border-blue-500 text-blue-500 hover:bg-blue-50">
+              <Link href="tel:+919894018848">Call Us</Link>
+            </Button>
+            <Button variant="outline" asChild className="border-green-500 text-green-500 hover:bg-green-50">
+              <Link href="https://wa.me/919894018848">WhatsApp Us</Link>
             </Button>
           </div>
         </div>
