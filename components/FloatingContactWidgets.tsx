@@ -8,7 +8,7 @@ export default function FloatingContactWidgets() {
     <div className="fixed bottom-8 left-0 z-50 flex flex-col gap-5">
       {/* Call Widget */}
       <a
-        href="tel:+919874563210"
+        href="tel:+919894018848"
         className="group relative flex h-[50px] w-[50px] items-center overflow-hidden rounded-r-full bg-blue-600 text-white shadow-lg transition-all duration-300 hover:w-[140px]"
       >
         <div className="flex h-[50px] w-[50px] shrink-0 items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
@@ -21,7 +21,7 @@ export default function FloatingContactWidgets() {
 
       {/* WhatsApp Widget */}
       <a
-        href="https://wa.me/919874563210"
+        href="https://wa.me/919894018848"
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex h-[50px] w-[50px] items-center overflow-hidden rounded-r-full bg-green-500 text-white shadow-lg transition-all duration-300 hover:w-[200px]"
