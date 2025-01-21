@@ -79,6 +79,7 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
         </div>
 
         <Link href="/testimonials" className="text-gray-900 hover:text-blue-600">Testimonials</Link>
+        <Link href="/blog" className="text-gray-900 hover:text-blue-600">Blog</Link>
         <Link href="/contact" className="text-gray-900 hover:text-blue-600">Contact</Link>
         
         <Button 

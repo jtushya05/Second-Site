@@ -96,8 +96,9 @@ export default function BaseNavigation({ styles = {}, variant = 'default' }: Bas
                 scrolled={scrolled} 
                 variant={variant}
                 type="test-prep"
-              />             
-<NavLink href="/testimonials" scrolled={scrolled} variant={variant}>Testimonials</NavLink>
+              />
+              <NavLink href="/testimonials" scrolled={scrolled} variant={variant}>Testimonials</NavLink>
+              <NavLink href="/blog" scrolled={scrolled} variant={variant}>Blog</NavLink>
               <NavLink href="/contact" scrolled={scrolled} variant={variant}>Contact</NavLink>
             </NavigationMenuList>
           </NavigationMenu>
