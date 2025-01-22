@@ -13,7 +13,7 @@ import { DefaultSeo } from 'next-seo';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  metadataBase: new URL('https://www.studyoverseas.netlify.app'),
+  metadataBase: new URL('https://www.englisharenaglobal.com'),
   title: {
     default: 'EA Global - Your Gateway to International Education',
     template: '%s | EA Global - Your Gateway to International Education',
@@ -46,8 +46,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    domain: 'studyoverseas.netlify.app',
-    url: 'https://www.studyoverseas.netlify.app/',
+    domain: 'englisharenaglobal.com',
+    url: 'https://www.englisharenaglobal.com/',
     title: 'EA Global - Your Gateway to International Education',
     description: 'EA Global is Chennai\'s best educational consultancy specializing in study abroad services and English proficiency test preparation.',
     //image: '/images/og-image.png',
