@@ -40,9 +40,9 @@ const roles = [
       'Maintain brand consistency in videos'
     ],
     requirements: [
-      'Proficiency in Adobe Premiere Pro/Final Cut Pro',
+      'Proficiency in Adobe Premiere Pro/Final Cut Pro or similar softwares',
       'Understanding of video editing principles',
-      'Portfolio of previous work',
+      //'Portfolio of previous work',
       'Knowledge of motion graphics is a plus'
     ]
   },

@@ -17,7 +17,7 @@ import { toast } from 'sonner';
 const positions = [
   'Social Media Admin',
   'Video Editor',
-  'Digital Marketing Specialist',
+  'Digital Marketing',
   'Web Developer'
 ];
 
@@ -29,24 +29,83 @@ const employmentTypes = [
 
 export default function ApplyPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedData, setSubmittedData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    portfolioLink: ''
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      'entry.23303091': formData.get('portfolioLink')?.toString() || '',
+      'entry.297979220': formData.get('phone')?.toString() || '',
+      'entry.1078004677': formData.get('role')?.toString() || '',
+      'entry.1640447617': formData.get('email')?.toString() || '',
+      'entry.1781500597': `${formData.get('firstName')?.toString() || ''} ${formData.get('lastName')?.toString() || ''}`,
+      'entry.1972710835': formData.get('commitment')?.toString() || '',
+      'entry.2016206904': formData.get('employmentType')?.toString() || '',
+      'entry.2040870261': formData.get('coverLetter')?.toString() || '',
+      'entry.373300420': formData.get('whyJoin')?.toString() || '',
+      'entry.1496563821': formData.get('skills')?.toString() || '',
+      'entry.781201934': formData.get('additionalInfo')?.toString() || ''
+    };
+
     try {
-      // Here you would typically send the form data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSerSYjG3k2pASwq8L1X1i8aWxEfJ6X1Hz6LrIgY3WNCka68Iw/formResponse?', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(data).toString()
+      });
+
       toast.success('Application submitted successfully!');
-      
-      // Reset form
       (e.target as HTMLFormElement).reset();
+      setSubmittedData({
+        name: data['entry.1781500597'],
+        phone: data['entry.297979220'],
+        email: data['entry.1640447617'],
+        portfolioLink: data['entry.23303091']
+      });
+      setIsSubmitted(true);
     } catch (error) {
       toast.error('Failed to submit application. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen bg-gray-50 pt-20">
+        <Container className="py-16">
+          <div className="mx-auto max-w-2xl text-center">
+            <h1 className="mb-4 text-3xl font-bold">Application Submitted</h1>
+            <p className="text-gray-600">Thank you for your application. We have received the following details:</p>
+            <div className="mt-6 space-y-4">
+              <p><strong>Name:</strong> {submittedData.name}</p>
+              <p><strong>Phone:</strong> {submittedData.phone}</p>
+              <p><strong>Email:</strong> {submittedData.email}</p>
+              <p><strong>Portfolio Link:</strong> <a href={submittedData.portfolioLink} target="_blank" rel="noopener noreferrer" className="text-blue-500">{submittedData.portfolioLink}</a></p>
+            </div>
+            <div className="mt-8">
+              <p>If you have any further queries, feel free to reach out to us:</p>
+              <p>Email: <a href="mailto:hr@englisharenaglobal.com" className="text-blue-500">hr@englisharenaglobal.com</a></p>
+              <p>Phone: <a href="tel:+919894018848" className="text-blue-500">+919894018848</a></p>
+              <p>WhatsApp: <a href="https://wa.me/919894018848" className="text-blue-500">Chat on WhatsApp</a></p>
+            </div>
+          </div>
+        </Container>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
@@ -65,21 +124,21 @@ export default function ApplyPage() {
               <div className="grid gap-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="mb-1 block text-sm font-medium">First Name</label>
-                    <Input required />
+                    <label className="mb-1 block text-sm font-medium">First Name <span className="text-red-500">*</span></label>
+                    <Input name="firstName" required />
                   </div>
                   <div>
-                    <label className="mb-1 block text-sm font-medium">Last Name</label>
-                    <Input required />
+                    <label className="mb-1 block text-sm font-medium">Last Name <span className="text-red-500">*</span></label>
+                    <Input name="lastName" required />
                   </div>
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-medium">Email</label>
-                  <Input type="email" required />
+                  <label className="mb-1 block text-sm font-medium">Email <span className="text-red-500">*</span></label>
+                  <Input name="email" type="email" required />
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-medium">Phone</label>
-                  <Input type="tel" required />
+                  <label className="mb-1 block text-sm font-medium">Phone <span className="text-red-500">*</span></label>
+                  <Input name="phone" type="tel" required />
                 </div>
               </div>
             </div>
@@ -88,8 +147,8 @@ export default function ApplyPage() {
               <h2 className="mb-4 text-xl font-semibold">Application Details</h2>
               <div className="grid gap-4">
                 <div>
-                  <label className="mb-1 block text-sm font-medium">Role</label>
-                  <Select required>
+                  <label className="mb-1 block text-sm font-medium">Role <span className="text-red-500">*</span></label>
+                  <Select name="role" required>
                     <SelectTrigger>
                       <SelectValue placeholder="Select a role" />
                     </SelectTrigger>
@@ -104,14 +163,18 @@ export default function ApplyPage() {
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium">Employment Type</label>
-                  <Input value="Part-time Intern" readOnly />
+                  <Input name="employmentType" value="Part-time Intern" readOnly />
+                </div>
+                <div>
+                  <label className="mb-1 block text-sm font-medium">Portfolio Link</label>
+                  <Input name="portfolioLink" type="url" placeholder="Provide a link to your portfolio or drive" />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium">Why do you want to join us/work with us?</label>
                   <Textarea 
+                    name="whyJoin"
                     placeholder="Tell us why you'd be a great fit for this role"
                     className="min-h-[150px]"
-                    required
                   />
                 </div>
               </div>
@@ -122,19 +185,20 @@ export default function ApplyPage() {
               <div className="grid gap-4">
                 <div>
                   <label className="mb-1 block text-sm font-medium">Amount of time you can commit in a week</label>
-                  <Input placeholder="e.g., 20 hours, 30 hours, etc." required />
+                  <Input name="commitment" placeholder="e.g., 10 hours, 15 hours, etc." />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium">Skills that make you stand out</label>
                   <Textarea 
+                    name="skills"
                     placeholder="List your skills and experiences"
                     className="min-h-[100px]"
-                    required
                   />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium">Any other relevant information</label>
                   <Textarea 
+                    name="additionalInfo"
                     placeholder="Provide any additional information that you think is relevant"
                     className="min-h-[100px]"
                   />
