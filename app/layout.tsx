@@ -37,7 +37,7 @@ export const metadata = {
     images: [
       {
         //url: '/images/og-image.png',
-        url: 'https://opengraph.b-cdn.net/production/images/0f8d4b4c-da0f-4e28-84bc-c642dc2e41b6.png?token=OQ87ZR3zcb1YGR2iPejzaCgoovTxRM2CfwEKolnz7mk&height=632&width=1200&expires=33273557911',
+        url : 'https://englisharenaglobal.com/wp-content/uploads/2023/02/tempbanner-1200x700.png',
         width: 1200,
         height: 632,
         alt: 'EA Global Logo',
@@ -51,7 +51,8 @@ export const metadata = {
     title: 'EA Global - Your Gateway to International Education',
     description: 'EA Global is Chennai\'s best educational consultancy specializing in study abroad services and English proficiency test preparation.',
     //image: '/images/og-image.png',
-    image: 'https://opengraph.b-cdn.net/production/images/0f8d4b4c-da0f-4e28-84bc-c642dc2e41b6.png?token=OQ87ZR3zcb1YGR2iPejzaCgoovTxRM2CfwEKolnz7mk&height=632&width=1200&expires=33273557911',
+    //image: 'https://opengraph.b-cdn.net/production/images/0f8d4b4c-da0f-4e28-84bc-c642dc2e41b6.png?token=OQ87ZR3zcb1YGR2iPejzaCgoovTxRM2CfwEKolnz7mk&height=632&width=1200&expires=33273557911',
+    image : 'https://englisharenaglobal.com/wp-content/uploads/2023/02/tempbanner-1200x700.png',
   },
 };
 
