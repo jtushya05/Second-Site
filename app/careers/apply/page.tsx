@@ -86,17 +86,17 @@ export default function ApplyPage() {
     return (
       <div className="min-h-screen bg-gray-50 pt-20">
         <Container className="py-16">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-2xl text-center bg-white p-8 rounded-lg shadow-lg">
             <h1 className="mb-4 text-3xl font-bold">Application Submitted</h1>
-            <p className="text-gray-600">Thank you for your application. We have received the following details:</p>
-            <div className="mt-6 space-y-4">
+            <p className="text-gray-600 mb-6">Thank you for your application. Our team will review your submission and get back to you shortly. Here are the details we have received:</p>
+            <div className="mt-6 space-y-4 text-left">
               <p><strong>Name:</strong> {submittedData.name}</p>
               <p><strong>Phone:</strong> {submittedData.phone}</p>
               <p><strong>Email:</strong> {submittedData.email}</p>
               <p><strong>Portfolio Link:</strong> <a href={submittedData.portfolioLink} target="_blank" rel="noopener noreferrer" className="text-blue-500">{submittedData.portfolioLink}</a></p>
             </div>
-            <div className="mt-8">
-              <p>If you have any further queries, feel free to reach out to us:</p>
+            <div className="mt-8 text-left">
+              <p className="mb-2">If you have any further queries, feel free to reach out to us:</p>
               <p>Email: <a href="mailto:hr@englisharenaglobal.com" className="text-blue-500">hr@englisharenaglobal.com</a></p>
               <p>Phone: <a href="tel:+919894018848" className="text-blue-500">+919894018848</a></p>
               <p>WhatsApp: <a href="https://wa.me/919894018848" className="text-blue-500">Chat on WhatsApp</a></p>
