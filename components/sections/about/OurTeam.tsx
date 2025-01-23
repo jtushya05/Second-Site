@@ -20,19 +20,25 @@ const team = [
   {
     name: 'Priya Sharma',
     role: 'Head of Counseling',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400',
+    image: '/images/team members/team-pic2_2.png',
     linkedin: '#'
   },
   {
     name: 'Arun Patel',
     role: 'Test Prep Director',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400',
+    image: '/images/team members/team-img1.jpg',
     linkedin: '#'
   },
   {
     name: 'Sarah Johnson',
     role: 'International Relations',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400',
+    image: '/images/team members/team-pic1.jpg',
+    linkedin: '#'
+  },
+  {
+    name: 'Akshay Mehta',
+    role: 'Student Advisor',
+    image: '/images/team members/team-img2.jpeg',
     linkedin: '#'
   }
 ];

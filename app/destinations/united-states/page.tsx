@@ -10,6 +10,7 @@ import CostCalculator from '@/components/destinations/united-states/CostCalculat
 import ApplicationProcess from '@/components/destinations/united-states/ApplicationProcess';
 import FAQ from '@/components/destinations/united-states/FAQ';
 import CTASection from '@/components/destinations/united-states/CTASection';
+import FixedBanner from '@/components/destinations/united-states/FixedBanner';
 
 export default function USDestinationPage() {
   return (
@@ -25,6 +26,7 @@ export default function USDestinationPage() {
         <ApplicationProcess />
         <FAQ />
         <CTASection />
+        <FixedBanner />
       </main>
     </>
   );

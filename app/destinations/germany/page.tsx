@@ -2,7 +2,7 @@
 
 import BaseNavigation from '@/components/navigation/BaseNavigation';
 import GermanyHero from '@/components/destinations/germany/GermanyHero';
-import WhyStudygermany from '@/components/destinations/germany/WhyStudyGermany';
+import WhyStudyGermany from '@/components/destinations/germany/WhyStudyGermany';
 import PopularCourses from '@/components/destinations/germany/PopularCourses';
 import TopUniversities from '@/components/destinations/germany/TopUniversities';
 import AdmissionRequirements from '@/components/destinations/germany/AdmissionRequirements';
@@ -13,13 +13,13 @@ import FAQ from '@/components/destinations/germany/FAQ';
 import CTASection from '@/components/destinations/germany/CTASection';
 import FixedBanner from '@/components/destinations/germany/FixedBanner';
 
-export default function germanyDestinationPage() {
+export default function GermanyDestinationPage() {
   return (
     <>
       <BaseNavigation variant="transparent" />
       <main>
         <GermanyHero />
-        <WhyStudygermany />
+        <WhyStudyGermany />
         <PopularCourses />
         <TopUniversities />
         <AdmissionRequirements />

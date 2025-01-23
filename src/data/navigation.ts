@@ -13,7 +13,8 @@ export const testPrep = [
   { 
     name: 'PTE', 
     path: '/test-prep/pte-prep',
-    logo: 'https://www.jnjeducation.edu.np/storage/media/test_preparation/1724510153.png'
+    //logo: 'https://www.jnjeducation.edu.np/storage/media/test_preparation/1724510153.png'
+    logo: 'images/test-prep logos/pte.png'
   },
   { 
     name: 'TOEFL', 
@@ -23,17 +24,23 @@ export const testPrep = [
   { 
     name: 'OET', 
     path: '/test-prep/oet-prep',
-    logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=100'
+    // logo: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=100'
+    logo: 'images/test-prep logos/oet.png'
+
   },
   { 
     name: 'CELPIP', 
     path: '/test-prep/celpip-prep',
-    logo: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=100'
+    // logo: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=100'
+    logo: 'images/test-prep logos/celpip.png'
+
   },
   { 
     name: 'Duolingo English Test (DET)', 
     path: '/test-prep/det-prep',
-    logo: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=100'
+    // logo: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=100'
+    logo: 'images/test-prep logos/det.png'
+
   },
 ];
 

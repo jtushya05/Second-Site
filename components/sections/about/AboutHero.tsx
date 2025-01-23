@@ -20,7 +20,7 @@ export default function AboutHero() {
               Empowering Dreams of Global Education
             </h1>
             <p className="text-lg text-white/90 md:text-xl">
-              Since 2010, EA Global has been helping students achieve their dreams of studying abroad through expert guidance and personalized support.
+              Since 2004, EA Global has been helping students achieve their dreams of studying abroad through expert guidance and personalized support.
             </p>
           </div>
         </Container>

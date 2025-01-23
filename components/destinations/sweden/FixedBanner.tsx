@@ -22,7 +22,7 @@ export default function FixedBanner() {
                 Start Your Swedish Education Journey Today!
               </p>
               <p className="text-white/90">
-                Book your free counselling session worth SEK 2,000 and get expert guidance!
+                Book your free counselling session worth ₹2,000 and get expert guidance!
               </p>
             </div>
           </div>

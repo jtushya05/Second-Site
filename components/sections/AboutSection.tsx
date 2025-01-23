@@ -23,7 +23,7 @@ export default function AboutSection() {
               Your Trusted Partner in Global Education
             </h2>
             <p className="mb-4 text-lg text-gray-600">
-              Since 2010, EA Global has been at the forefront of international education consulting, 
+              Since 2004, EA Global has been at the forefront of international education consulting, 
               helping thousands of students achieve their dreams of studying abroad.
             </p>
             <p className="mb-8 text-lg text-gray-600">

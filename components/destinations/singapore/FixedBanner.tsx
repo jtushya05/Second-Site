@@ -12,24 +12,24 @@ export default function FixedBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 z-50 w-full bg-gradient-to-r from-red-500 to-white py-4 shadow-lg">
+    <div className="fixed bottom-0 left-0 z-50 w-full bg-gradient-to-r from-red-600 to-yellow-500 py-4 shadow-lg">
       <Container>
         <div className="relative flex flex-col items-center justify-between gap-4 text-white sm:flex-row">
           <div className="flex items-center gap-3">
             <Sparkles className="h-6 w-6 text-white" />
             <div>
               <p className="text-lg font-semibold">
-                Start Your Singapore Education Journey Today!
+                Start Your Singaporean Education Journey Today!
               </p>
               <p className="text-white/90">
-                Book your free counselling session worth $50 and get expert guidance!
+                Book your free counselling session worth ₹2,000 and get expert guidance!
               </p>
             </div>
           </div>
-          <Button 
+          <Button
             asChild
             size="lg"
-            className="whitespace-nowrap bg-white text-red-600 hover:bg-gray-200"
+            className="whitespace-nowrap bg-white text-red-700 hover:bg-yellow-500 hover:text-white"
           >
             <Link href="/get-started">Book Free Consultation</Link>
           </Button>

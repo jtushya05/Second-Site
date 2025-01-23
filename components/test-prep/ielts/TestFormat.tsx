@@ -38,6 +38,9 @@ export default function TestFormat() {
   return (
     <section className="mb-16">
       <h2 className="mb-8 text-3xl font-bold">IELTS Test Format</h2>
+      <p className="mb-8 text-base text-gray-700">
+        The IELTS test consists of four sections: Listening, Reading, Writing, and Speaking. Each section is designed to assess different language skills.
+      </p>
       <div className="grid gap-6 md:grid-cols-2">
         {sections.map((section) => {
           const Icon = section.icon;
