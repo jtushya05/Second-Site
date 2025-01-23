@@ -7,6 +7,7 @@ export const testimonialData: Testimonial[] = [
     name: 'Priya Sharma',
     designation: 'MSc Data Science, University of Toronto',
     profilePic: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200',
+    //profilePic: 'https://ui-avatars.com/api/?name=Priya+Sharma&size=200&background=random',
     rating: 5,
     text: 'EA Global made my dream of studying abroad a reality. Their guidance throughout the process was invaluable. From helping me choose the right university to assisting with my visa application, they were there every step of the way. I particularly appreciated their personalized approach and attention to detail.',
     googleLink: 'https://g.co/kgs/example1',
@@ -19,7 +20,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MBA, University of Melbourne',
     profilePic: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example2',
     tags: ['Study Abroad', 'Australia', 'MBA']
   },
@@ -31,7 +32,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200',
     rating: 5,
     text: 'The test preparation programs at EA Global are excellent. I achieved my target IELTS score in the first attempt thanks to their comprehensive training and mock tests. The instructors are highly qualified and provide personalized attention to each student.',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example3',
     tags: ['IELTS', 'Germany', 'Masters', 'Computer Science']
   },
@@ -53,7 +54,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MA English Literature, University of Edinburgh',
     profilePic: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example5',
     tags: ['Study Abroad', 'UK', 'Masters', 'English Literature']
   },
@@ -65,7 +66,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=200',
     rating: 5,
     text: 'I had an exceptional experience with EA Global. Their advice on selecting universities was spot on, and their help with my statement of purpose was invaluable. I also benefitted from their GRE preparation program. Highly recommended!',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example6',
     tags: ['GRE', 'Switzerland', 'Masters', 'Engineering']
   },
@@ -87,7 +88,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MS Artificial Intelligence, Carnegie Mellon University',
     profilePic: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example8',
     tags: ['Study Abroad', 'USA', 'Masters', 'AI']
   },
@@ -99,7 +100,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200',
     rating: 5,
     text: 'The team at EA Global was instrumental in helping me secure admission to INSEAD. Their expertise in crafting an impactful application and preparing me for interviews was unparalleled. I couldn’t have done it without their help.',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example9',
     tags: ['Study Abroad', 'France', 'MBA']
   },
@@ -121,7 +122,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MBA, Harvard Business School',
     profilePic: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example11',
     tags: ['Study Abroad', 'USA', 'MBA']
   },
@@ -133,7 +134,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=200',
     rating: 5,
     text: 'With EA Global’s exceptional guidance, I got into UC Berkeley for my dream course. Their personalized advice and mentorship were pivotal in making my application stand out. They also helped me prepare for interviews, ensuring I was confident and well-prepared.',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example12',
     tags: ['Cybersecurity', 'USA', 'Masters', 'Berkeley']
   },
@@ -142,7 +143,8 @@ export const testimonialData: Testimonial[] = [
     type: 'text',
     name: 'Lakshmi Subramanian',
     designation: 'BSc Psychology, University of Auckland',
-    profilePic: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=200',
+    profilePic: 'https://ui-avatars.com/api/?name=Lakshmi+Subramanian&size=200&background=random',
+    //profilePic: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=200',
     rating: 5,
     text: 'The EA Global team provided great insights into university options in New Zealand. They helped me finalize the right course for my interests and aspirations. The visa process, which seemed daunting at first, was made smooth with their help.',
     googleLink: 'https://g.co/kgs/example13',
@@ -155,7 +157,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'PhD Chemistry, Kyoto University',
     profilePic: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example14',
     tags: ['PhD', 'Japan', 'Chemistry', 'Research']
   },
@@ -167,7 +169,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=200',
     rating: 5,
     text: 'I found EA Global to be incredibly professional and supportive. Their help with my SOP and LORs was key to securing admission at the University of Copenhagen. Their mock interview sessions were also extremely beneficial.',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example15',
     tags: ['Study Abroad', 'Denmark', 'Masters', 'Environmental Science']
   },
@@ -190,7 +192,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MBA, London Business School',
     profilePic: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example17',
     tags: ['Study Abroad', 'UK', 'MBA']
   },
@@ -202,7 +204,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200',
     rating: 5,
     text: 'EA Global’s assistance during my PhD application process was phenomenal. Their suggestions for refining my research proposal and CV helped me get into the University of Oxford. I couldn’t be happier with their guidance.',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example18',
     tags: ['PhD', 'UK', 'Computer Vision', 'Oxford']
   },
@@ -224,7 +226,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MSc Civil Engineering, Delft University of Technology',
     profilePic: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example20',
     tags: ['Study Abroad', 'Netherlands', 'Masters', 'Civil Engineering']
   },
@@ -236,7 +238,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200',
     rating: 5,
     text: 'Getting into CMU for Robotics felt like a dream, and EA Global made it happen. Their mentorship on applications, essays, and GRE preparation was beyond my expectations. Truly grateful for their support!',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example21',
     tags: ['Robotics', 'USA', 'Masters', 'CMU']
   },
@@ -258,7 +260,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MBA, IE Business School',
     profilePic: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example23',
     tags: ['Study Abroad', 'Spain', 'MBA']
   },
@@ -270,7 +272,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200',
     rating: 5,
     text: 'I couldn’t have made it to HEC Paris without EA Global’s guidance. Their focus on detail and extensive resources for GMAT preparation and essays were instrumental. I highly recommend their services!',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example24',
     tags: ['GMAT', 'France', 'Masters', 'Finance']
   },
@@ -303,7 +305,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MS Artificial Intelligence, University of Amsterdam',
     profilePic: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example27',
     tags: ['Study Abroad', 'Netherlands', 'Masters', 'Artificial Intelligence']
   },
@@ -315,7 +317,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=200',
     rating: 5,
     text: 'Thanks to EA Global, my research proposal and application stood out, helping me secure admission to ETH Zurich. Their meticulous approach to PhD applications is truly commendable.',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example28',
     tags: ['PhD', 'Switzerland', 'Molecular Biology', 'ETH Zurich']
   },
@@ -337,7 +339,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MA International Relations, King’s College London',
     profilePic: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example30',
     tags: ['Study Abroad', 'UK', 'Masters', 'International Relations']
   },
@@ -349,7 +351,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=200',
     rating: 5,
     text: 'EA Global’s expertise in engineering applications helped me achieve admission to Stanford University. Their personalized approach to crafting my SOP and application was outstanding.',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example31',
     tags: ['Study Abroad', 'USA', 'Masters', 'Aerospace Engineering']
   },
@@ -371,7 +373,7 @@ export const testimonialData: Testimonial[] = [
     designation: 'MS Data Science, University of Edinburgh',
     profilePic: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200',
     rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example33',
     tags: ['Study Abroad', 'UK', 'Masters', 'Data Science']
   },
@@ -383,7 +385,7 @@ export const testimonialData: Testimonial[] = [
     profilePic: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200',
     rating: 5,
     text: 'Applying to Sydney for my LLM was a smooth experience thanks to EA Global. Their feedback on my personal statement and advice on scholarships were invaluable.',
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    //videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     googleLink: 'https://g.co/kgs/example34',
     tags: ['Study Abroad', 'Australia', 'LLM', 'Law']
   },

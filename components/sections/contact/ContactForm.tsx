@@ -18,14 +18,31 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Message sent! We\'ll get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    });
+
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      'entry.166295812': 'ContactForm',
+      'entry.1169845566': formData.get('name') as string,
+      'entry.2096364701': formData.get('email') as string,
+      'entry.26593180': formData.get('subject') as string,
+      'entry.1109080701': formData.get('phone') as string,
+      'entry.1104932019': formData.get('message') as string,
+    };
+
+    try {
+      await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSebEdPI6LiZbZTcT2zLz-k00OfsswIAEN6BN5JruDu5MyAXOA/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(data)
+      });
+
+      toast.success(`Message sent, ${formData.get('name')}! We'll get back to you soon.`);
+    } catch (error) {
+      toast.error('Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -40,12 +57,14 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid gap-4 sm:grid-cols-2">
             <Input
+              name="name"
               placeholder="Your Name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
             />
             <Input
+              name="email"
               type="email"
               placeholder="Email Address"
               value={formData.email}
@@ -55,6 +74,7 @@ export default function ContactForm() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <Input
+              name="phone"
               type="tel"
               placeholder="Phone Number"
               value={formData.phone}
@@ -62,6 +82,7 @@ export default function ContactForm() {
               required
             />
             <Input
+              name="subject"
               placeholder="Subject"
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -69,6 +90,7 @@ export default function ContactForm() {
             />
           </div>
           <Textarea
+            name="message"
             placeholder="Your Message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
