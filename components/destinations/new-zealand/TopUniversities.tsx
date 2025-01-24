@@ -9,43 +9,43 @@ const universities = [
     name: 'University of Auckland',
     location: 'Auckland',
     ranking: '#1 in New Zealand',
-    specialties: 'Research, Engineering, Business',
-    image: 'https://images.unsplash.com/photo-1598814372785-b5b16abe9e23?q=80&w=1200'
+    specialties: 'Comprehensive research, diverse programs, urban campus',
+    image: 'https://storage-prtl-co.imgix.net/endor/organisations/9951/images/1557871732_campus-life-2.jpg'
   },
   {
     name: 'University of Otago',
     location: 'Dunedin',
     ranking: '#2 in New Zealand',
-    specialties: 'Medicine, Sciences, Law',
-    image: 'https://images.unsplash.com/photo-1506377585622-bedcbb027afc?q=80&w=1200'
+    specialties: 'Health sciences, vibrant student life, historic campus',
+    image: 'https://connect-assets.prosple.com/cdn/ff/_Idsr__jCZRbR0Bcf2lNd6zAU5pPRAB8sF_Kj7yHUJk/1602467646/public/2020-10/Otago-University__banner.jpg'
   },
   {
     name: 'Victoria University of Wellington',
     location: 'Wellington',
     ranking: '#3 in New Zealand',
-    specialties: 'Politics, Arts, Business',
-    image: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd?q=80&w=1200'
+    specialties: 'Strong in humanities, law, and social sciences; proximity to government institutions',
+    image: 'https://www.wgtn.ac.nz/__data/assets/image/0012/1794792/varieties/ls_medium.jpg'
   },
   {
     name: 'University of Canterbury',
     location: 'Christchurch',
     ranking: '#4 in New Zealand',
-    specialties: 'Engineering, IT, Environmental Sciences',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200'
+    specialties: 'Engineering and technology, innovative research, extensive field stations',
+    image: 'https://t1.unipage.net/src/uni_62.jpeg'
   },
   {
     name: 'Massey University',
     location: 'Palmerston North',
     ranking: '#5 in New Zealand',
-    specialties: 'Agriculture, Veterinary, Aviation',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200'
+    specialties: 'Distance learning, agriculture, creative arts',
+    image: 'https://www.hotcoursesabroad.com/commimg/myhotcourses/institution/CH/myhc_270578.jpg'
   },
   {
     name: 'Lincoln University',
     location: 'Lincoln',
     ranking: '#6 in New Zealand',
-    specialties: 'Agriculture, Environment, Commerce',
-    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d?q=80&w=1200'
+    specialties: 'Specialist land-based university, focus on agriculture and environment',
+    image: 'https://d31cuupyjbe4e1.cloudfront.net/ADMIN/University%20of%20Lincoln%20Cover-5c1761be-d8ad-43af-864b-f8f98cd682a3.jpg'
   }
 ];
 
@@ -54,9 +54,9 @@ export default function TopUniversities() {
     <section className="bg-green-50 py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-green-800">Top Universities</h2>
+          <h2 className="mb-4 text-3xl font-bold text-green-800">Top Universities in New Zealand</h2>
           <p className="mx-auto max-w-2xl text-lg text-green-600">
-            Explore New Zealand's most prestigious educational institutions
+            Explore New Zealand's most prestigious educational institutions.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -84,6 +84,11 @@ export default function TopUniversities() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-green-800">
+            And many more prestigious universities across New Zealand...
+          </p>
         </div>
       </Container>
     </section>

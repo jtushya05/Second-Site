@@ -15,7 +15,7 @@ const courses = [
       'MSc Cybersecurity',
       'MSc Artificial Intelligence',
     ],
-    image: 'https://example.com/singapore-technology.jpg', // Replace with a technology image
+    image: 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200'
   },
   {
     icon: ChartBar,
@@ -26,7 +26,7 @@ const courses = [
       'Master of Marketing',
       'Master of Management',
     ],
-    image: 'https://example.com/singapore-business.jpg', // Replace with a business-related image
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200'
   },
   {
     icon: Building2,
@@ -37,7 +37,7 @@ const courses = [
       'Electrical Engineering',
       'Environmental Engineering',
     ],
-    image: 'https://example.com/singapore-engineering.jpg', // Replace with an engineering-related image
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200'
   },
   {
     icon: FlaskConical,
@@ -48,7 +48,7 @@ const courses = [
       'MSc Chemistry',
       'MSc Physics',
     ],
-    image: 'https://example.com/singapore-sciences.jpg', // Replace with a science-related image
+    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1200' // Replace with a science-related image
   },
   {
     icon: GraduationCap,
@@ -59,7 +59,7 @@ const courses = [
       'Sociology',
       'Literature',
     ],
-    image: 'https://example.com/singapore-arts.jpg', // Replace with a humanities-related image
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDkr3tOGhctVIHAaamWmWPLVc6IClCYCympA&s', // Replace with a humanities-related image
   },
 ];
 

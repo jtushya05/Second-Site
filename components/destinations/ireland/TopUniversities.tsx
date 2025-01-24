@@ -9,43 +9,44 @@ const universities = [
     name: 'Trinity College Dublin',
     location: 'Dublin',
     ranking: '#1 in Ireland',
-    specialties: 'Humanities, Sciences, Business',
-    image: 'https://images.unsplash.com/photo-1601412436966-02805a0fada8?q=80&w=1200',
-  },
+    specialties: 'Oldest university in Ireland, renowned for humanities and sciences',
+image: 'https://hea.ie/assets/uploads/2017/04/TCD-1000x500.jpg'
+},
   {
     name: 'University College Dublin',
     location: 'Dublin',
     ranking: '#2 in Ireland',
-    specialties: 'Medicine, Engineering, Business',
-    image: 'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?q=80&w=1200',
+    specialties: 'Largest university in Ireland, known for research and innovation',
+image: 'https://www.glionoverseas.co.in/images/1576232229.jpg'  
   },
   {
     name: 'University of Galway',
     location: 'Galway',
     ranking: '#3 in Ireland',
-    specialties: 'Arts, Medicine, Public Policy',
-    image: 'https://images.unsplash.com/photo-1532877590696-69a5b5eea1d1?q=80&w=1200',
+    specialties: 'Strong focus on research and community engagement',
+    image: 'https://www.universityofgalway.ie/about-us/widescreenheroimages/Aerial-view-of-the-quadrangle-(1).png',
   },
   {
     name: 'University College Cork',
     location: 'Cork',
     ranking: '#4 in Ireland',
-    specialties: 'Law, Sciences, Sustainability',
-    image: 'https://images.unsplash.com/photo-1601412436966-02805a0fada8?q=80&w=1200',
+    specialties: 'Leader in sustainability and environmental research',
+    image: 'https://www.atlanticbridge.com/wp-content/uploads/2013/10/ucc1.jpg',
+    //image: 'https://images.unsplash.com/photo-1601412436966-02805a0fada8?q=80&w=1200',
   },
   {
     name: 'Dublin City University',
     location: 'Dublin',
     ranking: '#5 in Ireland',
-    specialties: 'Engineering, Technology, Business',
-    image: 'https://images.unsplash.com/photo-1544717303-8245fa29244f?q=80&w=1200',
+    specialties: 'Focus on business, engineering, and technology',
+    image: 'https://www.studentworldonline.com/userfiles/images/2269_026D.jpg',
   },
   {
     name: 'Maynooth University',
     location: 'Maynooth',
     ranking: '#6 in Ireland',
-    specialties: 'Humanities, Technology, Social Sciences',
-    image: 'https://images.unsplash.com/photo-1519984175950-24a1675b8dc1?q=80&w=1200',
+    specialties: 'Known for humanities, social sciences, and growing research output',
+    image: 'https://www.maynoothuniversity.ie/sites/default/files/assets/images/photo_1.JPG',
   },
 ];
 
@@ -84,6 +85,11 @@ export default function TopUniversities() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-green-600">
+            And many more prestigious universities across Ireland...
+          </p>
         </div>
       </Container>
     </section>

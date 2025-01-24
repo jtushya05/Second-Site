@@ -6,46 +6,46 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const universities = [
   {
-    name: 'University of Oxford',
-    location: 'Oxford',
-    ranking: '#1 in UK',
-    specialties: 'Research, Arts & Sciences',
-    image: 'https://theoxfordmagazine.com/wp-content/uploads/visiting-oxford-univerity-01-1920x1080-1.jpg'
-  },
-  {
     name: 'University of Cambridge',
     location: 'Cambridge',
     ranking: '#2 in UK',
-    specialties: 'Sciences, Engineering',
-    image: 'https://www.universityliving.com/blog/wp-content/uploads/2023/07/Banner-Image-The-University-of-Cambridge.webp'
+    specialties: 'Historic architecture, Pioneering scientific research, Notable alumni',
+    image: '/images/UniPics/UK/Cambridge university.png'
   },
   {
-    name: 'Imperial College London',
+    name: 'Queen Mary University of London',
     location: 'London',
-    ranking: '#3 in UK',
-    specialties: 'Engineering, Medicine',
-    image: 'https://pxl-imperialacuk.terminalfour.net/prod01/channel_3/media/migration/about/0100_05--tojpeg_1416591033339_x2.jpeg'
+    ranking: '#12 in UK',
+    specialties: 'Diverse student body, Strong research output, Historic foundations',
+    image: '/images/UniPics/UK/queen mary university.jpg'
   },
   {
-    name: 'University College London',
+    name: 'University of Bristol',
+    location: 'Bristol',
+    ranking: '#16 in UK',
+    specialties: 'Vibrant student life, Leading research university, Historic city location',
+    image: '/images/UniPics/UK/bristol.png'
+  },
+  {
+    name: 'University of Birmingham',
+    location: 'Birmingham',
+    ranking: '#14 in UK',
+    specialties: 'Redbrick university, Cultural diversity, Strong industry connections',
+    image: '/images/UniPics/UK/birmingham.png'
+  },
+  {
+    name: 'University of Oxford',
+    location: 'Oxford',
+    ranking: '#1 in UK',
+    specialties: 'Oldest university in the English-speaking world, Collegiate system, Prestigious Rhodes Scholarship',
+    image: 'https://theoxfordmagazine.com/wp-content/uploads/visiting-oxford-univerity-01-1920x1080-1.jpg'
+  },
+  {
+    name: 'King\'s College London',
     location: 'London',
-    ranking: '#4 in UK',
-    specialties: 'Arts, Sciences, Engineering',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSuPnEniUPgSprKXD0HDM7lJsrFMLtRonI8A&s'
-  },
-  {
-    name: 'London School of Economics',
-    location: 'London',
-    ranking: '#5 in UK',
-    specialties: 'Economics, Social Sciences',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6wcjTOPsGXjLEYOhiT2ZNwQErUQvgLOnaw&s'
-  },
-  {
-    name: 'University of Manchester',
-    location: 'Manchester',
-    ranking: '#6 in UK',
-    specialties: 'Engineering, Business',
-    image: 'https://images.shiksha.com/mediadata/images/1533553333phpfZ3OBo.jpeg'
+    ranking: '#24 in UK',
+    specialties: 'Central London location, Strong health sciences programs, Historic campus',
+    image: '/images/UniPics/UK/Kings University.png'
   }
 ];
 
@@ -54,7 +54,7 @@ export default function TopUniversities() {
     <section className="bg-gray-50 py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Top Universities</h2>
+          <h2 className="mb-4 text-3xl font-bold">Top University Choices</h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
             Explore some of the UK's most prestigious educational institutions
           </p>
@@ -80,6 +80,11 @@ export default function TopUniversities() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-gray-800">
+            And many more prestigious universities across the UK...
+          </p>
         </div>
       </Container>
     </section>

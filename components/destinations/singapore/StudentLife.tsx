@@ -10,7 +10,7 @@ const aspects = [
     icon: Home,
     title: 'Accommodation',
     description: 'Choose between on-campus residences or modern off-campus housing options.',
-    image: 'https://example.com/singapore-accommodation.jpg', // Replace with an image of Singapore's housing or hostels
+    image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=1200',
   },
   {
     icon: Utensils,
@@ -22,13 +22,13 @@ const aspects = [
     icon: Bus,
     title: 'Transportation',
     description: 'Efficient public transport system connects every corner of Singapore.',
-    image: 'https://example.com/singapore-transport.jpg', // Replace with an image of MRT or buses
+    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200',
   },
   {
     icon: Users,
     title: 'Campus Life',
     description: 'Join dynamic student communities and exciting campus events.',
-    image: 'https://example.com/singapore-campus-life.jpg', // Replace with student activity image
+    image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1200',
   },
 ];
 

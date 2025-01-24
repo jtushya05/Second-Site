@@ -15,7 +15,7 @@ const courses = [
       'MSc Cybersecurity',
       'MSc Software Engineering',
     ],
-    image: 'https://images.unsplash.com/photo-1555435023-d82913b6ccef?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200',
   },
   {
     icon: ChartBar,
@@ -26,7 +26,7 @@ const courses = [
       'Master in Marketing',
       'Master in Management',
     ],
-    image: 'https://images.unsplash.com/photo-1581092580493-90abf7e36f9d?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200'
   },
   {
     icon: Building2,
@@ -37,7 +37,7 @@ const courses = [
       'Aerospace Engineering',
       'Environmental Engineering',
     ],
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200',
+    image: 'https://timesproweb-static-backend-prod.s3.ap-south-1.amazonaws.com/Production_Engineer_Working_in_a_Manufacturing_Unit_52a53cf34d.webp'
   },
 ];
 

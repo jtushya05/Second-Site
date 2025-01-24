@@ -80,6 +80,12 @@ export default function TopUniversities() {
             </Card>
           ))}
         </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-gray-800">
+            And many more prestigious universities across Australia...
+          </p>
+        </div>
+
       </Container>
     </section>
   );

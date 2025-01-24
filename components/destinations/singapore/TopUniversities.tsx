@@ -7,25 +7,25 @@ import { Card, CardContent } from '@/components/ui/card';
 const universities = [
   {
     name: 'National University of Singapore (NUS)',
-    location: 'Kent Ridge',
+    location: 'Kent Ridge, Singapore',
     ranking: '#1 in Singapore',
-    specialties: 'Engineering, Business, Medicine',
-    image: 'https://example.com/nus.jpg', // Replace with an image of NUS campus
+    specialties: 'Comprehensive research, consistently ranked among Asia’s top universities',
+    image: 'https://amgenscholars.com/wp-content/uploads/2018/09/photo-nus.jpg', // Replace with an image of NUS campus
   },
   {
     name: 'Nanyang Technological University (NTU)',
-    location: 'Nanyang Avenue',
+    location: 'Nanyang Avenue, Singapore',
     ranking: '#2 in Singapore',
-    specialties: 'Technology, Sciences, Arts',
-    image: 'https://example.com/ntu.jpg', // Replace with an image of NTU campus
+    specialties: 'Strong focus on engineering and technology, known for its eco-friendly campus',
+    image: 'https://www.latrobe.edu.au/students/opportunities/exchange/partners/images/asia/Nanyang-Technological-University.jpg', // Replace with an image of NTU campus
   },
   {
     name: 'Singapore Management University (SMU)',
     location: 'Downtown Singapore',
     ranking: '#3 in Singapore',
-    specialties: 'Business, Law, Economics',
-    image: 'https://example.com/smu.jpg', // Replace with an image of SMU campus
-  },
+    specialties: 'Specializes in business and management studies, located in the heart of the city',
+image: 'https://sp-ao.shortpixel.ai/client/to_webp%2Cq_glossy%2Cret_img%2Cw_800%2Ch_532/https%3A//uniconexed.org/wp-content/uploads/2022/02/Singapore-Managment-Universirt-1024x681.jpeg'
+},
 ];
 
 export default function TopUniversities() {
@@ -63,6 +63,11 @@ export default function TopUniversities() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-red-800">
+            And many more prestigious universities across Singapore...
+          </p>
         </div>
       </Container>
     </section>

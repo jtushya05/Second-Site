@@ -15,7 +15,7 @@ const courses = [
       'MSc Software Engineering',
       'MSc Cybersecurity',
     ],
-    image: 'https://images.unsplash.com/photo-1559027615-24d8d3f6b4e7?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200'
   },
   {
     icon: ChartBar,
@@ -26,7 +26,7 @@ const courses = [
       'Master of Finance',
       'Master of Leadership',
     ],
-    image: 'https://images.unsplash.com/photo-1573164574392-22463025c070?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200'
   },
   {
     icon: Building2,
@@ -37,7 +37,7 @@ const courses = [
       'Environmental Engineering',
       'Robotics Engineering',
     ],
-    image: 'https://images.unsplash.com/photo-1521804902910-3cb3bdb7b94e?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200'
   },
 ];
 

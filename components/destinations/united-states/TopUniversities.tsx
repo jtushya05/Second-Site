@@ -3,7 +3,51 @@
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent } from '@/components/ui/card';
-import { usUniversities } from '@/lib/data/universities';
+
+const usUniversities = [
+  {
+    name: 'Princeton University',
+    location: 'Princeton, NJ',
+    ranking: '#1 in USA',
+    specialties: 'Physics, Economics, International Affairs',
+    image: '/images/UniPics/USA/princeton.png'
+  },
+  {
+    name: 'Stanford University',
+    location: 'Stanford, CA',
+    ranking: '#2 in USA',
+    specialties: 'Technology, Entrepreneurship, Engineering',
+    image: '/images/UniPics/USA/stanford.jpg'
+  },
+  {
+    name: 'Massachusetts Institute of Technology',
+    location: 'Cambridge, MA',
+    ranking: '#3 in USA',
+    specialties: 'Engineering, Computer Science, Physical Sciences',
+    image: '/images/UniPics/USA/mit.jpg'
+  },
+  {
+    name: 'Harvard University',
+    location: 'Cambridge, MA',
+    ranking: '#4 in USA',
+    specialties: 'Law, Business, Medicine',
+    image: '/images/UniPics/USA/harvard.jpeg'
+  },
+  {
+    name: 'California Institute of Technology',
+    location: 'Pasadena, CA',
+    ranking: '#5 in USA',
+    specialties: 'Science, Engineering, Research',
+    image: '/images/UniPics/USA/caltech.jpg'
+  },
+  {
+    name: 'Yale University',
+    location: 'New Haven, CT',
+    ranking: '#6 in USA',
+    specialties: 'Law, Arts, Humanities',
+    image: '/images/UniPics/USA/yale.jpg'
+  },
+];
 
 export default function TopUniversities() {
   return (
@@ -30,12 +74,17 @@ export default function TopUniversities() {
                 <h3 className="mb-2 text-xl font-semibold">{university.name}</h3>
                 <p className="mb-4 text-sm text-gray-600">{university.location}</p>
                 <div className="space-y-2">
-                  <p><span className="font-medium">QS Ranking:</span> {university.ranking}</p>
+                  <p><span className="font-medium">Ranking:</span> {university.ranking}</p>
                   <p><span className="font-medium">Known for:</span> {university.specialties}</p>
                 </div>
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-gray-800">
+            And many more prestigious universities across the USA...
+          </p>
         </div>
       </Container>
     </section>

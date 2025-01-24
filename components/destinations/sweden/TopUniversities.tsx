@@ -6,39 +6,39 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const universities = [
   {
-    name: 'Lund University',
-    location: 'Lund',
+    name: 'Karolinska Institute',
+    location: 'Stockholm',
     ranking: '#1 in Sweden',
-    specialties: 'Engineering, Business, Medicine',
-    image: 'https://images.unsplash.com/photo-1598814372785-b5b16abe9e23?q=80&w=1200',
+    specialties: 'Medicine, Medical Research',
+    image: '/images/UniPics/Sweden/Karolinska Institute.png',
   },
   {
     name: 'KTH Royal Institute of Technology',
     location: 'Stockholm',
     ranking: '#2 in Sweden',
-    specialties: 'Engineering, Technology, Sciences',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200',
+    specialties: 'Engineering, Technology, Innovation',
+    image: 'https://studyinsweden.se/transformations/2013/10/KTH-Borgg%C3%A5rden_Jann-Lipka-870x579-1.jpg-1920x.jpg',
+  },
+  {
+    name: 'Lund University',
+    location: 'Lund',
+    ranking: '#3 in Sweden',
+    specialties: 'Comprehensive Research, International Collaboration',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Universitetshuset_i_lund.jpg/1024px-Universitetshuset_i_lund.jpg',
   },
   {
     name: 'Uppsala University',
     location: 'Uppsala',
-    ranking: '#3 in Sweden',
-    specialties: 'Medicine, Humanities, Sciences',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200',
-  },
-  {
-    name: 'Chalmers University of Technology',
-    location: 'Gothenburg',
     ranking: '#4 in Sweden',
-    specialties: 'Engineering, Architecture, IT',
-    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d?q=80&w=1200',
+    specialties: 'Historical Significance, Broad Academic Programs',
+    image: '/images/UniPics/Sweden/Uppsala University.png',
   },
   {
     name: 'Stockholm University',
     location: 'Stockholm',
     ranking: '#5 in Sweden',
-    specialties: 'Social Sciences, Arts, Environmental Studies',
-    image: 'https://images.unsplash.com/photo-1521804902910-3cb3bdb7b94e?q=80&w=1200',
+    specialties: 'Natural Sciences, Humanities, Environmental Research',
+    image: '/images/UniPics/Sweden/Stockholm University.png',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function TopUniversities() {
     <section className="bg-yellow-50 py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-blue-800">Top Universities</h2>
+          <h2 className="mb-4 text-3xl font-bold text-blue-800">Top Universities in Sweden</h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-700">
             Explore Sweden’s most prestigious educational institutions.
           </p>
@@ -71,13 +71,17 @@ export default function TopUniversities() {
                     <span className="font-medium text-blue-800">Ranking:</span> {university.ranking}
                   </p>
                   <p>
-                    <span className="font-medium text-blue-800">Known for:</span>{' '}
-                    {university.specialties}
+                    <span className="font-medium text-blue-800">Known for:</span> {university.specialties}
                   </p>
                 </div>
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-blue-900">
+            And many more prestigious universities across Sweden...
+          </p>
         </div>
       </Container>
     </section>

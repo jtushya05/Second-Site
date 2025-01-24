@@ -9,43 +9,43 @@ const universities = [
     name: 'University of Toronto',
     location: 'Toronto, Ontario',
     ranking: '#1 in Canada',
-    specialties: 'Research, Medicine, Engineering',
-    image: 'https://images.unsplash.com/photo-1569346332452-8d8a7c90673f?q=80&w=1200'
+    specialties: 'Historic architecture, Pioneering research, Diverse academic programs',
+    image: '/images/UniPics/Canada/uniToronto.png'
   },
   {
     name: 'University of British Columbia',
     location: 'Vancouver, BC',
     ranking: '#2 in Canada',
-    specialties: 'Life Sciences, Technology',
-    image: 'https://images.unsplash.com/photo-1604872441539-ef1db9b25f92?q=80&w=1200'
+    specialties: 'Scenic campus, Strong sustainability initiatives, Innovative research',
+    image: '/images/UniPics/Canada/uniUBC.jpg'
   },
   {
     name: 'McGill University',
     location: 'Montreal, Quebec',
     ranking: '#3 in Canada',
-    specialties: 'Medicine, Engineering',
-    image: 'https://images.unsplash.com/photo-1580243117731-151c1a3e8223?q=80&w=1200'
+    specialties: 'Bilingual environment, Prestigious medical school, Historic campus',
+    image: '/images/UniPics/Canada/mcGill.png'
   },
   {
     name: 'University of Waterloo',
     location: 'Waterloo, Ontario',
     ranking: '#4 in Canada',
-    specialties: 'Computer Science, Engineering',
-    image: 'https://images.unsplash.com/photo-1612404730960-5c71577fca11?q=80&w=1200'
+    specialties: 'Co-op education programs, Innovation and entrepreneurship, Strong engineering and computer science faculties',
+    image: '/images/UniPics/Canada/waterloo.jpeg'
   },
   {
     name: 'University of Alberta',
     location: 'Edmonton, Alberta',
     ranking: '#5 in Canada',
-    specialties: 'Engineering, Business',
-    image: 'https://images.unsplash.com/photo-1580243117731-151c1a3e8223?q=80&w=1200'
+    specialties: 'Extensive research facilities, Strong energy and environmental programs, Vibrant campus life',
+    image: '/images/UniPics/Canada/uniAlberta.jpeg'
   },
   {
     name: 'University of Calgary',
     location: 'Calgary, Alberta',
     ranking: '#6 in Canada',
-    specialties: 'Energy, Environmental Science',
-    image: 'https://images.unsplash.com/photo-1599825645947-6400c7d0574b?q=80&w=1200'
+    specialties: 'Innovative research, Strong business and engineering programs, Proximity to natural landscapes',
+    image: '/images/UniPics/Canada/uniCalgary.jpg'
   }
 ];
 
@@ -54,7 +54,7 @@ export default function TopUniversities() {
     <section className="bg-gray-50 py-24">
       <Container>
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Top Universities</h2>
+          <h2 className="mb-4 text-3xl font-bold">Top University Choices</h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
             Explore some of Canada's most prestigious educational institutions
           </p>
@@ -80,6 +80,11 @@ export default function TopUniversities() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-gray-800">
+            And many more prestigious universities across Canada...
+          </p>
         </div>
       </Container>
     </section>

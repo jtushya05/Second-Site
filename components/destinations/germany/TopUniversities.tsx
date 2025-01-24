@@ -9,43 +9,44 @@ const universities = [
     name: 'Technical University of Munich',
     location: 'Munich',
     ranking: '#1 in Germany',
-    specialties: 'Engineering, Technology',
-    image: 'https://images.unsplash.com/photo-1597581729358-7429e1b731bd?q=80&w=1200'
+    specialties: 'Engineering, Technology, Natural Sciences',
+    image : 'https://t1.unipage.net/src/uni_140.jpeg'
+    //image: '/images/UniPics/Germany/technical_university_of_munich.jpg'
   },
   {
-    name: 'Ludwig Maximilian University',
+    name: 'Ludwig Maximilian University of Munich',
     location: 'Munich',
     ranking: '#2 in Germany',
-    specialties: 'Research, Sciences',
-    image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=1200'
+    specialties: 'Humanities, Cultural Sciences, Natural Sciences',
+    image: 'https://cdn.leverageedu.com/blog/wp-content/uploads/2020/02/18155220/Ludwig-Maximilian-University-of-Munich-1.jpeg'
   },
   {
     name: 'Heidelberg University',
     location: 'Heidelberg',
     ranking: '#3 in Germany',
-    specialties: 'Medicine, Sciences',
-    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d?q=80&w=1200'
+    specialties: 'Medicine, Natural Sciences, Humanities',
+    image: 'https://4.bp.blogspot.com/-vtlVUdqEpjQ/Vxtkr4MgABI/AAAAAAAAAOk/JkU2KCes54krWql28qHFbsR1GrD83yweQCLcB/s1600/Heidelberg_Universit%25C3%25A4tsbibliothek_2003.jpg'
+  },
+  {
+    name: 'Humboldt University of Berlin',
+    location: 'Berlin',
+    ranking: '#4 in Germany',
+    specialties: 'Arts, Humanities, Natural Sciences',
+    image: 'https://img.fotocommunity.com/humboldt-universitaet-berlin-e48bf550-0cf8-4d79-8f05-9ce3b6054de1.jpg?height=1080'
   },
   {
     name: 'RWTH Aachen University',
     location: 'Aachen',
-    ranking: '#4 in Germany',
-    specialties: 'Engineering, Technology',
-    image: 'https://images.unsplash.com/photo-1576495199011-eb94736d05d6?q=80&w=1200'
-  },
-  {
-    name: 'Humboldt University',
-    location: 'Berlin',
     ranking: '#5 in Germany',
-    specialties: 'Arts, Humanities',
-    image: 'https://images.unsplash.com/photo-1560969184-10fe8719e047?q=80&w=1200'
+    specialties: 'Engineering, Technology, Natural Sciences',
+    image: 'https://i.pinimg.com/originals/36/98/c2/3698c220be879e6f1f0fc028e452fe99.jpg'
   },
   {
-    name: 'TU Berlin',
-    location: 'Berlin',
+    name: 'University of Freiburg',
+    location: 'Freiburg',
     ranking: '#6 in Germany',
-    specialties: 'Engineering, Technology',
-    image: 'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?q=80&w=1200'
+    specialties: 'Humanities, Social Sciences, Natural Sciences',
+    image: '/images/UniPics/Germany/university_of_freiburg.jpeg'
   }
 ];
 
@@ -80,6 +81,11 @@ export default function TopUniversities() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-lg font-bold text-gray-800">
+            And many more prestigious universities across Germany...
+          </p>
         </div>
       </Container>
     </section>

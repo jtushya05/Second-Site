@@ -4,11 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Container } from '@/components/ui/container';
 
 const destinations = [
-  {
-    name: 'United States',
-    image: 'https://images.unsplash.com/photo-1550850839-8dc894ed385a?q=80&w=1200',
-    description: 'World-class universities and diverse opportunities'
-  },
+  
   {
     name: 'United Kingdom',
     image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200',
@@ -23,6 +19,11 @@ const destinations = [
     name: 'Australia',
     image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=1200',
     description: 'Innovation in education and vibrant student life'
+  },
+  {
+    name: 'United States',
+    image: 'https://images.unsplash.com/photo-1550850839-8dc894ed385a?q=80&w=1200',
+    description: 'World-class universities and diverse opportunities'
   }
 ];
 
