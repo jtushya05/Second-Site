@@ -11,7 +11,7 @@ export default function FixedBanner() {
         <div className="flex items-center justify-between text-white">
           <p className="text-lg font-medium">Ready to start your IELTS preparation?</p>
           <Button asChild variant="secondary" size="lg">
-            <Link href="/get-started">Register Now</Link>
+            <Link href="/get-started?serviceName=IELTS Mocktest&fromPage=IELTS_FixedCounsellingBanner">Register Now</Link>
           </Button>
         </div>
       </Container>

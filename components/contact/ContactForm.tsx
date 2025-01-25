@@ -9,15 +9,19 @@ import { toast } from 'sonner';
 export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    
+    const  referrer = localStorage.getItem('ref') || '';
     const formData = new FormData(e.target as HTMLFormElement);
     const data = {
       'entry.166295812': 'ContactForm',
       'entry.1169845566': formData.get('name') as string,
       'entry.2096364701': formData.get('email') as string,
-      'entry.26593180': 'NotDefinedYet',
+      'entry.26593180': '',
       'entry.1109080701': formData.get('phone') as string,
       'entry.1104932019': formData.get('message') as string,
+      'entry.1943985329': referrer,
+
+
       // 'entry.1871500665_year': 'NotDefinedYet',
       // 'entry.1871500665_month': 'NotDefinedYet',
       // 'entry.1871500665_day': 'NotDefinedYet'

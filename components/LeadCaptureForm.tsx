@@ -20,7 +20,8 @@ export default function LeadCaptureForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+  
+  const referrer = localStorage.getItem('ref') || '';
     try {
       const data = {
         'entry.166295812': 'LeadCaptureForm',
@@ -28,10 +29,12 @@ export default function LeadCaptureForm() {
         'entry.2096364701': formData.email,
         'entry.26593180': formData.interest,
         'entry.1109080701': formData.phone,
+        'entry.1943985329': referrer,
         // 'entry.1104932019': 'NotDefinedYet',
         // 'entry.1871500665_year': 'NotDefinedYet',
         // 'entry.1871500665_month': 'NotDefinedYet',
         // 'entry.1871500665_day': 'NotDefinedYet'
+        
       };
 
       await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSebEdPI6LiZbZTcT2zLz-k00OfsswIAEN6BN5JruDu5MyAXOA/formResponse', {

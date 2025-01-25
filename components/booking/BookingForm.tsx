@@ -1,3 +1,4 @@
+//fix: add null checks for searchParams in BookingForm to prevent potential errors
 'use client';
 
 let reftype = '';
@@ -30,14 +31,14 @@ export default function BookingForm() {
     name: '',
     email: '',
     phone: '',
-    service: searchParams.get('serviceName') || '',
+    service: searchParams?.get('serviceName') || '',
     message: '',
-    referrer: searchParams.get('ref') || searchParams.get('referrer') || localStorage.getItem('ref') || '',
-    fromPage: searchParams.get('fromPage') || 'BookingForm',
+    referrer: searchParams?.get('ref') || searchParams?.get('referrer') || localStorage.getItem('ref') || '',
+    fromPage: searchParams?.get('fromPage') || 'BookingForm',
   });
 
   useEffect(() => {
-    const urlReferrer = searchParams.get('ref');
+    const urlReferrer = searchParams?.get('ref');
     const localStorageReferrer = localStorage.getItem('ref');
     let referrer = urlReferrer || localStorageReferrer || '';
 
@@ -60,9 +61,9 @@ export default function BookingForm() {
 
     setFormData((prevData) => ({
       ...prevData,
-      service: searchParams.get('serviceName') || prevData.service,
+      service: searchParams?.get('serviceName') || prevData.service,
       referrer: referrer,
-      fromPage: searchParams.get('fromPage') || prevData.fromPage,
+      fromPage: searchParams?.get('fromPage') || prevData.fromPage,
     }));
   }, [searchParams]);
 

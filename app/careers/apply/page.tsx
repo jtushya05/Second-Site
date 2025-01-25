@@ -44,12 +44,12 @@ export default function ApplyPage() {
     email: '',
     phone: '',
     portfolioLink: '',
-    referrer: searchParams.get('ref') || localStorage.getItem('ref') || '',
-    fromPage: searchParams.get('fromPage') || 'ApplyForm',
+    referrer: searchParams?.get('ref') || localStorage.getItem('ref') || '',
+    fromPage: searchParams?.get('fromPage') || 'ApplyForm',
   });
 
   useEffect(() => {
-    const urlReferrer = searchParams.get('ref');
+    const urlReferrer = searchParams?.get('ref');
     const localStorageReferrer = localStorage.getItem('ref');
     let referrer = urlReferrer || localStorageReferrer || '';
 
@@ -68,7 +68,7 @@ export default function ApplyPage() {
     setFormData((prevData) => ({
       ...prevData,
       referrer: referrer,
-      fromPage: searchParams.get('fromPage') || prevData.fromPage,
+      fromPage: searchParams?.get('fromPage') || prevData.fromPage,
     }));
   }, [searchParams]);
 
