@@ -31,8 +31,8 @@ export default function FixedBanner() {
             size="lg"
             className="whitespace-nowrap bg-yellow-500 text-blue-800 hover:bg-yellow-600"
           >
-            <Link href="/get-started">Book Free Consultation</Link>
-          </Button>
+            <Link href="/get-started?serviceName=Free Counselling&fromPage=Sweden_FixedCounsellingBanner">Book Free Consultation</Link>
+            </Button>
           <button
             onClick={() => setIsVisible(false)}
             className="absolute top-2 right-2 rounded-full bg-white/20 p-2 hover:bg-white/40 sm:static sm:ml-4 sm:mt-0"

@@ -30,7 +30,7 @@ export default function SwedenHero() {
                 size="lg"
                 className="bg-yellow-500 text-lg hover:bg-yellow-600"
               >
-                <Link href="/get-started">Get Free Counselling</Link>
+                <Link href="/get-started?serviceName=Study Abroad&fromPage=Sweden_Hero">Get Free Counselling</Link>
               </Button>
               <Button
                 asChild

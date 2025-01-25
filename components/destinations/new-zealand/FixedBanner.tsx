@@ -32,7 +32,7 @@ export default function FixedBanner() {
             size="lg"
             className="whitespace-nowrap bg-white text-green-600 hover:bg-gray-200"
           >
-            <Link href="/get-started">Book Free Consultation</Link>
+            <Link href="/get-started?serviceName=Free Counselling&fromPage=New-Zealand_FixedCounsellingBanner">Book Free Consultation</Link>
           </Button>
           {/* Dismiss button */}
           <button

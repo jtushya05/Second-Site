@@ -31,7 +31,7 @@ export default function AustraliaHero() {
                 size="lg" 
                 className="bg-yellow-500 text-lg hover:bg-yellow-600"
               >
-                <Link href="/get-started">Get Free Counselling</Link>
+                <Link href="/get-started?serviceName=Australian Education&fromPage=Australia_Hero">Get Free Counselling</Link>
               </Button>
               <Button 
                 asChild

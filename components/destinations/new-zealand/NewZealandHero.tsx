@@ -30,7 +30,7 @@ export default function NewZealandHero() {
                 size="lg" 
                 className="bg-green-600 text-lg hover:bg-green-700"
               >
-                <Link href="/get-started">Get Free Counselling</Link>
+                <Link href="/get-started?serviceName=Study Abroad&fromPage=New-Zealand_Hero">Get Free Counselling</Link>
               </Button>
               <Button 
                 asChild

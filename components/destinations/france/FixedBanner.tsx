@@ -31,7 +31,7 @@ export default function FixedBanner() {
             size="lg"
             className="whitespace-nowrap bg-white text-blue-800 hover:bg-gray-200"
           >
-            <Link href="/get-started">Book Free Consultation</Link>
+            <Link href="/get-started?serviceName=Free Counselling&fromPage=France_FixedCounsellingBanner">Book Free Consultation</Link>
           </Button>
           <button
             onClick={() => setIsVisible(false)}

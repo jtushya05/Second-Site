@@ -31,8 +31,8 @@ export default function CanadaHero() {
                 size="lg" 
                 className="bg-red-600 text-lg hover:bg-red-700"
               >
-                <Link href="/get-started">Get Free Counselling</Link>
-              </Button>
+                <Link href="/get-started?serviceName=Canadian Education&fromPage=Canada">Get Free Counselling</Link>
+                </Button>
               <Button 
                 asChild
                 size="lg" 

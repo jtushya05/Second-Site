@@ -30,7 +30,7 @@ export default function FranceHero() {
                 size="lg"
                 className="bg-blue-600 text-lg hover:bg-blue-700"
               >
-                <Link href="/get-started">Get Free Counselling</Link>
+                <Link href="/get-started?serviceName=Study Abroad&fromPage=France_Hero">Get Free Counselling</Link>
               </Button>
               <Button
                 asChild

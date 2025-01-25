@@ -21,7 +21,7 @@ export default function CTASection() {
             variant="secondary"
             className="px-8 text-yellow-600"
           >
-            <Link href="/get-started">Get Started</Link>
+            <Link href="/get-started?serviceName=Australian Education&fromPage=Australia_CTA">Get Started</Link>
           </Button>
         </div>
       </Container>

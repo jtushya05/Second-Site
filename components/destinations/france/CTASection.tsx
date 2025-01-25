@@ -16,7 +16,7 @@ export default function CTASection() {
             Discover top universities and programs in France. Book a free consultation today.
           </p>
           <Button asChild size="lg" variant="secondary" className="px-8 text-blue-700">
-            <Link href="/get-started">Get Started</Link>
+            <Link href="/get-started?serviceName=French Education&fromPage=France_CTA">Get Started</Link>
           </Button>
         </div>
       </Container>

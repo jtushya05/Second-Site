@@ -30,7 +30,7 @@ export default function SingaporeHero() {
                 size="lg" 
                 className="bg-red-600 text-lg hover:bg-red-700"
               >
-                <Link href="/get-started">Get Free Counselling</Link>
+                <Link href="/get-started?serviceName=Study Abroad&fromPage=Singapore_Hero">Get Free Counselling</Link>
               </Button>
               <Button 
                 asChild

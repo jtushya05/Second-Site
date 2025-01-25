@@ -21,7 +21,7 @@ export default function CTASection() {
             variant="secondary"
             className="px-8 bg-white text-green-600 hover:bg-orange-500 hover:text-white"
           >
-            <Link href="/get-started">Get Started</Link>
+            <Link href="/get-started?serviceName=Irish Education&fromPage=Ireland_CTA">Get Started</Link>
           </Button>
         </div>
       </Container>

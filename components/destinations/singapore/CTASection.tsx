@@ -21,7 +21,7 @@ export default function CTASection() {
             variant="secondary"
             className="px-8 bg-white text-red-600 hover:bg-gray-200 hover:text-red-700"
           >
-            <Link href="/get-started">Get Started</Link>
+            <Link href="/get-started?serviceName=Study Abroad&fromPage=Singapore_CTA">Get Started</Link>
           </Button>
         </div>
       </Container>
