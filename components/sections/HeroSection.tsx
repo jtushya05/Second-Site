@@ -30,7 +30,7 @@ export default function HeroSection() {
                 <CTAButton href="/destinations" className="w-full sm:w-auto">
                   Explore Programs
                 </CTAButton>
-                <CTAButton href="/get-started" variant="outline" className="w-full sm:w-auto">
+                <CTAButton href="/get-started?fromPage=Homepage_Hero" variant="outline" className="w-full sm:w-auto">
                   Book Consultation
                 </CTAButton>
               </div>

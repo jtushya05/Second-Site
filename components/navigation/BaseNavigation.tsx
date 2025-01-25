@@ -11,6 +11,7 @@ import { NavLink } from '@/components/navigation/NavLink';
 import { NavDropdown } from '@/components/navigation/NavDropdown';
 import { MobileMenu } from '@/components/navigation/MobileMenu';
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 export interface NavigationStyles {
   header?: string;
@@ -30,6 +31,7 @@ interface BaseNavigationProps {
 export default function BaseNavigation({ styles = {}, variant = 'default' }: BaseNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const scrolled = useScroll(50);
+  const currentPage = usePathname();
 
   const getHeaderStyles = () => {
     const baseStyles = "fixed top-0 z-50 w-full transition-all duration-300";
@@ -107,7 +109,7 @@ export default function BaseNavigation({ styles = {}, variant = 'default' }: Bas
             size="lg"
             className={getButtonStyles()}
           >
-            <Link href="/get-started">Get Started</Link>
+            <Link href={`/get-started?onPage=${currentPage}`}>Get Started</Link>
           </Button>
         </div>
 

@@ -10,10 +10,12 @@ import { useScroll } from '@/hooks/use-scroll';
 import { NavLink } from '@/components/navigation/NavLink';
 import { NavDropdown } from '@/components/navigation/NavDropdown';
 import { MobileMenu } from '@/components/navigation/MobileMenu';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const scrolled = useScroll(50);
+  const currentPage = usePathname();
 
   return (
     <header 
@@ -55,7 +57,7 @@ export default function Navigation() {
                 : "bg-white text-blue-600 hover:bg-white/90"
             }`}
           >
-            <Link href="/get-started">Get Started</Link>
+            <Link href={`/get-started?onPage=${currentPage}`}>Get Started</Link>
           </Button>
         </div>
 

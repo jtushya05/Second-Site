@@ -15,11 +15,13 @@ import {
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useScroll } from '@/hooks/use-scroll';
-import { navigationItems } from '@/src/data/navigation';//IChanged: @/ --> @/src/ 
+import { navigationItems } from '@/src/data/navigation';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const scrolled = useScroll(50);
+  const currentPage = usePathname();
 
   return (
     <header 
@@ -45,7 +47,7 @@ export default function Navigation() {
                           "h-10 px-4 py-2 text-base font-medium transition-colors hover:text-primary",
                           scrolled ? "text-gray-700 data-[state=open]:bg-accent" : "text-white data-[state=open]:bg-white/10",
                           "bg-transparent"
-                        )}
+                        )} 
                       >
                         {item.label}
                       </NavigationMenuTrigger>
@@ -71,7 +73,7 @@ export default function Navigation() {
                           "inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-base font-medium",
                           "transition-colors hover:text-primary",
                           scrolled ? "text-gray-700" : "text-white"
-                        )}
+                        )} 
                       >
                         {item.label}
                       </NavigationMenuLink>
@@ -91,7 +93,7 @@ export default function Navigation() {
                 : "bg-white text-blue-600 hover:bg-white/90"
             )}
           >
-            <Link href="/get-started">Get Started</Link>
+            <Link href={`/get-started?onPage=${currentPage}`}>Get Started</Link>
           </Button>
         </div>
 
@@ -145,7 +147,7 @@ export default function Navigation() {
               size="lg"
               className="mt-4 w-full bg-blue-600 text-base font-semibold hover:bg-blue-700"
             >
-              <Link href="/get-started">Get Started</Link>
+              <Link href={`/get-started?onPage=${currentPage}`}>Get Started</Link>
             </Button>
           </nav>
         </div>
