@@ -77,7 +77,7 @@ const RepublicDayCelebration = () => {
       >
         <button onClick={() => setShowCelebration(false)} className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl">✖</button>
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-bold text-orange-600 text-center">🇮🇳 Happy Republic Day! 🇮🇳</h2>
+          <h2 className="text-2xl font-bold text-orange-600 text-center">Happy Republic Day!</h2>
         </div>
         
         <h3 className="mt-4 text-xl font-bold text-green-600 text-center">✨ Free Mock Test Offer! ✨</h3>
