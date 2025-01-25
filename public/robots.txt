@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.studyoverseas.englisharenaglobal.com
+Host: https://www.studyabroad.englisharenaglobal.com
 
 # Sitemaps
-Sitemap: https://www.studyoverseas.englisharenaglobal.com/sitemap.xml
+Sitemap: https://www.studyabroad.englisharenaglobal.com/sitemap.xml

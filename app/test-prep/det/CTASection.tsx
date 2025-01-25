@@ -11,7 +11,7 @@ export default function CTASection() {
         Join our specialized DET preparation program and achieve your target score efficiently
       </p>
       <Button asChild size="lg" className="px-8">
-        <Link href="/get-started">Enroll Now</Link>
+        <Link href="/get-started?serviceName=DET Preparation&fromPage=DET_CTA">Enroll Now</Link>
       </Button>
     </section>
   );
