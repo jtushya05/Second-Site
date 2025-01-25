@@ -6,9 +6,10 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/sonner';
-import { Analytics } from '@/components/Analytics';
+//import { Analytics } from '@/components/Analytics';
 import { Container } from '@/components/ui/container';
 import { DefaultSeo } from 'next-seo';
+import UrlHandler from '@/components/UrlHandler';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -60,6 +61,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  console.log('RootLayout rendered');
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -88,7 +90,8 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </ThemeProvider>
-        <Analytics />
+        {/* <Analytics /> */}
+        <UrlHandler />
       </body>
     </html>
   );

@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+let reftype = '';
+
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -22,25 +24,66 @@ import { Calendar as CalendarIcon } from 'lucide-react';
 
 export default function BookingForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [date, setDate] = useState<Date>();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: '',
+    service: searchParams.get('serviceName') || '',
     message: '',
+    referrer: searchParams.get('ref') || searchParams.get('referrer') || localStorage.getItem('ref') || '',
+    fromPage: searchParams.get('fromPage') || 'BookingForm',
   });
+
+  useEffect(() => {
+    const urlReferrer = searchParams.get('ref');
+    const localStorageReferrer = localStorage.getItem('ref');
+    let referrer = urlReferrer || localStorageReferrer || '';
+
+    console.log('URL Referrer:', urlReferrer);
+    console.log('Local Storage Referrer:', localStorageReferrer);
+
+    if (urlReferrer && localStorageReferrer && urlReferrer !== localStorageReferrer) {
+      referrer = `${localStorageReferrer}_${urlReferrer}`;
+      localStorage.setItem('ref', referrer);
+      reftype = 'localStorage+URL';
+    } else if (urlReferrer && !localStorageReferrer) {
+      localStorage.setItem('ref', urlReferrer);
+      reftype = 'URL';
+    } else if (localStorageReferrer && !urlReferrer) {
+      reftype = 'localStorage';
+    }
+
+    console.log('Final Referrer:', referrer);
+    console.log('Ref Type:', reftype);
+
+    setFormData((prevData) => ({
+      ...prevData,
+      service: searchParams.get('serviceName') || prevData.service,
+      referrer: referrer,
+      fromPage: searchParams.get('fromPage') || prevData.fromPage,
+    }));
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const localStorageReferrer = localStorage.getItem('ref');
+    let referrer = formData.referrer || localStorageReferrer;
+    referrer = `${referrer}&reftype=${reftype}`;
+
+    console.log('Form Data:', formData);
+    console.log('Referrer for Submission:', referrer);
+
     const data = {
-      'entry.166295812': 'BookingForm',
+      'entry.166295812': formData.fromPage,
       'entry.1169845566': formData.name,
       'entry.2096364701': formData.email,
       'entry.26593180': formData.service,
       'entry.1109080701': formData.phone,
       'entry.1104932019': formData.message,
+      'entry.1943985329': referrer,
       'entry.1871500665_year': date ? date.getFullYear().toString() : '1',
       'entry.1871500665_month': date ? (date.getMonth() + 1).toString() : '1',
       'entry.1871500665_day': date ? date.getDate().toString() : '1'
@@ -55,6 +98,8 @@ export default function BookingForm() {
         },
         body: new URLSearchParams(data)
       });
+
+      console.log('Form Submission Data:', data);
 
       toast.success(`Consultation booked successfully, ${formData.name}! We'll contact you shortly.`);
       router.push('/thank-you');
@@ -112,7 +157,7 @@ export default function BookingForm() {
                 onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                 required
               />
-              {/*
+              {/* 
               <Select
                 value={formData.service}
                 onValueChange={(value) => setFormData({ ...formData, service: value })}

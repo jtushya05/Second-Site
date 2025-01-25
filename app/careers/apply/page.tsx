@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -28,6 +29,8 @@ const employmentTypes = [
 ];
 
 export default function ApplyPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState({
@@ -36,24 +39,64 @@ export default function ApplyPage() {
     email: '',
     portfolioLink: ''
   });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    portfolioLink: '',
+    referrer: searchParams.get('ref') || localStorage.getItem('ref') || '',
+    fromPage: searchParams.get('fromPage') || 'ApplyForm',
+  });
+
+  useEffect(() => {
+    const urlReferrer = searchParams.get('ref');
+    const localStorageReferrer = localStorage.getItem('ref');
+    let referrer = urlReferrer || localStorageReferrer || '';
+
+    console.log('URL Referrer:', urlReferrer);
+    console.log('Local Storage Referrer:', localStorageReferrer);
+
+    if (urlReferrer && localStorageReferrer && urlReferrer !== localStorageReferrer) {
+      referrer = `${localStorageReferrer}_${urlReferrer}`;
+      localStorage.setItem('ref', referrer);
+    } else if (urlReferrer && !localStorageReferrer) {
+      localStorage.setItem('ref', urlReferrer);
+    }
+
+    console.log('Final Referrer:', referrer);
+
+    setFormData((prevData) => ({
+      ...prevData,
+      referrer: referrer,
+      fromPage: searchParams.get('fromPage') || prevData.fromPage,
+    }));
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.target as HTMLFormElement);
+    const localStorageReferrer = localStorage.getItem('ref');
+    let referrer = formData.referrer || localStorageReferrer || '';
+    referrer = formData.referrer === localStorageReferrer ? `${formData.referrer}_localStorage+URL` : referrer;
+
+    console.log('Form Data:', formData);
+    console.log('Referrer for Submission:', referrer);
+
+    const formDataObj = new FormData(e.target as HTMLFormElement);
     const data = {
-      'entry.23303091': formData.get('portfolioLink')?.toString() || '',
-      'entry.297979220': formData.get('phone')?.toString() || '',
-      'entry.1078004677': formData.get('role')?.toString() || '',
-      'entry.1640447617': formData.get('email')?.toString() || '',
-      'entry.1781500597': `${formData.get('firstName')?.toString() || ''} ${formData.get('lastName')?.toString() || ''}`,
-      'entry.1972710835': formData.get('commitment')?.toString() || '',
-      'entry.2016206904': formData.get('employmentType')?.toString() || '',
-      'entry.2040870261': formData.get('coverLetter')?.toString() || '',
-      'entry.373300420': formData.get('whyJoin')?.toString() || '',
-      'entry.1496563821': formData.get('skills')?.toString() || '',
-      'entry.781201934': formData.get('additionalInfo')?.toString() || ''
+      'entry.23303091': formDataObj.get('portfolioLink')?.toString() || '',
+      'entry.297979220': formDataObj.get('phone')?.toString() || '',
+      'entry.1078004677': formDataObj.get('role')?.toString() || '',
+      'entry.1640447617': formDataObj.get('email')?.toString() || '',
+      'entry.1781500597': `${formDataObj.get('firstName')?.toString() || ''} ${formDataObj.get('lastName')?.toString() || ''}`,
+      'entry.1972710835': formDataObj.get('commitment')?.toString() || '',
+      'entry.2016206904': formDataObj.get('employmentType')?.toString() || '',
+      'entry.2040870261': formDataObj.get('coverLetter')?.toString() || '',
+      'entry.373300420': formDataObj.get('whyJoin')?.toString() || '',
+      'entry.1496563821': formDataObj.get('skills')?.toString() || '',
+      'entry.781201934': formDataObj.get('additionalInfo')?.toString() || '',
+      'entry.1295391301': referrer,
     };
 
     try {
@@ -65,6 +108,8 @@ export default function ApplyPage() {
         },
         body: new URLSearchParams(data).toString()
       });
+
+      console.log('Form Submission Data:', data);
 
       toast.success('Application submitted successfully!');
       (e.target as HTMLFormElement).reset();
