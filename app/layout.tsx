@@ -69,6 +69,7 @@ export default function RootLayout({
           name="description"
           content="EA Global is Chennai's best educational consultancy specializing in study abroad services and English proficiency test preparation."
         />
+        <meta property="og:logo" content="https://englisharenaglobal.com/wp-content/uploads/2024/02/Untitled-design-4.png" />
         {/* Favicon setup */}
         <link
           rel="icon"

@@ -10,6 +10,13 @@ import ContactSection from '@/components/ContactSection';
 import FloatingContactWidgets from '@/components/FloatingContactWidgets';
 import { NextSeo } from 'next-seo';
 
+//festival imports
+import RepublicDayCelebration from '@/components/festivities/RepublicDayCelebration';
+import HoliCelebration from '@/components/festivities/HoliCelebration';
+import DiwaliCelebration from '@/components/festivities/DiwaliCelebration';
+import IndependenceDayCelebration from '@/components/festivities/IndependenceDayCelebration';
+import ChristmasCelebration from '@/components/festivities/ChristmasCelebration';
+
 export default function Home() {
   return (
     <>
@@ -58,6 +65,14 @@ export default function Home() {
         </div>
       </main>
       <FloatingContactWidgets />
+      
+      {/* Festival popup components */}
+      <RepublicDayCelebration />
+      <HoliCelebration />
+      <DiwaliCelebration />
+      <IndependenceDayCelebration />
+      <ChristmasCelebration />
+      
     </>
   );
 }
