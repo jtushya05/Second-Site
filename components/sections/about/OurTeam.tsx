@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Linkedin } from 'lucide-react';
 
 const founder = {
-name: 'Darshana Jain', // Updated founder's name
+  name: 'Darshana Jain', // Updated founder's name
   role: 'Founder & CEO',
   image: 'images/founderImage.png',
   linkedin: 'https://www.linkedin.com/in/darshana-englisharena',
@@ -16,32 +16,33 @@ name: 'Darshana Jain', // Updated founder's name
 Our commitment goes beyond just admissions - we strive to be true mentors, guiding students through every step of their journey towards academic and professional success.`
 };
 
-const team = [
-  {
-    name: 'Priya Sharma',
-    role: 'Head of Counseling',
-    image: '/images/team members/team-pic2_2.png',
-    linkedin: '#'
-  },
-  {
-    name: 'Arun Patel',
-    role: 'Test Prep Director',
-    image: '/images/team members/team-img1.jpg',
-    linkedin: '#'
-  },
-  {
-    name: 'Sarah Johnson',
-    role: 'International Relations',
-    image: '/images/team members/team-pic1.jpg',
-    linkedin: '#'
-  },
-  {
-    name: 'Akshay Mehta',
-    role: 'Student Advisor',
-    image: '/images/team members/team-img2.jpeg',
-    linkedin: '#'
-  }
-];
+// Commenting out the team members
+// const team = [
+//   {
+//     name: 'Priya Sharma',
+//     role: 'Head of Counseling',
+//     image: '/images/team members/team-pic2_2.png',
+//     linkedin: '#'
+//   },
+//   {
+//     name: 'Arun Patel',
+//     role: 'Test Prep Director',
+//     image: '/images/team members/team-img1.jpg',
+//     linkedin: '#'
+//   },
+//   {
+//     name: 'Sarah Johnson',
+//     role: 'International Relations',
+//     image: '/images/team members/team-pic1.jpg',
+//     linkedin: '#'
+//   },
+//   {
+//     name: 'Akshay Mehta',
+//     role: 'Student Advisor',
+//     image: '/images/team members/team-img2.jpeg',
+//     linkedin: '#'
+//   }
+// ];
 
 export default function OurTeam() {
   return (
@@ -82,7 +83,7 @@ export default function OurTeam() {
         </div>
 
         {/* Team Section */}
-        <div>
+        {/* <div>
           <h2 className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl">
             Our Expert Team
           </h2>
@@ -111,7 +112,7 @@ export default function OurTeam() {
               </Card>
             ))}
           </div>
-        </div>
+        </div> */}
       </Container>
     </section>
   );
