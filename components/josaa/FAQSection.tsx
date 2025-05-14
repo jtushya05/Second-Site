@@ -26,10 +26,19 @@ const FAQItem: React.FC<{
       </button>
       <div 
         className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-96 pb-4' : 'max-h-0'
+          isOpen ? 'max-h-[1000px] pb-4' : 'max-h-0'
         }`}
       >
-        <p className="text-gray-600">{faq.answer}</p>
+        <div className="text-gray-600 whitespace-pre-line">
+          {faq.answer.split('•').map((item, index) => 
+            index === 0 ? item : (
+              <div key={index} className="flex space-x-2 ml-4">
+                <span>•</span>
+                <span>{item}</span>
+              </div>
+            )
+          )}
+        </div>
       </div>
     </div>
   );
@@ -47,7 +56,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: "What documents are required for JoSAA counselling?",
-      answer: "Required documents include JEE Main and Advanced admit cards, rank cards, Class 10 and 12 marksheets and certificates, category certificates (if applicable), PwD certificate (if applicable), passport-sized photographs, and a valid ID proof."
+      answer: "The following documents are required for JoSAA counselling:\n\nExam Documents:\n• JEE Main Admit Card and Rank Card\n• JEE Advanced Admit Card (if qualified)\n\nAcademic Documents:\n• Class 10 Marksheet and Certificate\n• Class 12 Marksheet and Certificate\n\nOther Requirements:\n• Recent passport-sized photographs\n• Valid government ID proof\n• Category/PwD certificates (if applicable)"
     },
     {
       question: "Can I change my choices after locking them?",
@@ -63,7 +72,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: "What are the benefits of professional JoSAA counselling?",
-      answer: "Professional counselling provides expert insights on choice filling strategy, information about colleges and branches, career prospects, and personalized guidance based on your rank and preferences, helping you make informed decisions."
+      answer: "Professional JoSAA counselling offers several key advantages:\n\nStrategic Benefits:\n• Expert guidance on choice filling strategy\n• Analysis of previous year cutoffs\n• Real-time support during counselling rounds\n\nInformation Access:\n• Detailed college and branch insights\n• Career prospects for different programs\n• Campus life and placement statistics\n\nPersonalized Support:\n• Rank-based college suggestions\n• Branch recommendations aligned with interests\n• 24/7 support during critical decision periods"
     },
     {
       question: "Is it possible to upgrade my seat in later rounds if I've already accepted a seat?",
@@ -71,7 +80,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: "What is the CSAB Special Round, and who is eligible to participate?",
-      answer: "The CSAB Special Round is an additional counselling process conducted by the Central Seat Allocation Board to allocate vacant seats in National Institutes of Technology (NITs), Indian Institutes of Information Technology (IIITs), and Government Funded Technical Institutes (GFTIs) after the completion of JoSAA counselling. Candidates who are eligible to participate include: those who did not participate in JoSAA counselling but have a valid JEE Main rank, those who participated in JoSAA counselling but were not allotted a seat, and those who were allotted a seat in JoSAA and opted to participate in the CSAB Special Round during reporting to the allotted institute."
+      answer: "The CSAB Special Round is an additional counselling process conducted by the Central Seat Allocation Board after JoSAA counselling completion. It allocates vacant seats in:\n\n• National Institutes of Technology (NITs)\n• Indian Institutes of Information Technology (IIITs)\n• Government Funded Technical Institutes (GFTIs)\n\nEligible candidates include:\n\n• Those with a valid JEE Main rank who didn't participate in JoSAA counselling\n• Those who participated in JoSAA but weren't allotted any seat\n• Those who were allotted a JoSAA seat and opted for CSAB Special Round during reporting"
     },
     {
       question: "Is it necessary to register separately for the CSAB Special Round if I have already registered with JoSAA?",
@@ -79,11 +88,11 @@ const FAQSection: React.FC = () => {
     },
     {
       question: "What documents are required for registration in the CSAB Special Round?",
-      answer: "Candidates must upload scanned copies of the following documents during the CSAB Special Round registration: Class 10 certificate, Class 12 marksheet, Category certificate (if applicable) for General-EWS, OBC-NCL, SC, or ST candidates, PwD certificate (if applicable), NRI candidates need to upload a scanned image of their passport, OCI/PIO candidates need to upload the OCI/PIO card, and Bank account details (account number, IFSC code, bank name) for refund purposes."
+      answer: "Candidates must upload scanned copies of the following documents during registration:\n\nBasic Documents:\n• Class 10 certificate\n• Class 12 marksheet\n• Valid ID proof\n\nCategory-specific Documents (if applicable):\n• Category certificate (General-EWS/OBC-NCL/SC/ST)\n• PwD certificate\n• NRI candidates: Passport scan\n• OCI/PIO candidates: OCI/PIO card\n\nOther Requirements:\n• Bank account details for refund (account number, IFSC code, bank name)"
     },
     {
       question: "What is the process for seat allotment in the CSAB Special Round?",
-      answer: "The seat allotment process in the CSAB Special Round involves the following steps: Registration - candidates must register online on the CSAB portal and pay the counselling enrolment fee; Choice Filling - after registration, candidates can fill in their preferred choices of institutes and courses; Seat Allotment - based on the filled choices and merit, seats are allotted to candidates; Acceptance - candidates must accept the allotted seat by choosing one of the following options: Freeze, Slide, or Float; Reporting - candidates must report to the allotted institute for document verification and fee payment."
+      answer: "The CSAB Special Round follows a structured process:\n\n1. Registration:\n• Register online on CSAB portal\n• Pay counselling enrolment fee\n\n2. Choice Filling:\n• Fill preferred institutes and courses\n• Carefully arrange preferences\n\n3. Seat Allotment:\n• Based on choices and merit rank\n• Results announced on portal\n\n4. Seat Acceptance:\n• Choose from options: Freeze, Slide, or Float\n• Pay seat acceptance fee\n\n5. Final Reporting:\n• Visit allotted institute\n• Complete document verification\n• Pay institute fees"
     }
   ];
 
