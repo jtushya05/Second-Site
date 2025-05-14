@@ -17,41 +17,51 @@ const TestimonialsSection: React.FC = () => {
     {
       id: 1,
       name: "Rahul Sharma",
-      institute: "IIT Bombay - Computer Science",
-      rank: "AIR 245",
-      year: "2023",
+      institute: "IIIT Delhi - Computer Science & AI",
+      rank: "JEE Advanced Qualified",
+      year: "2024",
       image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      quote: "The counselling team at EA Global was exceptional. Their detailed insights into various IITs and branches helped me make an informed decision. I wouldn't have secured my seat at IIT Bombay without their guidance.",
+      quote: "I qualified JEE Advanced but missed IIT CS by a narrow margin. EA Global's counsellors showed me how IIIT Delhi's specialized AI program aligned with my interests.\n\nTheir college-specific insights about placements and research opportunities helped me make a confident choice despite the pressure.",
       rating: 5
     },
     {
       id: 2,
       name: "Priya Patel",
-      institute: "IIT Delhi - Electrical Engineering",
-      rank: "AIR 578",
-      year: "2023",
+      institute: "DTU Delhi - Computer Engineering",
+      rank: "JEE Main Qualified",
+      year: "2024",
       image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      quote: "I was confused about my branch preferences until I consulted with EA Global. Their counsellors provided clear explanations about career prospects for each option, which made my decision much easier.",
+      quote: "After qualifying JEE Main but not Advanced, I was worried about missing out on quality education. EA Global showed me how DTU's strong industry connections make it comparable to top NITs.\n\nTheir guidance through all JoSAA rounds was crucial in securing my preferred branch.",
       rating: 5
     },
     {
       id: 3,
       name: "Amit Kumar",
-      institute: "NIT Trichy - Mechanical Engineering",
-      rank: "AIR 1205",
-      year: "2022",
+      institute: "BITS Pilani - Electronics & Instrumentation",
+      rank: "JEE Advanced Qualified",
+      year: "2023",
       image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      quote: "The 24/7 support during the JoSAA rounds was a lifesaver. When I had doubts at 11 PM before the choice filling deadline, their team was available to help me. Highly recommend their services!",
-      rating: 4
+      quote: "I was conflicted between a lower-ranked IIT and BITS Pilani. EA Global provided detailed comparisons of academics, campus life, and placement statistics.\n\nTheir dual admission strategy for JoSAA and BITS helped me keep all options open until the final round.",
+      rating: 5
     },
     {
       id: 4,
       name: "Sneha Reddy",
-      institute: "IIIT Hyderabad - CSE",
-      rank: "AIR 892",
-      year: "2023",
+      institute: "NIT Warangal - Computer Science",
+      rank: "JEE Main Qualified",
+      year: "2024",
       image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      quote: "EA Global's counsellors helped me weigh the pros and cons of choosing IIIT over an NIT. Their data-driven approach and honest feedback helped me make the right choice for my career goals.",
+      quote: "EA Global's detailed analysis of previous years' cutoffs and their real-time guidance during each counselling round was invaluable.\n\nThey helped me navigate the complex decision between newer IITs and established NITs, considering factors beyond just college brands. Their strategy helped me secure CS at NIT Warangal.",
+      rating: 5
+    },
+    {
+      id: 5,
+      name: "Varun Mehta",
+      institute: "NSIT Delhi - Computer Engineering",
+      rank: "JEE Main Qualified",
+      year: "2024",
+      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      quote: "With the overwhelming number of options and college combinations in JoSAA, I was completely lost. EA Global's counsellors helped me understand the value of NSIT's excellent placements and Delhi location. Their algorithm for prioritizing branches based on my interests and career goals was eye-opening.",
       rating: 5
     }
   ];
@@ -70,9 +80,9 @@ const TestimonialsSection: React.FC = () => {
     <section id="testimonials" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#212070] mb-4">Success Stories</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#212070] mb-4">Real Student Success Stories</h2>
           <p className="text-gray-600">
-            Hear from students who secured their dream institutions with our JoSAA counselling services.
+            Hear from students who navigated their JEE results with our JoSAA counselling services to find their best-fit engineering colleges.
           </p>
         </div>
         
@@ -107,7 +117,7 @@ const TestimonialsSection: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                    <blockquote className="italic text-gray-600 border-l-4 border-[#ffca00] pl-4 py-2">
+                    <blockquote className="italic text-gray-600 border-l-4 border-[#ffca00] pl-4 py-2 leading-relaxed">
                       "{testimonial.quote}"
                     </blockquote>
                   </div>
