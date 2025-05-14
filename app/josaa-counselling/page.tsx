@@ -40,7 +40,7 @@ export default function JoSAALandingPage() {  return (
             name: 'author',
             content: 'EA Global'
           },
-        ]}      /><main className="pt-0 pb-0 m-0 josaa-main">
+        ]}      /><main className="pt-0 pb-0 m-0 josaa-main josaa-main-override">
         <HeroSection />
         <AboutSection />
         <ServicesSection />

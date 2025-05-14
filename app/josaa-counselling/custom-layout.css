@@ -1,11 +1,15 @@
-/* Custom layout adjustments for JoSAA page */
+/* Custom layout adjustments for JoSAA page - Cross-browser compatible */
 body > main.josaa-main {
   padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
-/* Ensure no interference from the standard layout container */
-.josaa-main > * {
-  padding-top: 0;
+/* Cross-browser padding fix for hero section */
+.josaa-main section:first-child {
+  /* Standard spacing that works across browsers */
+  padding-top: 5rem !important; /* Safe padding that works on both Chrome and Edge */
+  margin-top: -1rem; /* Negative margin to adjust for browser inconsistencies */
 }
 
 /* Mobile-specific adjustments */
@@ -14,14 +18,9 @@ body > main.josaa-main {
     --navigation-height: 4rem; /* 64px navbar height for mobile */
   }
   
-  body > main.flex-1.josaa-main {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  
-  /* Direct targeting of the hero section to ensure minimal spacing */
+  /* Fix for mobile view */
   .josaa-main section:first-child {
-    padding-top: 1.5rem !important; /* 24px, greatly reduced from previous 4rem */
+    padding-top: 4rem !important; /* 64px - matches navbar height on mobile */
   }
 }
 

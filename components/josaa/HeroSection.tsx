@@ -24,7 +24,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center py-8 pt-6 md:pt-16 lg:pt-0">
+    <section className="relative min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center py-8 pt-12 md:pt-20 lg:pt-24">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-[#ffca00]/5"></div>
       <div className="absolute top-20 right-0 w-72 h-72 bg-[#ffca00]/10 rounded-full blur-3xl"></div>

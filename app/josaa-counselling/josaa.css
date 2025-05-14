@@ -14,10 +14,41 @@
   }
 }
 
-/* Mobile spacing fixes for JoSAA page */
+/* Cross-browser compatibility fixes for JoSAA page */
 .josaa-main {
   padding-top: 0 !important;
   margin-top: 0 !important;
+}
+
+/* Firefox specific */
+@-moz-document url-prefix() {
+  .josaa-main section:first-child {
+    padding-top: 5rem !important;
+  }
+}
+
+/* Edge and Safari specific via feature detection */
+@supports (-ms-ime-align:auto) or (-webkit-touch-callout:inherit) {
+  .josaa-main section:first-child {
+    padding-top: 5rem !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* Specific override for the JoSAA page to ensure consistent spacing across browsers */
+.josaa-main-override section:first-child {
+  /* These values are carefully chosen to work well across Chrome, Firefox, Edge and Safari */
+  padding-top: 5rem !important;
+  padding-bottom: 2rem !important;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile adjustments for the override */
+@media (max-width: 767px) {
+  .josaa-main-override section:first-child {
+    padding-top: 4rem !important;
+  }
 }
 
 /* Fix for empty space at top in mobile view */
