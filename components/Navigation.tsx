@@ -17,15 +17,13 @@ export default function Navigation() {
   const scrolled = useScroll(50);
   const currentPage = usePathname();
 
-  return (
-    <header 
+  return (    <header 
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled 
           ? "translate-y-0 bg-white/95 shadow-md backdrop-blur supports-[backdrop-filter]:bg-white/60" 
           : "bg-transparent"
-      }`}
-    >
-      <div className="container flex h-20 items-center justify-between">
+      } h-16 md:h-20`}
+    >      <div className="container flex h-16 md:h-20 items-center justify-between">
         <Logo scrolled={scrolled} />
         
         <div className="hidden md:flex md:items-center md:gap-6">

@@ -78,8 +78,7 @@ export default function BaseNavigation({ styles = {}, variant = 'default' }: Bas
   };
 
   return (
-    <header className={getHeaderStyles()}>
-      <div className={cn("container flex h-20 items-center justify-between", styles.container)}>
+    <header className={getHeaderStyles()}>      <div className={cn("container flex h-16 md:h-20 items-center justify-between", styles.container)}>
         <Logo className={getLogoStyles()} />
         
         <div className={cn("hidden md:flex md:items-center md:gap-6", styles.desktopNav)}>

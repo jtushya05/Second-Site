@@ -13,3 +13,28 @@
     transition: none;
   }
 }
+
+/* Mobile spacing fixes for JoSAA page */
+.josaa-main {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Fix for empty space at top in mobile view */
+@media (max-width: 768px) {
+  .josaa-main section:first-child {
+    padding-top: 4rem !important; /* 64px, reduced to account for smaller navbar in mobile */
+  }
+}
+
+/* Ensure proper sizing for the hero section */
+@media (max-width: 768px) {
+  .josaa-main {
+    margin-top: 0 !important;
+  }
+  
+  /* Avoid extra space at the top of the page */
+  header + main.josaa-main {
+    padding-top: 0 !important;
+  }
+}

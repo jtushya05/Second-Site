@@ -1,0 +1,32 @@
+/* Custom layout adjustments for JoSAA page */
+body > main.josaa-main {
+  padding-top: 0 !important;
+}
+
+/* Ensure no interference from the standard layout container */
+.josaa-main > * {
+  padding-top: 0;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+  body {
+    --navigation-height: 4rem; /* 64px navbar height for mobile */
+  }
+  
+  body > main.flex-1.josaa-main {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Direct targeting of the hero section to ensure minimal spacing */
+  .josaa-main section:first-child {
+    padding-top: 1.5rem !important; /* 24px, greatly reduced from previous 4rem */
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    --navigation-height: 5rem; /* 80px navbar height for desktop */
+  }
+}
