@@ -1,0 +1,15 @@
+/* JoSAA Counselling specific animations */
+.animate-item {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-item.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-item {
+    transition: none;
+  }
+}
