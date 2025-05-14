@@ -68,6 +68,22 @@ const FAQSection: React.FC = () => {
     {
       question: "Is it possible to upgrade my seat in later rounds if I've already accepted a seat?",
       answer: "Yes, if you've accepted a seat and completed the necessary reporting process, you can still be considered for upgrades in subsequent rounds based on your preferences and the availability of seats."
+    },
+    {
+      question: "What is the CSAB Special Round, and who is eligible to participate?",
+      answer: "The CSAB Special Round is an additional counselling process conducted by the Central Seat Allocation Board to allocate vacant seats in National Institutes of Technology (NITs), Indian Institutes of Information Technology (IIITs), and Government Funded Technical Institutes (GFTIs) after the completion of JoSAA counselling. Candidates who are eligible to participate include: those who did not participate in JoSAA counselling but have a valid JEE Main rank, those who participated in JoSAA counselling but were not allotted a seat, and those who were allotted a seat in JoSAA and opted to participate in the CSAB Special Round during reporting to the allotted institute."
+    },
+    {
+      question: "Is it necessary to register separately for the CSAB Special Round if I have already registered with JoSAA?",
+      answer: "Yes, separate registration is required for the CSAB Special Round. Even if you have registered with JoSAA, you must complete a fresh online registration on the CSAB portal to participate in the Special Round. Failure to do so will result in ineligibility for seat allocation in the Special Round."
+    },
+    {
+      question: "What documents are required for registration in the CSAB Special Round?",
+      answer: "Candidates must upload scanned copies of the following documents during the CSAB Special Round registration: Class 10 certificate, Class 12 marksheet, Category certificate (if applicable) for General-EWS, OBC-NCL, SC, or ST candidates, PwD certificate (if applicable), NRI candidates need to upload a scanned image of their passport, OCI/PIO candidates need to upload the OCI/PIO card, and Bank account details (account number, IFSC code, bank name) for refund purposes."
+    },
+    {
+      question: "What is the process for seat allotment in the CSAB Special Round?",
+      answer: "The seat allotment process in the CSAB Special Round involves the following steps: Registration - candidates must register online on the CSAB portal and pay the counselling enrolment fee; Choice Filling - after registration, candidates can fill in their preferred choices of institutes and courses; Seat Allotment - based on the filled choices and merit, seats are allotted to candidates; Acceptance - candidates must accept the allotted seat by choosing one of the following options: Freeze, Slide, or Float; Reporting - candidates must report to the allotted institute for document verification and fee payment."
     }
   ];
 
@@ -81,9 +97,9 @@ const FAQSection: React.FC = () => {
     <section id="faq" className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#212070] mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#212070] mb-4">JoSAA & CSAB Counselling FAQs</h2>
           <p className="text-gray-600">
-            Find answers to common questions about the JoSAA counselling process and our services.
+            Find answers to common questions about the JoSAA and CSAB counselling processes, important dates, document requirements, and our expert guidance services.
           </p>
         </div>
         

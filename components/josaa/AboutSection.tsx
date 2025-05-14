@@ -6,9 +6,9 @@ const AboutSection: React.FC = () => {
     <section id="about" className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#212070] mb-4">Comprehensive Engineering Admission Guidance</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#212070] mb-4">Comprehensive JoSAA Counselling & Engineering Admission Guidance</h2>
           <p className="text-gray-600">
-            From JoSAA counselling to direct admissions in top private institutions, we provide end-to-end support for securing your engineering seat.
+            From JEE Main/Advanced counselling through JoSAA to direct admissions in top private institutions like BITS and VIT, we provide end-to-end support for securing the best engineering seat based on your rank.
           </p>
         </div>
         

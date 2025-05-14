@@ -75,7 +75,7 @@ const ServicesSection: React.FC = () => {
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
             Don't leave your engineering career to chance. Get expert guidance and maximize your chances of admission to top institutes.
           </p>
-          <Button variant="josaa" size="josaa_lg" asChild>
+          <Button variant="josaa" size="josaa_md" className="text-sm md:text-base whitespace-normal h-auto py-2.5" asChild>
             <Link href="/get-started?serviceName=JoSAA%20Counselling%20Session&fromPage=JoSAA_Services">
               Book Your Counselling Session
             </Link>

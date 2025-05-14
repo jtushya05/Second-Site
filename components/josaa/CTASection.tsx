@@ -52,12 +52,12 @@ const CTASection: React.FC = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button variant="josaa_secondary" size="josaa_lg" asChild>
+            <Button variant="josaa_secondary" size="josaa_md" className="text-sm md:text-base whitespace-normal h-auto py-2.5" asChild>
               <Link href="/get-started?serviceName=JoSAA%20Free%20Consultation&fromPage=JoSAA_CTA">
                 Book Free Consultation
               </Link>
             </Button>
-            <Button variant="josaa_outline" size="josaa_lg" className="border-white text-white hover:bg-white hover:text-[#212070]" asChild>
+            <Button variant="josaa_outline" size="josaa_md" className="border-white text-white hover:bg-white hover:text-[#212070] text-sm md:text-base whitespace-normal h-auto py-2.5" asChild>
               <Link href="/contact?source=JoSAA_CTA">
                 Contact Us
               </Link>
