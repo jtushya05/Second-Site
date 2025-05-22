@@ -42,6 +42,28 @@
   }
 }
 
+@keyframes scale-down {
+  from {
+    transform: scaleY(0) translateX(-50%);
+  }
+  to {
+    transform: scaleY(1) translateX(-50%);
+  }
+}
+
+.animate-scale-down {
+  animation: scale-down 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* Responsive animation control */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scale-down {
+    animation: none;
+    transform: scaleY(1) translateX(-50%);
+  }
+}
+
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }

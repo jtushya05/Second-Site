@@ -2,6 +2,32 @@ import React from 'react';
 import { CheckCircle2, Clock, Calendar, FileText, Building2, GraduationCap } from 'lucide-react';
 
 const TimelineSection: React.FC = () => {
+  const [visibleSteps, setVisibleSteps] = React.useState<number[]>([]);
+  const timelineRefs = React.useRef<(HTMLDivElement | null)[]>([]);
+  
+  React.useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const index = timelineRefs.current.findIndex(ref => ref === entry.target);
+        if (entry.isIntersecting && !visibleSteps.includes(index)) {
+          setVisibleSteps(prev => [...prev, index]);
+        }
+      });
+    }, observerOptions);
+
+    timelineRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, [visibleSteps]);
+
   const timelineSteps = [
     {
       title: "JEE Result Announcement",
@@ -54,15 +80,18 @@ const TimelineSection: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#212070] to-[#ffca00] rounded-full"></div>
+            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#212070] to-[#ffca00] rounded-full origin-top scale-y-0 animate-scale-down"></div>
             
             {/* Timeline items */}
             <div className="space-y-12">
-              {timelineSteps.map((step, index) => (
-                <div 
-                  key={index} 
+              {timelineSteps.map((step, index) => (                <div 
+                  key={index}
+                  ref={el => timelineRefs.current[index] = el}
                   className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 
-                    ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                    ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}
+                    transform transition-all duration-700 ease-out
+                    ${visibleSteps.includes(index) ? 'opacity-100' : 'opacity-0'}
+                    ${visibleSteps.includes(index) ? 'translate-y-0' : 'translate-y-8'}`}
                 >
                   {/* Icon */}
                   <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 z-10">
