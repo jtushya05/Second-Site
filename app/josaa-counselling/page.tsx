@@ -10,6 +10,12 @@ import WhyChooseUsSection from '@/components/josaa/WhyChooseUsSection';
 import TestimonialsSection from '@/components/josaa/TestimonialsSection';
 import FAQSection from '@/components/josaa/FAQSection';
 import CTASection from '@/components/josaa/CTASection';
+import TimelineSection from '@/components/josaa/TimelineSection';
+import CollegeGuideSection from '@/components/josaa/CollegeGuideSection';
+import StatsSection from '@/components/josaa/StatsSection';
+import SuccessMetricsSection from '@/components/josaa/SuccessMetricsSection';
+import FeatureComparisonSection from '@/components/josaa/FeatureComparisonSection';
+import ResourcesSection from '@/components/josaa/ResourcesSection';
 import FloatingContactWidgets from '@/components/FloatingContactWidgets';
 
 export default function JoSAALandingPage() {  return (
@@ -42,9 +48,15 @@ export default function JoSAALandingPage() {  return (
           },
         ]}      /><main className="pt-0 pb-0 m-0 josaa-main josaa-main-override">
         <HeroSection />
+        <SuccessMetricsSection />
         <AboutSection />
         <ServicesSection />
+        <TimelineSection />
+        <CollegeGuideSection />
+        <StatsSection />
         <WhyChooseUsSection />
+        <FeatureComparisonSection />
+        <ResourcesSection />
         <TestimonialsSection />
         <FAQSection />
         <CTASection />

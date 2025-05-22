@@ -88,28 +88,70 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Image Section */}
+          {/* Image Section with Animation and Video Option */}
           <div className="hidden lg:block animate-item opacity-0 translate-x-4">
             <div className="relative">
-              {/* Main Image */}
+              {/* Main Image or Video */}
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg"
-                  alt="Student counselling session"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#212070]/20 to-transparent"></div>
+                <div className="relative">
+                  <img 
+                    src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg"
+                    alt="Student counselling session"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#212070]/20 to-transparent"></div>
+                  
+                  {/* Video Play Button - Uncomment to add video functionality 
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button 
+                      className="w-16 h-16 bg-white/80 hover:bg-white rounded-full flex items-center justify-center group transition-all duration-300 shadow-xl"
+                      aria-label="Play introduction video"
+                    >
+                      <span className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-[#212070] border-b-[8px] border-b-transparent ml-1 group-hover:border-l-[#ffca00] transition-colors"></span>
+                    </button>
+                  </div>
+                  */}
+                </div>
               </div>
 
-              {/* Floating Cards */}
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-lg p-3 shadow-lg">
+              {/* Floating Cards with Animation */}
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-lg p-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 animate-float-slow">
                 <p className="text-base font-semibold text-[#212070]">JoSAA 2025</p>
                 <p className="text-xs text-gray-600">Counselling Starting Soon</p>
               </div>
 
-              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur rounded-lg p-3 shadow-lg">
+              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur rounded-lg p-3 shadow-lg hover:shadow-xl transform hover:translate-y-1 transition-all duration-300 animate-float">
                 <p className="text-base font-semibold text-[#212070]">500+ Colleges</p>
                 <p className="text-xs text-gray-600">Expert Guidance Available</p>
+              </div>
+              
+              {/* College Bubbles - Better positioned around the image */}
+              {/* Top row bubbles */}
+              <div className="absolute top-[5%] left-[15%] bg-[#ffca00]/80 backdrop-blur rounded-full w-12 h-12 flex items-center justify-center shadow-lg animate-float-slow">
+                <span className="text-white font-bold text-sm">IIT</span>
+              </div>
+              
+              <div className="absolute top-[8%] right-[20%] bg-[#1E40AF]/80 backdrop-blur rounded-full w-11 h-11 flex items-center justify-center shadow-lg animate-float">
+                <span className="text-white font-bold text-sm">BITS</span>
+              </div>
+              
+              {/* Right side bubbles */}
+              <div className="absolute top-[35%] right-[-5%] translate-x-1/4 bg-[#212070]/80 backdrop-blur rounded-full w-12 h-12 flex items-center justify-center shadow-lg animate-float-reverse">
+                <span className="text-white font-bold text-sm">NIT</span>
+              </div>
+              
+              <div className="absolute top-[60%] right-[10%] bg-[#047857]/80 backdrop-blur rounded-full w-11 h-11 flex items-center justify-center shadow-lg animate-float-slow">
+                <span className="text-white font-bold text-sm">NTU</span>
+              </div>
+              
+              {/* Bottom row bubbles */}
+              <div className="absolute bottom-[15%] right-[30%] bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-lg animate-float">
+                <span className="text-[#212070] font-bold text-sm">IIIT</span>
+              </div>
+              
+              {/* Left side bubbles */}
+              <div className="absolute bottom-[25%] left-[-5%] translate-x-1/4 bg-[#DC2626]/80 backdrop-blur rounded-full w-11 h-11 flex items-center justify-center shadow-lg animate-float-reverse">
+                <span className="text-white font-bold text-sm">VIT</span>
               </div>
             </div>
           </div>

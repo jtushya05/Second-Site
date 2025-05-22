@@ -24,8 +24,8 @@ const ServicesSection: React.FC = () => {
     },
     {
       icon: <BarChart className="h-12 w-12 text-[#ffca00]" />,
-      title: "Rank & College Predictor",
-      description: "Access our advanced algorithms that analyze past trends to predict your potential colleges based on your JEE rank."
+      title: "Rank & College Analysis",
+      description: "Expert analysis of past trends and cutoffs to help you understand your potential college options based on your JEE rank."
     },
     {
       icon: <ListChecks className="h-12 w-12 text-[#ffca00]" />,
