@@ -54,10 +54,11 @@ export default function JoSAALandingPage() {  return (
         <TimelineSection />
         <CollegeGuideSection />
         <StatsSection />
-        <WhyChooseUsSection />
-        <FeatureComparisonSection />
+        <WhyChooseUsSection />        <FeatureComparisonSection />
+        {/* Hidden until complete
         <ResourcesSection />
-        <TestimonialsSection />
+        <TestimonialsSection /> 
+        */}
         <FAQSection />
         <CTASection />
       </main>
