@@ -148,8 +148,8 @@ export default function AmbassadorCirclePage() {
     if (session?.user) {
       setFormData(prev => ({
         ...prev,
-        fullName: session.user.name || '',
-        email: session.user.email || ''
+        fullName: session.user?.name || '',
+        email: session.user?.email || ''
       }));
     }
   }, [session]);
