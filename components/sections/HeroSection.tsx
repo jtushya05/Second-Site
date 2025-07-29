@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import LeadCaptureForm from '@/components/LeadCaptureForm';
 import ScrollIndicator from '@/components/ScrollIndicator';
 import { Container } from '@/components/ui/container';
@@ -9,12 +8,11 @@ import { CTAButton } from '@/components/ui/cta-button';
 export default function HeroSection() {
   return (
     <section className="relative min-h-[100vh] w-full pb-24 md:pb-0">
-      <Image
-        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070"
-        alt="Global Education"
-        fill
-        className="object-cover brightness-[0.35]"
-        priority
+      <div 
+        className="absolute inset-0 bg-cover bg-center brightness-[0.35]"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1523050854058-8df90110c9f1)'
+        }}
       />
       <div className="absolute inset-0">
         <Container className="flex min-h-screen flex-col justify-center pt-24 md:pt-20">

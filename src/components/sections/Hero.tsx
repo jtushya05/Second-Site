@@ -1,18 +1,16 @@
 'use client';
 
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import LeadForm from '@/components/LeadCaptureForm';
 
 export default function Hero() {
   return (
     <section className="relative min-h-[calc(100vh-4rem)] w-full">
-      <Image
-        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1"
-        alt="Global Education"
-        fill
-        className="object-cover brightness-[0.35]"
-        priority
+      <div 
+        className="absolute inset-0 bg-cover bg-center brightness-[0.35]"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1523050854058-8df90110c9f1)'
+        }}
       />
       <div className="absolute inset-0 flex items-center">
         <div className="container">
