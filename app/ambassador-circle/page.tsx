@@ -136,7 +136,6 @@ export default function AmbassadorCirclePage() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    phone: '',
     whatsappNumber: '',
     linkedinProfile: '',
     currentOccupation: '',
@@ -165,30 +164,39 @@ export default function AmbassadorCirclePage() {
       return;
     }
 
+    // Validate required fields (only WhatsApp number, since name and email come from Google auth)
+    if (!formData.whatsappNumber) {
+      toast.error('Please provide your WhatsApp number');
+      setIsSubmitting(false);
+      return;
+    }
+
     const timestamp = Date.now();
     const referralCode = generateReferralCode(formData.email, formData.fullName, timestamp);
     const baseUrl = window.location.origin;
     const generatedLink = `${baseUrl}?ref=${referralCode}`;
 
     // Submit to Google Form for Ambassador registration
+    // Only submitting fields that have corresponding form entries
+    // Other fields are collected for future use but not currently submitted
     const googleFormData = {
-      'entry.1169845566': formData.fullName,
-      'entry.2096364701': formData.email,
-      'entry.1109080701': formData.phone,
-      'entry.26593180': formData.whatsappNumber,
-      'entry.1104932019': formData.linkedinProfile,
-      'entry.1943985329': formData.currentOccupation,
-      'entry.166295812': formData.connectionToEAGlobal,
-      'entry.1871500665': referralCode,
-      'entry.584851820': generatedLink,
-      'entry.402453603': formData.additionalInfo,
-      'entry.656520329': new Date().toISOString(),
-      'entry.65240077': 'Ambassador Registration'
+      'entry.913553209': formData.fullName,          // FullName (from Google Auth)
+      'entry.580063426': formData.email,             // EmailAddress (from Google Auth)
+      'entry.1450608257': formData.whatsappNumber,   // WhatsappNumber (Required - submitted as phone field)
+      'entry.472750495': referralCode,               // ReferralCode (Generated)
+      'entry.24200269': generatedLink,               // ReferralLink (Generated)
+      
+      // Note: The following fields are collected but not submitted to this form:
+      // - linkedinProfile (formData.linkedinProfile) 
+      // - currentOccupation (formData.currentOccupation)
+      // - connectionToEAGlobal (formData.connectionToEAGlobal)
+      // - additionalInfo (formData.additionalInfo)
+      // These will be implemented when additional form IDs are available
     };
 
     try {
       // Submit to Google Form
-      await fetch(`https://docs.google.com/forms/u/0/d/e/${process.env.NEXT_PUBLIC_AMBASSADOR_GOOGLE_FORM_ID || '1FAIpQLSebEdPI6LiZbZTcT2zLz-k00OfsswIAEN6BN5JruDu5MyAXOA'}/formResponse`, {
+      await fetch(`https://docs.google.com/forms/u/0/d/e/${process.env.NEXT_PUBLIC_AMBASSADOR_GOOGLE_FORM_ID}/formResponse`, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -353,7 +361,7 @@ export default function AmbassadorCirclePage() {
               {!session ? (
                 <div className="space-y-6">
                   <Button 
-                    onClick={() => signIn('google')}
+                    onClick={() => signIn('google', { callbackUrl: window.location.href + '#application' })}
                     size="lg"
                     className="bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg"
                   >
@@ -514,6 +522,12 @@ export default function AmbassadorCirclePage() {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="rounded-lg bg-blue-50 p-4 mb-6">
+                        <p className="text-sm text-blue-800">
+                          <strong>Required fields (*):</strong> Full Name, Email, and WhatsApp Number. Additional details are collected for future features.
+                        </p>
+                      </div>
+                      
                       <div className="grid gap-4 sm:grid-cols-2">
                         <div>
                           <label className="mb-2 block text-sm font-medium">Full Name *</label>
@@ -540,17 +554,10 @@ export default function AmbassadorCirclePage() {
 
                       <div className="grid gap-4 sm:grid-cols-2">
                         <div>
-                          <label className="mb-2 block text-sm font-medium">Phone Number *</label>
-                          <Input
-                            type="tel"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                            required
-                            placeholder="+91 98765 43210"
-                          />
-                        </div>
-                        <div>
-                          <label className="mb-2 block text-sm font-medium">WhatsApp Number *</label>
+                          <label className="mb-2 block text-sm font-medium">
+                            WhatsApp Number * 
+                            {formData.whatsappNumber && <span className="text-green-600 ml-1">(Will be submitted)</span>}
+                          </label>
                           <Input
                             type="tel"
                             value={formData.whatsappNumber}
@@ -558,35 +565,33 @@ export default function AmbassadorCirclePage() {
                             required
                             placeholder="+91 98765 43210"
                           />
+                          <p className="mt-1 text-xs text-gray-500">Used for ambassador support and notifications</p>
+                        </div>
+                        <div>
+                          <label className="mb-2 block text-sm font-medium">LinkedIn Profile</label>
+                          <Input
+                            type="url"
+                            value={formData.linkedinProfile}
+                            onChange={(e) => setFormData({...formData, linkedinProfile: e.target.value})}
+                            placeholder="https://linkedin.com/in/yourprofile"
+                          />
                         </div>
                       </div>
 
                       <div>
-                        <label className="mb-2 block text-sm font-medium">LinkedIn Profile</label>
-                        <Input
-                          type="url"
-                          value={formData.linkedinProfile}
-                          onChange={(e) => setFormData({...formData, linkedinProfile: e.target.value})}
-                          placeholder="https://linkedin.com/in/yourprofile"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="mb-2 block text-sm font-medium">Current Occupation *</label>
+                        <label className="mb-2 block text-sm font-medium">Current Occupation</label>
                         <Input
                           value={formData.currentOccupation}
                           onChange={(e) => setFormData({...formData, currentOccupation: e.target.value})}
-                          required
                           placeholder="e.g., Software Engineer, Student, Business Owner"
                         />
                       </div>
 
                       <div>
-                        <label className="mb-2 block text-sm font-medium">Connection to EA Global *</label>
+                        <label className="mb-2 block text-sm font-medium">Connection to EA Global</label>
                         <Input
                           value={formData.connectionToEAGlobal}
                           onChange={(e) => setFormData({...formData, connectionToEAGlobal: e.target.value})}
-                          required
                           placeholder="e.g., Alumni, Parent of student, Professional contact"
                         />
                       </div>
@@ -665,7 +670,7 @@ export default function AmbassadorCirclePage() {
               
               {!session ? (
                 <Button 
-                  onClick={() => signIn('google')}
+                  onClick={() => signIn('google', { callbackUrl: window.location.href + '#application' })}
                   size="lg"
                   variant="secondary"
                   className="px-8"
@@ -685,6 +690,27 @@ export default function AmbassadorCirclePage() {
             </div>
           </Container>
         </section>
+
+        {/* Sign Out Section - Only show when signed in */}
+        {session && (
+          <section className="py-8 bg-gray-100">
+            <Container>
+              <div className="text-center">
+                <p className="text-sm text-gray-600 mb-3">
+                  Signed in as <strong>{session.user?.name}</strong> ({session.user?.email})
+                </p>
+                <Button 
+                  onClick={() => signOut()}
+                  variant="outline"
+                  size="sm"
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  Sign Out
+                </Button>
+              </div>
+            </Container>
+          </section>
+        )}
       </div>
     </>
   );
