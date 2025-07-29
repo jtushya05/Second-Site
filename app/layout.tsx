@@ -10,6 +10,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { Container } from '@/components/ui/container';
 import { DefaultSeo } from 'next-seo';
 import UrlHandler from '@/components/UrlHandler';
+import { AuthProvider } from '@/lib/auth-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -85,10 +86,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navigation />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Toaster />
+          <AuthProvider>
+            <Navigation />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <Toaster />
+          </AuthProvider>
         </ThemeProvider>
         {/* <Analytics /> */}
         <UrlHandler />
