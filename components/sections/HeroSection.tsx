@@ -4,16 +4,27 @@ import LeadCaptureForm from '@/components/LeadCaptureForm';
 import ScrollIndicator from '@/components/ScrollIndicator';
 import { Container } from '@/components/ui/container';
 import { CTAButton } from '@/components/ui/cta-button';
+import { useImageFallback } from '@/hooks/use-image-fallback';
 
 export default function HeroSection() {
+  const { currentImageUrl, isLoading } = useImageFallback({
+    primaryImageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1',
+    fallbackImageUrl: '/images/homepage image.png'
+  });
+
   return (
     <section className="relative min-h-[100vh] w-full pb-24 md:pb-0">
       <div 
-        className="absolute inset-0 bg-cover bg-center brightness-[0.35]"
+        className={`absolute inset-0 bg-cover bg-center brightness-[0.35] transition-opacity duration-300 ${
+          isLoading ? 'opacity-0' : 'opacity-100'
+        }`}
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1523050854058-8df90110c9f1)'
+          backgroundImage: `url(${currentImageUrl})`
         }}
       />
+      {isLoading && (
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700 brightness-[0.35]" />
+      )}
       <div className="absolute inset-0">
         <Container className="flex min-h-screen flex-col justify-center pt-24 md:pt-20">
           <div className="grid gap-12 lg:grid-cols-2">
