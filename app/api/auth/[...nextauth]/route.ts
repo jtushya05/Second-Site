@@ -19,10 +19,16 @@ const handler = NextAuth({
       session.accessToken = token.accessToken as string;
       return session;
     },
+    async redirect({ url, baseUrl }) {
+      // Handle redirect after sign in
+      if (url.startsWith('/')) return `${baseUrl}${url}`;
+      else if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
+    },
   },
   pages: {
-    signIn: '/ambassador-circle',
-    error: '/ambassador-circle',
+    // Remove custom pages to avoid redirect loops
+    // Let NextAuth handle the default auth pages
   },
 });
 
