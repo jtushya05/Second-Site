@@ -16,6 +16,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import { 
   Users, 
   Award, 
@@ -35,6 +43,8 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import BaseNavigation from '@/components/navigation/BaseNavigation';
+import { generateReferralCode, trackReferralUsage } from '@/lib/referral-utils';
+import { completeAmbassadorRegistrationDB, trackReferralUsageDB, getExistingAmbassadorRegistration, getUserByEmail, updateAmbassadorRegistrationDB } from '@/lib/database';
 
 const benefits = [
   {
@@ -114,24 +124,13 @@ const faqs = [
   }
 ];
 
-function generateReferralCode(email: string, name: string, timestamp: number): string {
-  // Create a more sophisticated encoding
-  const emailPart = email.split('@')[0].substring(0, 2);
-  const namePart = name.replace(/\s+/g, '').substring(0, 2);
-  const timePart = timestamp.toString().slice(-6);
-  const randomPart = Math.random().toString(36).substring(2, 5);
-  
-  // Mix the parts to create a seemingly random code
-  const mixed = `${randomPart}${emailPart}${timePart.substring(0, 3)}${namePart}${timePart.substring(3)}`;
-  
-  // Convert to uppercase and add some obfuscation
-  return mixed.toUpperCase().split('').sort(() => Math.random() - 0.5).join('').substring(0, 10);
-}
-
 export default function AmbassadorCirclePage() {
   const { data: session, status } = useSession();
   const [isRegistered, setIsRegistered] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const [existingRegistration, setExistingRegistration] = useState<any>(null);
   const [referralLink, setReferralLink] = useState('');
   const [formData, setFormData] = useState({
     fullName: '',
@@ -140,6 +139,7 @@ export default function AmbassadorCirclePage() {
     linkedinProfile: '',
     currentOccupation: '',
     connectionToEAGlobal: '',
+    city: '',
     referralCode: '',
     additionalInfo: ''
   });
@@ -151,8 +151,41 @@ export default function AmbassadorCirclePage() {
         fullName: session.user?.name || '',
         email: session.user?.email || ''
       }));
+      
+      // Check for existing registration
+      checkExistingRegistration(session.user.email!);
     }
   }, [session]);
+
+  const checkExistingRegistration = async (email: string) => {
+    try {
+      setIsLoading(true);
+      const existing = await getExistingAmbassadorRegistration(email);
+      
+      if (existing) {
+        setExistingRegistration(existing);
+        setIsRegistered(true);
+        const baseUrl = window.location.origin;
+        setReferralLink(`${baseUrl}?ref=${existing.referral_code}`);
+        
+        // Pre-fill form with existing data
+        setFormData(prev => ({
+          ...prev,
+          whatsappNumber: existing.users?.whatsapp_number || '',
+          linkedinProfile: existing.users?.linkedin_profile || '',
+          city: existing.users?.city || '',
+          currentOccupation: existing.current_occupation || '',
+          connectionToEAGlobal: existing.connection_to_ea_global || '',
+          additionalInfo: existing.additional_info || '',
+          referralCode: existing.referral_code
+        }));
+      }
+    } catch (error) {
+      console.error('Error checking existing registration:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -171,44 +204,110 @@ export default function AmbassadorCirclePage() {
       return;
     }
 
-    const timestamp = Date.now();
-    const referralCode = generateReferralCode(formData.email, formData.fullName, timestamp);
-    const baseUrl = window.location.origin;
-    const generatedLink = `${baseUrl}?ref=${referralCode}`;
-
-    // Submit to Google Form for Ambassador registration
-    // Only submitting fields that have corresponding form entries
-    // Other fields are collected for future use but not currently submitted
-    const googleFormData = {
-      'entry.913553209': formData.fullName,          // FullName (from Google Auth)
-      'entry.580063426': formData.email,             // EmailAddress (from Google Auth)
-      'entry.1450608257': formData.whatsappNumber,   // WhatsappNumber (Required - submitted as phone field)
-      'entry.472750495': referralCode,               // ReferralCode (Generated)
-      'entry.24200269': generatedLink,               // ReferralLink (Generated)
-      
-      // Note: The following fields are collected but not submitted to this form:
-      // - linkedinProfile (formData.linkedinProfile) 
-      // - currentOccupation (formData.currentOccupation)
-      // - connectionToEAGlobal (formData.connectionToEAGlobal)
-      // - additionalInfo (formData.additionalInfo)
-      // These will be implemented when additional form IDs are available
-    };
-
     try {
-      // Submit to Google Form
-      await fetch(`https://docs.google.com/forms/u/0/d/e/${process.env.NEXT_PUBLIC_AMBASSADOR_GOOGLE_FORM_ID}/formResponse`, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams(googleFormData)
-      });
+      if (existingRegistration && isEditing) {
+        // Update existing registration
+        const updateResult = await updateAmbassadorRegistrationDB(existingRegistration.id, {
+          whatsapp_number: formData.whatsappNumber,
+          linkedin_profile: formData.linkedinProfile,
+          city: formData.city,
+          current_occupation: formData.currentOccupation,
+          connection_to_ea_global: formData.connectionToEAGlobal,
+          additional_info: formData.additionalInfo
+        });
 
-      setReferralLink(generatedLink);
-      setFormData(prev => ({ ...prev, referralCode }));
-      setIsRegistered(true);
-      toast.success('Welcome to the EA Global Ambassador Circle!');
+        if (updateResult.success) {
+          toast.success('Your ambassador details have been updated successfully!');
+          setIsEditing(false);
+        } else {
+          throw new Error(updateResult.error || 'Failed to update registration');
+        }
+      } else {
+        // Create new registration
+        const timestamp = Date.now();
+        const referralCode = generateReferralCode(formData.email, formData.fullName, timestamp, 'ambassador');
+        const baseUrl = window.location.origin;
+        const generatedLink = `${baseUrl}?ref=${referralCode}`;
+
+        // Track the generation of this referral link
+        trackReferralUsage(referralCode, 'ambassador_link_generated');
+
+        // Submit to Google Form for Ambassador registration
+        const googleFormData = {
+          'entry.913553209': formData.fullName,          // Full Name
+          'entry.1450608257': formData.whatsappNumber,   // Whatsapp Number
+          'entry.580063426': formData.email,             // Email Address (from google signin)
+          'entry.472750495': referralCode,               // Referral code
+          'entry.24200269': generatedLink,               // Referral link
+          'entry.527894219': formData.linkedinProfile || '', // Linkedin URL
+          'entry.1757881461': formData.city || '',       // City
+          'entry.993353024': '',                         // College (for campus guides - empty for ambassador)
+          'entry.572299127': JSON.stringify({            // Google account details
+            name: session.user?.name,
+            email: session.user?.email,
+            image: session.user?.image
+          }),
+          'entry.556719572': JSON.stringify({            // Any other miscellaneous details
+            role: 'ambassador',
+            currentOccupation: formData.currentOccupation,
+            connectionToEAGlobal: formData.connectionToEAGlobal,
+            additionalInfo: formData.additionalInfo,
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            // Include all localStorage tracking data
+            referralTrackingData: {
+              allUrlParams: JSON.parse(localStorage.getItem('urlParams') || '{}'),
+              referralSource: localStorage.getItem('ref') || '',
+              sessionId: sessionStorage.getItem('sessionId') || '',
+              pageLoadCount: sessionStorage.getItem('pageLoadCount') || '0',
+            },
+            // Additional browser/session info
+            browserInfo: {
+              language: navigator.language,
+              timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+              screenResolution: `${screen.width}x${screen.height}`,
+              userAgent: navigator.userAgent,
+            }
+          })
+        };
+
+        // Submit to Google Form (keep existing functionality)
+        await fetch('https://docs.google.com/forms/d/e/1FAIpQLSeehn3QC6HJjuR3v9Gr9GiwkWKk6LMEyq17rrj0bmfk-F__fw/formResponse', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams(googleFormData)
+        });
+
+        // Also save to database (new feature)
+        const dbResult = await completeAmbassadorRegistrationDB({
+          email: formData.email,
+          full_name: formData.fullName,
+          whatsapp_number: formData.whatsappNumber,
+          linkedin_profile: formData.linkedinProfile,
+          city: formData.city,
+          current_occupation: formData.currentOccupation,
+          connection_to_ea_global: formData.connectionToEAGlobal,
+          additional_info: formData.additionalInfo,
+          referral_code: referralCode,
+          google_account_data: {
+            name: session.user?.name,
+            email: session.user?.email,
+            image: session.user?.image
+          }
+        });
+
+        if (dbResult) {
+          console.log('Ambassador registration saved to database:', dbResult);
+        }
+
+        setReferralLink(generatedLink);
+        setFormData(prev => ({ ...prev, referralCode }));
+        setIsRegistered(true);
+        toast.success('Welcome to the EA Global Ambassador Circle!');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       toast.error('Something went wrong. Please try again.');
@@ -222,11 +321,31 @@ export default function AmbassadorCirclePage() {
     toast.success('Referral link copied to clipboard!');
   };
 
+  const handleEditToggle = () => {
+    setIsEditing(!isEditing);
+  };
+
+  if (isLoading) {
+    return (
+      <>
+        <BaseNavigation variant="solid" />
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 pt-20">
+          <Container className="py-16">
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto"></div>
+              <p className="mt-4 text-gray-600">Checking your registration status...</p>
+            </div>
+          </Container>
+        </div>
+      </>
+    );
+  }
+
   if (isRegistered) {
     return (
       <>
         <BaseNavigation variant="solid" />
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 pt-20">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 pt-20">
           <Container className="py-16">
             <div className="mx-auto max-w-4xl text-center">
               <div className="mb-8">
@@ -243,11 +362,17 @@ export default function AmbassadorCirclePage() {
                 You're now part of an exclusive community of education advocates. Here's your personalized referral link and ambassador toolkit:
               </p>
               
-              <Card className="mb-8">
+                <Card className="mb-8">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Share2 className="h-5 w-5" />
-                    Your Personalized Ambassador Link
+                  <CardTitle className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Share2 className="h-5 w-5" />
+                      Your Personalized Ambassador Link
+                    </div>
+                    <Button onClick={handleEditToggle} variant="outline" size="sm">
+                      <UserPlus className="h-4 w-4 mr-2" />
+                      Edit Details
+                    </Button>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -269,36 +394,36 @@ export default function AmbassadorCirclePage() {
               </Card>
 
               <div className="grid gap-6 md:grid-cols-3 mb-8">
-                <Card className="border-blue-200">
+                <Card className="border-primary/20 hover:border-primary/40 transition-colors">
                   <CardContent className="p-6 text-center">
-                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
-                      <Share2 className="h-6 w-6 text-blue-600" />
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                      <Share2 className="h-6 w-6 text-primary" />
                     </div>
-                    <h3 className="mb-2 font-semibold">Share Your Link</h3>
+                    <h3 className="mb-2 font-semibold text-gray-900">Share Your Link</h3>
                     <p className="text-sm text-gray-600">
                       Share with friends, family, and professional contacts interested in studying abroad
                     </p>
                   </CardContent>
                 </Card>
                 
-                <Card className="border-yellow-200">
+                <Card className="border-orange-200 hover:border-orange-300 transition-colors">
                   <CardContent className="p-6 text-center">
-                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100">
-                      <DollarSign className="h-6 w-6 text-yellow-600" />
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
+                      <DollarSign className="h-6 w-6 text-orange-600" />
                     </div>
-                    <h3 className="mb-2 font-semibold">Earn Impact Bonuses</h3>
+                    <h3 className="mb-2 font-semibold text-gray-900">Earn Impact Bonuses</h3>
                     <p className="text-sm text-gray-600">
                       Receive meaningful Impact Recognition Bonuses for successful enrollments
                     </p>
                   </CardContent>
                 </Card>
                 
-                <Card className="border-purple-200">
+                <Card className="border-slate-200 hover:border-slate-300 transition-colors">
                   <CardContent className="p-6 text-center">
-                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
-                      <Crown className="h-6 w-6 text-purple-600" />
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
+                      <Crown className="h-6 w-6 text-slate-600" />
                     </div>
-                    <h3 className="mb-2 font-semibold">Exclusive Access</h3>
+                    <h3 className="mb-2 font-semibold text-gray-900">Exclusive Access</h3>
                     <p className="text-sm text-gray-600">
                       Join exclusive events, webinars, and networking opportunities
                     </p>
@@ -306,8 +431,8 @@ export default function AmbassadorCirclePage() {
                 </Card>
               </div>
 
-              <div className="rounded-lg bg-blue-50 p-6 mb-8">
-                <h3 className="mb-4 text-lg font-semibold text-blue-900">Next Steps</h3>
+              <div className="rounded-lg bg-primary/5 border border-primary/20 p-6 mb-8">
+                <h3 className="mb-4 text-lg font-semibold text-primary">Next Steps</h3>
                 <div className="grid gap-4 md:grid-cols-2 text-left">
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
@@ -334,6 +459,131 @@ export default function AmbassadorCirclePage() {
                   <Link href="/">Return to Homepage</Link>
                 </Button>
               </div>
+
+              {/* Edit Details Dialog */}
+              <Dialog open={isEditing} onOpenChange={setIsEditing}>
+                <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle>Edit Ambassador Details</DialogTitle>
+                    <DialogDescription>
+                      Update your ambassador information. Your referral link will remain the same.
+                    </DialogDescription>
+                  </DialogHeader>
+                  
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="mb-2 block text-sm font-medium">Full Name</label>
+                        <Input
+                          value={formData.fullName}
+                          onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                          disabled
+                          className="bg-gray-50"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">Name from Google account (cannot be changed)</p>
+                      </div>
+                      
+                      <div>
+                        <label className="mb-2 block text-sm font-medium">Email Address</label>
+                        <Input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({...formData, email: e.target.value})}
+                          disabled
+                          className="bg-gray-50"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">Email from Google account (cannot be changed)</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="mb-2 block text-sm font-medium">WhatsApp Number <span className="text-red-500">*</span></label>
+                        <Input
+                          type="tel"
+                          value={formData.whatsappNumber}
+                          onChange={(e) => setFormData({...formData, whatsappNumber: e.target.value})}
+                          placeholder="+91 9876543210"
+                          required
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="mb-2 block text-sm font-medium">LinkedIn Profile</label>
+                        <Input
+                          type="url"
+                          value={formData.linkedinProfile}
+                          onChange={(e) => setFormData({...formData, linkedinProfile: e.target.value})}
+                          placeholder="https://linkedin.com/in/yourprofile"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="mb-2 block text-sm font-medium">Current Occupation</label>
+                        <Input
+                          value={formData.currentOccupation}
+                          onChange={(e) => setFormData({...formData, currentOccupation: e.target.value})}
+                          placeholder="e.g., Software Engineer, Teacher, Student"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="mb-2 block text-sm font-medium">City</label>
+                        <Input
+                          value={formData.city}
+                          onChange={(e) => setFormData({...formData, city: e.target.value})}
+                          placeholder="e.g., Mumbai, Delhi, Bangalore"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="mb-2 block text-sm font-medium">Connection to EA Global</label>
+                      <Textarea
+                        value={formData.connectionToEAGlobal}
+                        onChange={(e) => setFormData({...formData, connectionToEAGlobal: e.target.value})}
+                        placeholder="e.g., Alumni, Parent of student, Professional contact"
+                        className="min-h-[80px]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="mb-2 block text-sm font-medium">Additional Information</label>
+                      <Textarea
+                        value={formData.additionalInfo}
+                        onChange={(e) => setFormData({...formData, additionalInfo: e.target.value})}
+                        placeholder="Tell us more about your interest in becoming an ambassador..."
+                        className="min-h-[80px]"
+                      />
+                    </div>
+                  </form>
+
+                  <DialogFooter>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setIsEditing(false)}
+                      disabled={isSubmitting}
+                    >
+                      Cancel
+                    </Button>
+                    <Button 
+                      onClick={handleSubmit}
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                          Updating...
+                        </>
+                      ) : (
+                        'Update Details'
+                      )}
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
             </div>
           </Container>
         </div>
@@ -344,15 +594,15 @@ export default function AmbassadorCirclePage() {
   return (
     <>
       <BaseNavigation variant="solid" />
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 pt-20">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 pt-20">
         {/* Hero Section */}
         <section className="py-16">
           <Container>
             <div className="mx-auto max-w-4xl text-center">
-              <Badge className="mb-4 bg-blue-100 text-blue-800">Exclusive Invitation</Badge>
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Exclusive Invitation</Badge>
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
                 Join the EA Global Ambassador Circle — 
-                <span className="text-blue-600"> Shape Futures, Build Legacies</span>
+                <span className="text-primary"> Shape Futures, Build Legacies</span>
               </h1>
               <p className="mb-8 text-xl text-gray-600 leading-relaxed">
                 As a valued member of our Ambassador Circle, you help open doors for aspiring global scholars—and receive meaningful recognition for your leadership, including a financial thank-you for each successful enrollment.
@@ -361,7 +611,7 @@ export default function AmbassadorCirclePage() {
               {!session ? (
                 <div className="space-y-6">
                   <Button 
-                    onClick={() => signIn('google', { callbackUrl: window.location.href + '#application' })}
+                    onClick={() => signIn('google')}
                     size="lg"
                     className="bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg"
                   >
@@ -567,17 +817,26 @@ export default function AmbassadorCirclePage() {
                           />
                           <p className="mt-1 text-xs text-gray-500">Used for ambassador support and notifications</p>
                         </div>
-                        <div>
-                          <label className="mb-2 block text-sm font-medium">LinkedIn Profile</label>
-                          <Input
-                            type="url"
-                            value={formData.linkedinProfile}
-                            onChange={(e) => setFormData({...formData, linkedinProfile: e.target.value})}
-                            placeholder="https://linkedin.com/in/yourprofile"
-                          />
-                        </div>
+                      <div>
+                        <label className="mb-2 block text-sm font-medium">LinkedIn Profile</label>
+                        <Input
+                          type="url"
+                          value={formData.linkedinProfile}
+                          onChange={(e) => setFormData({...formData, linkedinProfile: e.target.value})}
+                          placeholder="https://linkedin.com/in/yourprofile"
+                        />
                       </div>
+                    </div>
 
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="mb-2 block text-sm font-medium">Current City</label>
+                        <Input
+                          value={formData.city}
+                          onChange={(e) => setFormData({...formData, city: e.target.value})}
+                          placeholder="e.g., Mumbai, Delhi, Bangalore"
+                        />
+                      </div>
                       <div>
                         <label className="mb-2 block text-sm font-medium">Current Occupation</label>
                         <Input
@@ -586,17 +845,16 @@ export default function AmbassadorCirclePage() {
                           placeholder="e.g., Software Engineer, Student, Business Owner"
                         />
                       </div>
+                    </div>
 
-                      <div>
-                        <label className="mb-2 block text-sm font-medium">Connection to EA Global</label>
-                        <Input
-                          value={formData.connectionToEAGlobal}
-                          onChange={(e) => setFormData({...formData, connectionToEAGlobal: e.target.value})}
-                          placeholder="e.g., Alumni, Parent of student, Professional contact"
-                        />
-                      </div>
-
-                      <div>
+                    <div>
+                      <label className="mb-2 block text-sm font-medium">Connection to EA Global</label>
+                      <Input
+                        value={formData.connectionToEAGlobal}
+                        onChange={(e) => setFormData({...formData, connectionToEAGlobal: e.target.value})}
+                        placeholder="e.g., Alumni, Parent of student, Professional contact"
+                      />
+                    </div>                      <div>
                         <label className="mb-2 block text-sm font-medium">Additional Information</label>
                         <Textarea
                           value={formData.additionalInfo}
@@ -670,7 +928,7 @@ export default function AmbassadorCirclePage() {
               
               {!session ? (
                 <Button 
-                  onClick={() => signIn('google', { callbackUrl: window.location.href + '#application' })}
+                  onClick={() => signIn('google')}
                   size="lg"
                   variant="secondary"
                   className="px-8"

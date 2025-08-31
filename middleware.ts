@@ -7,6 +7,12 @@ export default withAuth(
   {
     callbacks: {
       authorized: ({ token, req }) => {
+        // Protect admin routes
+        if (req.nextUrl.pathname.startsWith('/admin')) {
+          const adminEmails = (process.env.ADMIN_EMAILS || '').split(',').map(email => email.trim());
+          return !!token && !!token.email && adminEmails.includes(token.email);
+        }
+        
         // Only protect the ambassador application section
         if (req.nextUrl.pathname.startsWith('/ambassador-circle/dashboard')) {
           return !!token;
@@ -18,5 +24,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ['/ambassador-circle/:path*']
+  matcher: ['/ambassador-circle/:path*', '/admin/:path*']
 };
