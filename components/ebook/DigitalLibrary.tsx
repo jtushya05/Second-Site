@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import { Book } from '@/types/ebook';
-import { BookOpen, User, Calendar, Hash, Lock, Globe, Star, Crown } from 'lucide-react';
+import { BookOpen, User, Calendar, Hash, Lock, Globe, Star, Crown, LogIn, LogOut } from 'lucide-react';
 
 interface DigitalLibraryProps {
   books: Book[];
@@ -32,6 +33,8 @@ export const DigitalLibrary: React.FC<DigitalLibraryProps> = ({
   onSelectBook, 
   userHasAccess = () => true 
 }) => {
+  const { data: session, status } = useSession();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 pt-20">
       <div className="container mx-auto px-6 py-12">
@@ -40,6 +43,44 @@ export const DigitalLibrary: React.FC<DigitalLibraryProps> = ({
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Discover a curated collection of professional development books designed to advance your career and education
           </p>
+          
+          {/* User Status and Sign In */}
+          <div className="mt-6 mb-4">
+            {session ? (
+              <div className="text-center">
+                <p className="text-sm text-slate-600 mb-2">
+                  Welcome, {session.user?.name || session.user?.email}
+                </p>
+                <div className="flex items-center justify-center gap-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                    <User size={14} />
+                    Signed In
+                  </div>
+                  <button
+                    onClick={() => signOut()}
+                    className="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                  >
+                    <LogOut size={14} />
+                    Sign Out
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="text-center">
+                <p className="text-sm text-slate-600 mb-2">
+                  Sign in to access exclusive content and track your reading progress
+                </p>
+                <button
+                  onClick={() => signIn('google')}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <LogIn size={16} />
+                  Sign In with Google
+                </button>
+              </div>
+            )}
+          </div>
+          
           <div className="mt-6 flex justify-center items-center gap-6 text-sm text-slate-500">
             <div className="flex items-center gap-2">
               <Globe size={16} className="text-green-600" />
@@ -170,12 +211,23 @@ export const DigitalLibrary: React.FC<DigitalLibraryProps> = ({
                   {/* Access Requirements for restricted books */}
                   {!hasAccess && (
                     <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
-                      <p className="text-xs text-amber-800">
-                        <Lock size={12} className="inline mr-1" />
-                        {book.accessLevel === 'authenticated' && 'Sign in to access this book'}
-                        {book.accessLevel === 'premium' && 'Premium subscription required'}
-                        {book.accessLevel === 'vip' && 'VIP membership required'}
-                      </p>
+                      <div className="flex items-center justify-between">
+                        <p className="text-xs text-amber-800 flex items-center">
+                          <Lock size={12} className="mr-1" />
+                          {book.accessLevel === 'authenticated' && 'Sign in to access this book'}
+                          {book.accessLevel === 'premium' && 'Premium subscription required'}
+                          {book.accessLevel === 'vip' && 'VIP membership required'}
+                        </p>
+                        {book.accessLevel === 'authenticated' && !session && (
+                          <button
+                            onClick={() => signIn('google')}
+                            className="flex items-center gap-1 px-3 py-1 bg-blue-600 text-white text-xs rounded-md hover:bg-blue-700 transition-colors"
+                          >
+                            <LogIn size={12} />
+                            Sign In
+                          </button>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
