@@ -75,6 +75,7 @@ export const BookReader: React.FC<BookReaderProps> = ({ book, onBack, user, user
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearch, setShowSearch] = useState(false);
   const [searchResults, setSearchResults] = useState<Array<{ pageIndex: number; matches: number }>>([]);
+  const [isClient, setIsClient] = useState(false);
   
   const [settings, setSettings] = useState<ReadingSettings>({
     fontSize: 16,
@@ -90,34 +91,44 @@ export const BookReader: React.FC<BookReaderProps> = ({ book, onBack, user, user
 
   // Enhanced content protection and persistence loading
   useEffect(() => {
+    // Set client-side flag to prevent hydration issues
+    setIsClient(true);
+    
     // Initialize ebook tracking system
     initializeEbookTracking();
     
     // Track book access
     trackBookAccess(book.id);
     
-    // Load saved highlights and comments
-    try {
-      const savedHighlights = localStorage.getItem(`book-highlights-${book.id}`);
-      if (savedHighlights) {
-        const parsedHighlights = JSON.parse(savedHighlights).map((h: any) => ({
-          ...h,
-          timestamp: new Date(h.timestamp)
-        }));
-        setHighlights(parsedHighlights);
+    // Load saved highlights and comments (only on client)
+    if (typeof window !== 'undefined') {
+      try {
+        const savedHighlights = localStorage.getItem(`book-highlights-${book.id}`);
+        if (savedHighlights) {
+          const parsedHighlights = JSON.parse(savedHighlights).map((h: any) => ({
+            ...h,
+            timestamp: new Date(h.timestamp)
+          }));
+          setHighlights(parsedHighlights);
+        }
+        
+        const savedComments = localStorage.getItem(`book-comments-${book.id}`);
+        if (savedComments) {
+          const parsedComments = JSON.parse(savedComments).map((c: any) => ({
+            ...c,
+            timestamp: new Date(c.timestamp)
+          }));
+          setComments(parsedComments);
+        }
+      } catch (error) {
+        console.warn('Error loading saved data:', error);
       }
-      
-      const savedComments = localStorage.getItem(`book-comments-${book.id}`);
-      if (savedComments) {
-        const parsedComments = JSON.parse(savedComments).map((c: any) => ({
-          ...c,
-          timestamp: new Date(c.timestamp)
-        }));
-        setComments(parsedComments);
-      }
-    } catch (error) {
-      console.warn('Error loading saved data:', error);
     }
+  }, [book.id]);
+
+  // Separate useEffect for event handlers to fix stale closures
+  useEffect(() => {
+    if (!isClient) return;
 
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault();
@@ -128,19 +139,39 @@ export const BookReader: React.FC<BookReaderProps> = ({ book, onBack, user, user
       if (!showSearch && !showSettings && !showCommentDialog) {
         if (e.key === 'ArrowRight' || e.key === ' ') {
           e.preventDefault();
-          nextPage();
+          if (currentPage < book.pages.length - 1 && !isFlipping) {
+            setIsFlipping(true);
+            setFlipDirection('next');
+            setTimeout(() => {
+              const newPageIndex = currentPage + 1;
+              setCurrentPage(newPageIndex);
+              trackInteraction(book.id, newPageIndex + 1, 'page_view');
+              setIsFlipping(false);
+              setFlipDirection(null);
+            }, 300);
+          }
         }
         if (e.key === 'ArrowLeft') {
           e.preventDefault();
-          prevPage();
+          if (currentPage > 0 && !isFlipping) {
+            setIsFlipping(true);
+            setFlipDirection('prev');
+            setTimeout(() => {
+              const newPageIndex = currentPage - 1;
+              setCurrentPage(newPageIndex);
+              trackInteraction(book.id, newPageIndex + 1, 'page_view');
+              setIsFlipping(false);
+              setFlipDirection(null);
+            }, 300);
+          }
         }
         if (e.key === 'Home') {
           e.preventDefault();
-          jumpToPage(0);
+          setCurrentPage(0);
         }
         if (e.key === 'End') {
           e.preventDefault();
-          jumpToPage(book.pages.length - 1);
+          setCurrentPage(book.pages.length - 1);
         }
         if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
           e.preventDefault();
@@ -185,7 +216,7 @@ export const BookReader: React.FC<BookReaderProps> = ({ book, onBack, user, user
       document.removeEventListener('mouseup', handleSelection);
       document.removeEventListener('touchend', handleSelection);
     };
-  }, [book.id]); // Only depend on book.id for initial load
+  }, [currentPage, book.pages.length, book.id, isFlipping, showSearch, showSettings, showCommentDialog]); // Added proper dependencies
 
   const nextPage = useCallback(() => {
     if (currentPage < book.pages.length - 1 && !isFlipping) {
@@ -397,11 +428,21 @@ export const BookReader: React.FC<BookReaderProps> = ({ book, onBack, user, user
   };
 
   return (
-    <div className={`transition-colors duration-300 book-container ${
-      settings.theme === 'dark' ? 'bg-gray-900' : 
-      settings.theme === 'sepia' ? 'bg-amber-100' : 
-      settings.theme === 'high-contrast' ? 'bg-black' : 'bg-gradient-to-br from-amber-50 to-orange-50'
-    } ${isFullscreen ? 'fixed inset-0 z-50' : 'min-h-screen pt-20'}`}>
+    <>
+      {!isClient ? (
+        // Server-side placeholder to prevent hydration mismatch
+        <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 pt-20 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading book reader...</p>
+          </div>
+        </div>
+      ) : (
+        <div className={`transition-colors duration-300 book-container ${
+          settings.theme === 'dark' ? 'bg-gray-900' : 
+          settings.theme === 'sepia' ? 'bg-amber-100' : 
+          settings.theme === 'high-contrast' ? 'bg-black' : 'bg-gradient-to-br from-amber-50 to-orange-50'
+        } ${isFullscreen ? 'fixed inset-0 z-50' : 'min-h-screen pt-20'}`}>
       
       {/* Reader Toolbar - positioned below main nav */}
       <div className={`shadow-sm border-b sticky z-40 transition-colors duration-300 ${
@@ -1133,6 +1174,8 @@ export const BookReader: React.FC<BookReaderProps> = ({ book, onBack, user, user
           </div>
         </div>
       )}
-    </div>
+        </div>
+      )}
+    </>
   );
 };
