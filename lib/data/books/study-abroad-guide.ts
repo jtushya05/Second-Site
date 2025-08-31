@@ -11,8 +11,8 @@ export const studyAbroadGuideBook: Book = {
   publishedDate: '2024',
   isbn: '978-0-987654-32-1',
   url: '/digital-library/books/study-abroad-guide',
-  isPublic: true,
-  accessLevel: 'public',
+  isPublic: false,
+  accessLevel: 'authenticated',
   pages: [
     {
       id: 'study-intro-page',
