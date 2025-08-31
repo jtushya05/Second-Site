@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
+import { createLeadCapture } from '@/lib/database';
 
 export default function LeadCaptureForm() {
   const router = useRouter();
@@ -21,7 +22,10 @@ export default function LeadCaptureForm() {
     e.preventDefault();
     setIsSubmitting(true);
   
-  const referrer = localStorage.getItem('ref') || '';
+    // Get comprehensive referral and tracking data from localStorage
+    const referrer = localStorage.getItem('ref') || '';
+    const allUrlParams = JSON.parse(localStorage.getItem('urlParams') || '{}');
+    
     try {
       const data = {
         'entry.166295812': 'LeadCaptureForm',
@@ -30,13 +34,24 @@ export default function LeadCaptureForm() {
         'entry.26593180': formData.interest,
         'entry.1109080701': formData.phone,
         'entry.1943985329': referrer,
-        // 'entry.1104932019': 'NotDefinedYet',
-        // 'entry.1871500665_year': 'NotDefinedYet',
-        // 'entry.1871500665_month': 'NotDefinedYet',
-        // 'entry.1871500665_day': 'NotDefinedYet'
-        
+        // Add comprehensive tracking data to an existing or new field
+        'entry.1104932019': JSON.stringify({
+          allUrlParams,
+          referralSource: referrer,
+          sessionId: sessionStorage.getItem('sessionId') || '',
+          pageLoadCount: sessionStorage.getItem('pageLoadCount') || '0',
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          language: navigator.language,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        }),
+        // Date fields
+        'entry.1871500665_year': new Date().getFullYear().toString(),
+        'entry.1871500665_month': (new Date().getMonth() + 1).toString(),
+        'entry.1871500665_day': new Date().getDate().toString()
       };
 
+      // Submit to Google Form (keep existing functionality)
       await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSebEdPI6LiZbZTcT2zLz-k00OfsswIAEN6BN5JruDu5MyAXOA/formResponse', {
         method: 'POST',
         mode: 'no-cors',
@@ -45,6 +60,29 @@ export default function LeadCaptureForm() {
         },
         body: new URLSearchParams(data)
       });
+
+      // Also save to database (new feature)
+      const dbResult = await createLeadCapture({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        interest: formData.interest,
+        referral_code: referrer,
+        source_page: 'LeadCaptureForm',
+        utm_data: {
+          allUrlParams,
+          sessionId: sessionStorage.getItem('sessionId') || '',
+          pageLoadCount: sessionStorage.getItem('pageLoadCount') || '0',
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          language: navigator.language,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        }
+      });
+
+      if (dbResult) {
+        console.log('Lead capture saved to database:', dbResult);
+      }
 
       toast.success(`Thank you for your interest, ${formData.name}! We'll contact you soon.`);
     } catch (error) {
