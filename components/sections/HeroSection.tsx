@@ -9,7 +9,7 @@ import { useImageFallback } from '@/hooks/use-image-fallback';
 export default function HeroSection() {
   const { currentImageUrl, isLoading } = useImageFallback({
     primaryImageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1',
-    fallbackImageUrl: '/images/homepage image.png'
+    fallbackImageUrl: '/images/homepage%20image.png'
   });
 
   return (

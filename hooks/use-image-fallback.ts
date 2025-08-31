@@ -21,6 +21,7 @@ export function useImageFallback({ primaryImageUrl, fallbackImageUrl }: UseImage
     const testImage = new Image();
     
     testImage.onload = () => {
+      console.log(`Primary image loaded successfully: ${primaryImageUrl}`);
       setCurrentImageUrl(primaryImageUrl);
       setIsLoading(false);
       setHasError(false);
