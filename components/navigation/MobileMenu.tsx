@@ -8,10 +8,10 @@ import { destinations, testPrep } from '@/src/data/navigation';
 
 interface MobileMenuProps {
   isOpen: boolean;
-  className?: string; //added className prop
+  className?: string;
 }
 
-export function MobileMenu({ isOpen }: MobileMenuProps) {
+export function MobileMenu({ isOpen, className }: MobileMenuProps) {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   if (!isOpen) return null;
@@ -21,7 +21,7 @@ export function MobileMenu({ isOpen }: MobileMenuProps) {
   };
 
   return (
-    <div className="border-t bg-white/95 backdrop-blur md:hidden">
+    <div className={`border-t bg-white/95 backdrop-blur md:hidden ${className || ''}`}>
       <nav className="container flex flex-col space-y-4 py-6">
         <Link href="/" className="text-gray-900 hover:text-blue-600">Home</Link>
         <Link href="/about" className="text-gray-900 hover:text-blue-600">About Us</Link>
